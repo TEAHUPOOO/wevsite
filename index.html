@@ -871,6 +871,138 @@
     .footer-bottom a:hover { color: rgba(255,255,255,.7); }
 
     /* ════════════════════════════════════════════════════
+       CATEGORY SECTIONS
+    ════════════════════════════════════════════════════ */
+    .category-section { padding: 4.5rem 0; }
+    .category-section:nth-child(even) { background: var(--gray-50); }
+    .category-section__header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .category-section__icon {
+      width: 56px; height: 56px;
+      border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.75rem;
+      margin-bottom: .75rem;
+    }
+    .category-section__view-all {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .8125rem;
+      font-weight: 700;
+      color: var(--teal);
+      display: inline-flex;
+      align-items: center;
+      gap: .375rem;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 2px;
+      transition: all .15s;
+    }
+    .category-section__view-all:hover { border-bottom-color: var(--teal); }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+    .cat-card {
+      background: #fff;
+      border: 1.5px solid var(--gray-200);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      transition: box-shadow .25s, transform .25s;
+      display: flex;
+      flex-direction: column;
+    }
+    .cat-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-4px);
+    }
+    .cat-card__img {
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+      position: relative;
+    }
+    .cat-card__img--kitchen  { background: linear-gradient(135deg, #fff4e6, #ffe8cc); }
+    .cat-card__img--home     { background: linear-gradient(135deg, #e8f4fd, #d0e9fa); }
+    .cat-card__img--garden   { background: linear-gradient(135deg, #e6f7ee, #c8f0d8); }
+    .cat-card__img--pets     { background: linear-gradient(135deg, #fce8f3, #f9d0e8); }
+    .cat-card__tag {
+      position: absolute;
+      top: .75rem;
+      left: .75rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: .625rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      padding: .25rem .625rem;
+      border-radius: 99px;
+      color: #fff;
+    }
+    .cat-card__tag--new { background: var(--teal); }
+    .cat-card__tag--top { background: var(--orange); }
+    .cat-card__tag--pick { background: var(--navy); }
+    .cat-card__body { padding: 1.125rem; flex: 1; display: flex; flex-direction: column; }
+    .cat-card__category {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .625rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--gray-600);
+      margin-bottom: .25rem;
+    }
+    .cat-card__title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .9375rem;
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1.3;
+      margin-bottom: .5rem;
+    }
+    .cat-card__rating {
+      display: flex;
+      align-items: center;
+      gap: .375rem;
+      margin-bottom: .75rem;
+    }
+    .cat-card__rating .stars { font-size: .8125rem; }
+    .cat-card__rating .rating-val { font-size: .75rem; }
+    .cat-card__excerpt {
+      font-size: .8125rem;
+      color: var(--gray-600);
+      line-height: 1.55;
+      margin-bottom: 1rem;
+      flex: 1;
+    }
+    .cat-card__link {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .75rem;
+      font-weight: 700;
+      color: var(--teal);
+      display: inline-flex;
+      align-items: center;
+      gap: .25rem;
+      transition: gap .15s;
+    }
+    .cat-card:hover .cat-card__link { gap: .5rem; }
+
+    @media (max-width: 960px) {
+      .category-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 680px) {
+      .category-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+    }
+
+    /* ════════════════════════════════════════════════════
        ARTICLE LAYOUT + TOC
     ════════════════════════════════════════════════════ */
     .article-wrap {
@@ -964,10 +1096,10 @@
     </a>
 
     <nav class="main-nav">
-      <a href="#cat-kitchen"  class="nav-link active">Kitchen</a>
-      <a href="#cat-home"     class="nav-link">Home &amp; Outdoor</a>
-      <a href="#cat-garden"   class="nav-link">Gardening</a>
-      <a href="#cat-pets"     class="nav-link">Pets</a>
+      <a href="#section-kitchen"  class="nav-link active">Kitchen</a>
+      <a href="#section-home"     class="nav-link">Home &amp; Outdoor</a>
+      <a href="#section-garden"   class="nav-link">Gardening</a>
+      <a href="#section-pets"     class="nav-link">Pets</a>
       <a href="#section-article" class="nav-link">Reviews</a>
     </nav>
 
@@ -1266,6 +1398,290 @@
       <div class="pc-footer">Based on 40 hours of hands-on testing &amp; 3,241 verified owner reviews</div>
     </div>
 
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     CATEGORY: KITCHEN
+════════════════════════════════════════════════════ -->
+<section class="category-section" id="section-kitchen">
+  <div class="container">
+    <div class="category-section__header">
+      <div>
+        <div class="category-section__icon cat-icon--kitchen">🍳</div>
+        <p class="section-eyebrow">Kitchen</p>
+        <h2 class="section-title">Kitchen Essentials</h2>
+        <p class="section-sub">Cookware, appliances, and tools tested in real kitchens — so you invest in gear that performs meal after meal.</p>
+      </div>
+      <a href="#" class="category-section__view-all">View All Kitchen Reviews →</a>
+    </div>
+    <div class="category-grid">
+      <div class="cat-card">
+        <div class="cat-card__img cat-card__img--kitchen">
+          <span class="cat-card__tag cat-card__tag--top">Top Pick</span>
+          🔪
+        </div>
+        <div class="cat-card__body">
+          <p class="cat-card__category">Chef's Knives</p>
+          <h3 class="cat-card__title">Best Chef's Knives of 2025</h3>
+          <div class="cat-card__rating"><span class="stars">★★★★★</span><span class="rating-val">4.8</span></div>
+          <p class="cat-card__excerpt">We sliced, diced, and minced through 200 lbs of produce to find the knife that keeps its edge longest.</p>
+          <a href="#" class="cat-card__link">Read Review →</a>
+        </div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-card__img cat-card__img--kitchen">
+          <span class="cat-card__tag cat-card__tag--new">New</span>
+          ☕
+        </div>
+        <div class="cat-card__body">
+          <p class="cat-card__category">Coffee Makers</p>
+          <h3 class="cat-card__title">Best Drip Coffee Makers</h3>
+          <div class="cat-card__rating"><span class="stars">★★★★★</span><span class="rating-val">4.7</span></div>
+          <p class="cat-card__excerpt">Brew temp, extraction time, and carafe retention — we measured what your morning coffee actually needs.</p>
+          <a href="#" class="cat-card__link">Read Review →</a>
+        </div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-card__img cat-card__img--kitchen">
+          🍳
+        </div>
+        <div class="cat-card__body">
+          <p class="cat-card__category">Cookware</p>
+          <h3 class="cat-card__title">Best Non-Stick Pans</h3>
+          <div class="cat-card__rating"><span class="stars">★★★★☆</span><span class="rating-val">4.5</span></div>
+          <p class="cat-card__excerpt">After 1,000 eggs and 6 months of daily use, here's which coatings actually last without flaking.</p>
+          <a href="#" class="cat-card__link">Read Review →</a>
+        </div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-card__img cat-card__img--kitchen">
+          <span class="cat-card__tag cat-card__tag--pick">Editor's Pick</span>
+          🧊
+        </div>
+        <div class="cat-card__body">
+          <p class="cat-card__category">Small Appliances</p>
+          <h3 class="cat-card__title">Best Blenders Under $100</h3>
+          <div class="cat-card__rating"><span class="stars">★★★★★</span><span class="rating-val">4.6</span></div>
+          <p class="cat-card__excerpt">Frozen fruit, ice, and nut butter — tested at every price point to find the sweet spot of power and value.</p>
+          <a href="#" class="cat-card__link">Read Review →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     CATEGORY: HOME & OUTDOOR
+════════════════════════════════════════════════════ -->
+<section class="category-section" id="section-home">
+  <div class="container">
+    <div class="category-section__header">
+      <div>
+        <div class="category-section__icon cat-icon--home">🏡</div>
+        <p class="section-eyebrow">Home & Outdoor</p>
+        <h2 class="section-title">Home & Outdoor Gear</h2>
+        <p class="section-sub">Power tools, furniture, and outdoor equipment built to handle real life — not just showroom demos.</p>
+      </div>
+      <a href="#" class="category-section__view-all">View All Home Reviews →</a>
+    </div>
+    <div class="category-grid">
+      <div class="cat-card">
+        <div class="cat-card__img cat-card__img--home">
+          <span class="cat-card__tag cat-card__tag--top">Top Pick</span>
+          🔧
+        </div>
+        <div class="cat-card__body">
+          <p class="cat-card__category">Power Tools</p>
+          <h3 class="cat-card__title">Best Cordless Drills of 2025</h3>
+          <div class="cat-card__rating"><span class="stars">★★★★★</span><span class="rating-val">4.9</span></div>
+          <p class="cat-card__excerpt">300+ holes drilled across wood, drywall, and concrete. The results surprised us.</p>
+          <a href="#section-comparison" class="cat-card__link">Read Review →</a>
+        </div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-card__img cat-card__img--home">
+          <span class="cat-card__tag cat-card__tag--new">New</span>
+          💡
+        </div>
+        <div class="cat-card__body">
+          <p class="cat-card__category">Smart Home</p>
+          <h3 class="cat-card__title">Best Smart Doorbells</h3>
+          <div class="cat-card__rating"><span class="stars">★★★★☆</span><span class="rating-val">4.4</span></div>
+          <p class="cat-card__excerpt">Night vision, response time, and app reliability tested over 3 months in real weather conditions.</p>
+          <a href="#" class="cat-card__link">Read Review →</a>
+        </div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-card__img cat-card__img--home">
+          🪑
+        </div>
+        <div class="cat-card__body">
+          <p class="cat-card__category">Furniture</p>
+          <h3 class="cat-card__title">Best Patio Furniture Sets</h3>
+          <div class="cat-card__rating"><span class="stars">★★★★☆</span><span class="rating-val">4.3</span></div>
+          <p class="cat-card__excerpt">Sun, rain, and UV exposure for 6 months — here's what still looks new and what faded fast.</p>
+          <a href="#" class="cat-card__link">Read Review →</a>
+        </div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-card__img cat-card__img--home">
+          <span class="cat-card__tag cat-card__tag--pick">Editor's Pick</span>
+          🧹
+        </div>
+        <div class="cat-card__body">
+          <p class="cat-card__category">Cleaning</p>
+          <h3 class="cat-card__title">Best Robot Vacuums</h3>
+          <div class="cat-card__rating"><span class="stars">★★★★★</span><span class="rating-val">4.7</span></div>
+          <p class="cat-card__excerpt">Navigation, suction power, and pet hair pickup — tested on carpet, hardwood, and tile.</p>
+          <a href="#" class="cat-card__link">Read Review →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     CATEGORY: GARDENING
+════════════════════════════════════════════════════ -->
+<section class="category-section" id="section-garden">
+  <div class="container">
+    <div class="category-section__header">
+      <div>
+        <div class="category-section__icon cat-icon--garden">🌱</div>
+        <p class="section-eyebrow">Gardening</p>
+        <h2 class="section-title">Garden & Grow</h2>
+        <p class="section-sub">Tools, soil, planters, and irrigation tested through full growing seasons — from seed to harvest.</p>
+      </div>
+      <a href="#" class="category-section__view-all">View All Garden Reviews →</a>
+    </div>
+    <div class="category-grid">
+      <div class="cat-card">
+        <div class="cat-card__img cat-card__img--garden">
+          <span class="cat-card__tag cat-card__tag--top">Top Pick</span>
+          🌻
+        </div>
+        <div class="cat-card__body">
+          <p class="cat-card__category">Raised Beds</p>
+          <h3 class="cat-card__title">Best Raised Garden Beds</h3>
+          <div class="cat-card__rating"><span class="stars">★★★★★</span><span class="rating-val">4.8</span></div>
+          <p class="cat-card__excerpt">Cedar, metal, and composite — tested over two growing seasons for durability, drainage, and yield.</p>
+          <a href="#" class="cat-card__link">Read Review →</a>
+        </div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-card__img cat-card__img--garden">
+          <span class="cat-card__tag cat-card__tag--new">New</span>
+          🌿
+        </div>
+        <div class="cat-card__body">
+          <p class="cat-card__category">Tools</p>
+          <h3 class="cat-card__title">Best Garden Hose Reels</h3>
+          <div class="cat-card__rating"><span class="stars">★★★★☆</span><span class="rating-val">4.3</span></div>
+          <p class="cat-card__excerpt">Retraction speed, kink resistance, and UV durability after 12 months of outdoor storage.</p>
+          <a href="#" class="cat-card__link">Read Review →</a>
+        </div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-card__img cat-card__img--garden">
+          💧
+        </div>
+        <div class="cat-card__body">
+          <p class="cat-card__category">Irrigation</p>
+          <h3 class="cat-card__title">Best Drip Irrigation Kits</h3>
+          <div class="cat-card__rating"><span class="stars">★★★★★</span><span class="rating-val">4.6</span></div>
+          <p class="cat-card__excerpt">Set-it-and-forget-it watering tested on tomatoes, herbs, and flower beds all summer long.</p>
+          <a href="#" class="cat-card__link">Read Review →</a>
+        </div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-card__img cat-card__img--garden">
+          <span class="cat-card__tag cat-card__tag--pick">Editor's Pick</span>
+          ✂️
+        </div>
+        <div class="cat-card__body">
+          <p class="cat-card__category">Pruning</p>
+          <h3 class="cat-card__title">Best Pruning Shears</h3>
+          <div class="cat-card__rating"><span class="stars">★★★★★</span><span class="rating-val">4.7</span></div>
+          <p class="cat-card__excerpt">Blade sharpness retention, grip comfort, and spring tension tested across 500+ cuts on live branches.</p>
+          <a href="#" class="cat-card__link">Read Review →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     CATEGORY: PETS
+════════════════════════════════════════════════════ -->
+<section class="category-section" id="section-pets">
+  <div class="container">
+    <div class="category-section__header">
+      <div>
+        <div class="category-section__icon cat-icon--pets">🐾</div>
+        <p class="section-eyebrow">Pets</p>
+        <h2 class="section-title">Pet Picks</h2>
+        <p class="section-sub">Beds, feeders, toys, and grooming tools tested by real pets and their owners — because your fur family deserves the best.</p>
+      </div>
+      <a href="#" class="category-section__view-all">View All Pet Reviews →</a>
+    </div>
+    <div class="category-grid">
+      <div class="cat-card">
+        <div class="cat-card__img cat-card__img--pets">
+          <span class="cat-card__tag cat-card__tag--top">Top Pick</span>
+          🐕
+        </div>
+        <div class="cat-card__body">
+          <p class="cat-card__category">Dog Beds</p>
+          <h3 class="cat-card__title">Best Orthopedic Dog Beds</h3>
+          <div class="cat-card__rating"><span class="stars">★★★★★</span><span class="rating-val">4.8</span></div>
+          <p class="cat-card__excerpt">Memory foam density, washability, and chew resistance — tested by 8 dogs over 4 months.</p>
+          <a href="#" class="cat-card__link">Read Review →</a>
+        </div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-card__img cat-card__img--pets">
+          <span class="cat-card__tag cat-card__tag--new">New</span>
+          🐈
+        </div>
+        <div class="cat-card__body">
+          <p class="cat-card__category">Cat Gear</p>
+          <h3 class="cat-card__title">Best Automatic Cat Feeders</h3>
+          <div class="cat-card__rating"><span class="stars">★★★★☆</span><span class="rating-val">4.5</span></div>
+          <p class="cat-card__excerpt">Portion accuracy, jam resistance, and app reliability tested with 3 cats over 60 days.</p>
+          <a href="#" class="cat-card__link">Read Review →</a>
+        </div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-card__img cat-card__img--pets">
+          🦴
+        </div>
+        <div class="cat-card__body">
+          <p class="cat-card__category">Toys & Enrichment</p>
+          <h3 class="cat-card__title">Best Indestructible Dog Toys</h3>
+          <div class="cat-card__rating"><span class="stars">★★★★☆</span><span class="rating-val">4.4</span></div>
+          <p class="cat-card__excerpt">Power chewers vs. "indestructible" claims — we let aggressive chewers decide what actually lasts.</p>
+          <a href="#" class="cat-card__link">Read Review →</a>
+        </div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-card__img cat-card__img--pets">
+          <span class="cat-card__tag cat-card__tag--pick">Editor's Pick</span>
+          🧴
+        </div>
+        <div class="cat-card__body">
+          <p class="cat-card__category">Grooming</p>
+          <h3 class="cat-card__title">Best Pet Grooming Kits</h3>
+          <div class="cat-card__rating"><span class="stars">★★★★★</span><span class="rating-val">4.6</span></div>
+          <p class="cat-card__excerpt">Clippers, brushes, and deshedding tools — tested on short, medium, and long-coat breeds.</p>
+          <a href="#" class="cat-card__link">Read Review →</a>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
