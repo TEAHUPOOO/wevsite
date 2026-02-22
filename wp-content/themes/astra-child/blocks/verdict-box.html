@@ -1,0 +1,251 @@
+<!--
+  BLOCK: The Verdict Box
+  Usage: Paste into a Gutenberg "Custom HTML" block.
+  Dual-column layout:
+    Left  — "Who it's for" (bulleted personas)
+    Right — "The Bottom Line" (editorial paragraph + CTA)
+  Replace all [[PLACEHOLDER]] values with real content.
+-->
+
+<style>
+/* ── Verdict Box ─────────────────────────────────────────── */
+.ays-verdict-box {
+  margin: 2.5rem 0;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #e9ecef;
+  box-shadow: 0 4px 20px rgba(0,0,0,.07);
+}
+
+/* Thin accent bar across the top */
+.ays-verdict-box::before {
+  content: '';
+  display: block;
+  height: 4px;
+  background: linear-gradient(90deg, #27AE60 0%, #2C3E50 100%);
+}
+
+/* Header strip */
+.ays-verdict-box__header {
+  background: #2C3E50;
+  padding: 0.875rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.ays-verdict-box__header-icon {
+  flex-shrink: 0;
+}
+.ays-verdict-box__header-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #ffffff;
+}
+
+/* Two-column body */
+.ays-verdict-box__body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 200px;
+}
+
+/* ── Left Column — Who It's For ──────────────────────────── */
+.ays-verdict-box__left {
+  background: #f8f9fa;
+  padding: 1.75rem;
+  border-right: 1px solid #e9ecef;
+}
+
+.ays-verdict-box__col-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 1rem;
+}
+.ays-verdict-box__col-label--left  { color: #27AE60; }
+.ays-verdict-box__col-label--right { color: #E67E22; }
+
+.ays-verdict-box__persona-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.ays-verdict-box__persona {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.625rem;
+  font-size: 0.9375rem;
+  color: #2d3748;
+  line-height: 1.5;
+}
+
+/* Green bullet arrow */
+.ays-verdict-box__persona::before {
+  content: '';
+  flex-shrink: 0;
+  margin-top: 0.35em;
+  width: 18px;
+  height: 18px;
+  background-color: #eafaf1;
+  border-radius: 50%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%2327AE60'%3E%3Cpath fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 11px;
+}
+
+/* ── Right Column — The Bottom Line ─────────────────────── */
+.ays-verdict-box__right {
+  background: #ffffff;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.ays-verdict-box__summary {
+  font-size: 0.9375rem;
+  color: #2d3748;
+  line-height: 1.75;
+  flex: 1;
+  margin-bottom: 1.25rem;
+}
+
+.ays-verdict-box__summary strong {
+  color: #2C3E50;
+  font-weight: 600;
+}
+
+/* Rating row */
+.ays-verdict-box__rating {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid #f1f3f5;
+}
+.ays-verdict-box__stars { color: #f59e0b; font-size: 1.125rem; }
+.ays-verdict-box__rating-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #6c757d;
+}
+.ays-verdict-box__rating-value {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  font-weight: 800;
+  color: #2C3E50;
+  margin-left: auto;
+}
+
+/* CTA Button */
+.ays-verdict-box__cta {
+  display: block;
+  text-align: center;
+  padding: 0.875rem 1.5rem;
+  background: #E67E22;
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 250ms ease;
+  margin-top: auto;
+}
+.ays-verdict-box__cta:hover {
+  background: #d35400;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(230,126,34,.35);
+}
+.ays-verdict-box__cta-sub {
+  display: block;
+  font-size: 0.6875rem;
+  font-weight: 400;
+  opacity: 0.8;
+  letter-spacing: 0;
+  text-transform: none;
+  margin-top: 0.125rem;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 680px) {
+  .ays-verdict-box__body {
+    grid-template-columns: 1fr;
+  }
+  .ays-verdict-box__left {
+    border-right: none;
+    border-bottom: 1px solid #e9ecef;
+  }
+}
+</style>
+
+<div class="ays-verdict-box" role="region" aria-label="Our Verdict">
+
+  <!-- Header -->
+  <div class="ays-verdict-box__header">
+    <svg class="ays-verdict-box__header-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+      <path d="M9 12l-3-3 1.4-1.4L9 9.2l4.6-4.6L15 6l-6 6z" fill="#27AE60"/>
+      <circle cx="10" cy="10" r="9" stroke="#27AE60" stroke-width="1.5" fill="none"/>
+    </svg>
+    <span class="ays-verdict-box__header-text">Our Verdict — [[Product Name]]</span>
+  </div>
+
+  <div class="ays-verdict-box__body">
+
+    <!-- Left: Who It's For -->
+    <div class="ays-verdict-box__left">
+      <p class="ays-verdict-box__col-label ays-verdict-box__col-label--left">Who It's For</p>
+
+      <ul class="ays-verdict-box__persona-list" aria-label="This product is ideal for">
+        <li class="ays-verdict-box__persona">[[Persona description 1 — e.g., "Home cooks who want restaurant-quality results"]]</li>
+        <li class="ays-verdict-box__persona">[[Persona description 2 — e.g., "Busy families needing a hands-off solution"]]</li>
+        <li class="ays-verdict-box__persona">[[Persona description 3 — e.g., "Beginners who don't want to read a 50-page manual"]]</li>
+        <li class="ays-verdict-box__persona">[[Persona description 4 — e.g., "Anyone who's burned three batches of rice"]]</li>
+      </ul>
+    </div>
+
+    <!-- Right: The Bottom Line -->
+    <div class="ays-verdict-box__right">
+      <p class="ays-verdict-box__col-label ays-verdict-box__col-label--right">The Bottom Line</p>
+
+      <!-- Rating -->
+      <div class="ays-verdict-box__rating" aria-label="Rated [[RATING]] out of 5">
+        <span class="ays-verdict-box__stars" aria-hidden="true">★★★★★</span>
+        <span class="ays-verdict-box__rating-label">Our Score</span>
+        <span class="ays-verdict-box__rating-value">[[RATING]] / 5</span>
+      </div>
+
+      <!-- Editorial summary -->
+      <p class="ays-verdict-box__summary">
+        [[Write 2-3 sentences. Be direct. Lead with the key strength, acknowledge the main trade-off, and end with a clear recommendation sentence. Example: "The <strong>[[Product Name]]</strong> earns its spot at the top of our list because it does the one thing most competitors get wrong — consistent heat distribution. Yes, it costs more than the budget picks, but you'll feel the difference on the first use. If you're serious about [[category outcome]], this is the one to get."]]
+      </p>
+
+      <!-- CTA -->
+      <a
+        class="ays-verdict-box__cta"
+        href="[[AFFILIATE_LINK]]"
+        target="_blank"
+        rel="nofollow sponsored noopener"
+        aria-label="Check current price for [[Product Name]] on Amazon"
+      >
+        Check Price on Amazon
+        <span class="ays-verdict-box__cta-sub">Prices update in real time</span>
+      </a>
+    </div>
+
+  </div><!-- /.ays-verdict-box__body -->
+</div>

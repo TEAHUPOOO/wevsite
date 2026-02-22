@@ -1,0 +1,264 @@
+<!--
+  BLOCK: Visual Pros / Cons — Spec Sheet Style
+  Usage: Paste into a Gutenberg "Custom HTML" block.
+  SVG icons instead of emoji or CSS bullets.
+  Layout reads like a product spec sheet, not a blog list.
+  Replace all [[PLACEHOLDER]] values with real content.
+-->
+
+<style>
+/* ── Pros / Cons Spec Sheet ──────────────────────────────── */
+.ays-pros-cons {
+  margin: 2.5rem 0;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #e9ecef;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* ── Column Headers ──────────────────────────────────────── */
+.ays-pros-cons__header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.ays-pros-cons__header-col {
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+.ays-pros-cons__header-col--pros { background: #eafaf1; border-right: 1px solid #d4efdf; }
+.ays-pros-cons__header-col--cons { background: #fef5ec; }
+
+.ays-pros-cons__header-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+.ays-pros-cons__header-label--pros { color: #1e8449; }
+.ays-pros-cons__header-label--cons { color: #d35400; }
+
+/* ── Spec Rows ───────────────────────────────────────────── */
+.ays-pros-cons__body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.ays-pros-cons__col {
+  padding: 0;
+}
+.ays-pros-cons__col--pros { border-right: 1px solid #e9ecef; }
+
+/* Each row alternates background */
+.ays-pros-cons__row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.75rem 1.25rem;
+  border-bottom: 1px solid #f1f3f5;
+  min-height: 52px;
+  transition: background 150ms ease;
+}
+.ays-pros-cons__row:last-child { border-bottom: none; }
+
+.ays-pros-cons__col--pros .ays-pros-cons__row:hover { background: #f0fdf6; }
+.ays-pros-cons__col--cons .ays-pros-cons__row:hover { background: #fff8f3; }
+
+/* Zebra striping */
+.ays-pros-cons__col--pros .ays-pros-cons__row:nth-child(even),
+.ays-pros-cons__col--cons .ays-pros-cons__row:nth-child(even) {
+  background: #fafbfc;
+}
+.ays-pros-cons__col--pros .ays-pros-cons__row:nth-child(even):hover { background: #f0fdf6; }
+.ays-pros-cons__col--cons .ays-pros-cons__row:nth-child(even):hover { background: #fff8f3; }
+
+/* SVG Icon wrapper */
+.ays-pros-cons__icon {
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+}
+
+/* Row text */
+.ays-pros-cons__text {
+  font-size: 0.9375rem;
+  color: #2d3748;
+  line-height: 1.5;
+}
+
+.ays-pros-cons__text strong {
+  display: block;
+  font-weight: 600;
+  color: #2C3E50;
+  font-size: 0.9375rem;
+  margin-bottom: 0.1rem;
+}
+
+.ays-pros-cons__text small {
+  font-size: 0.8125rem;
+  color: #6c757d;
+  display: block;
+}
+
+/* ── Footer note ────────────────────────────────────────── */
+.ays-pros-cons__footer {
+  padding: 0.75rem 1.25rem;
+  background: #f8f9fa;
+  border-top: 1px solid #e9ecef;
+  font-size: 0.8125rem;
+  color: #6c757d;
+  text-align: center;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .ays-pros-cons__header,
+  .ays-pros-cons__body {
+    grid-template-columns: 1fr;
+  }
+  .ays-pros-cons__header-col--pros,
+  .ays-pros-cons__col--pros {
+    border-right: none;
+    border-bottom: 1px solid #e9ecef;
+  }
+}
+
+/* ── SVG Icon Definitions (inline, no external request) ───── */
+.ays-icon-check { display: block; }
+.ays-icon-cross  { display: block; }
+</style>
+
+<div class="ays-pros-cons" role="region" aria-label="Pros and Cons of [[Product Name]]">
+
+  <!-- Column Headers -->
+  <div class="ays-pros-cons__header">
+    <div class="ays-pros-cons__header-col ays-pros-cons__header-col--pros">
+      <!-- Check icon -->
+      <svg class="ays-icon-check" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+        <circle cx="9" cy="9" r="9" fill="#27AE60"/>
+        <path d="M5 9.5l2.5 2.5 5.5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="ays-pros-cons__header-label ays-pros-cons__header-label--pros">Pros</span>
+    </div>
+
+    <div class="ays-pros-cons__header-col ays-pros-cons__header-col--cons">
+      <!-- X icon -->
+      <svg class="ays-icon-cross" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+        <circle cx="9" cy="9" r="9" fill="#E67E22"/>
+        <path d="M6 6l6 6M12 6l-6 6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+      <span class="ays-pros-cons__header-label ays-pros-cons__header-label--cons">Cons</span>
+    </div>
+  </div>
+
+  <!-- Spec Rows (add or remove rows as needed; keep both columns equal) -->
+  <div class="ays-pros-cons__body">
+
+    <!-- PROS COLUMN -->
+    <div class="ays-pros-cons__col ays-pros-cons__col--pros">
+
+      <div class="ays-pros-cons__row">
+        <svg class="ays-icon-check" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <circle cx="10" cy="10" r="10" fill="#eafaf1"/>
+          <path d="M6 10.5l2.8 2.8 5.2-6.3" stroke="#27AE60" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="ays-pros-cons__text">
+          <strong>[[Pro #1 — short title]]</strong>
+          <small>[[Brief supporting detail — 1 sentence.]]</small>
+        </span>
+      </div>
+
+      <div class="ays-pros-cons__row">
+        <svg class="ays-icon-check" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <circle cx="10" cy="10" r="10" fill="#eafaf1"/>
+          <path d="M6 10.5l2.8 2.8 5.2-6.3" stroke="#27AE60" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="ays-pros-cons__text">
+          <strong>[[Pro #2 — short title]]</strong>
+          <small>[[Brief supporting detail — 1 sentence.]]</small>
+        </span>
+      </div>
+
+      <div class="ays-pros-cons__row">
+        <svg class="ays-icon-check" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <circle cx="10" cy="10" r="10" fill="#eafaf1"/>
+          <path d="M6 10.5l2.8 2.8 5.2-6.3" stroke="#27AE60" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="ays-pros-cons__text">
+          <strong>[[Pro #3 — short title]]</strong>
+          <small>[[Brief supporting detail — 1 sentence.]]</small>
+        </span>
+      </div>
+
+      <div class="ays-pros-cons__row">
+        <svg class="ays-icon-check" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <circle cx="10" cy="10" r="10" fill="#eafaf1"/>
+          <path d="M6 10.5l2.8 2.8 5.2-6.3" stroke="#27AE60" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="ays-pros-cons__text">
+          <strong>[[Pro #4 — short title]]</strong>
+          <small>[[Brief supporting detail — 1 sentence.]]</small>
+        </span>
+      </div>
+
+    </div><!-- /.ays-pros-cons__col--pros -->
+
+    <!-- CONS COLUMN -->
+    <div class="ays-pros-cons__col ays-pros-cons__col--cons">
+
+      <div class="ays-pros-cons__row">
+        <svg class="ays-icon-cross" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <circle cx="10" cy="10" r="10" fill="#fef5ec"/>
+          <path d="M7 7l6 6M13 7l-6 6" stroke="#E67E22" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+        <span class="ays-pros-cons__text">
+          <strong>[[Con #1 — short title]]</strong>
+          <small>[[Brief context — 1 sentence. Be fair, not damning.]]</small>
+        </span>
+      </div>
+
+      <div class="ays-pros-cons__row">
+        <svg class="ays-icon-cross" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <circle cx="10" cy="10" r="10" fill="#fef5ec"/>
+          <path d="M7 7l6 6M13 7l-6 6" stroke="#E67E22" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+        <span class="ays-pros-cons__text">
+          <strong>[[Con #2 — short title]]</strong>
+          <small>[[Brief context — 1 sentence. Be fair, not damning.]]</small>
+        </span>
+      </div>
+
+      <div class="ays-pros-cons__row">
+        <svg class="ays-icon-cross" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <circle cx="10" cy="10" r="10" fill="#fef5ec"/>
+          <path d="M7 7l6 6M13 7l-6 6" stroke="#E67E22" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+        <span class="ays-pros-cons__text">
+          <strong>[[Con #3 — short title]]</strong>
+          <small>[[Brief context — 1 sentence. Be fair, not damning.]]</small>
+        </span>
+      </div>
+
+      <div class="ays-pros-cons__row">
+        <svg class="ays-icon-cross" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <circle cx="10" cy="10" r="10" fill="#fef5ec"/>
+          <path d="M7 7l6 6M13 7l-6 6" stroke="#E67E22" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+        <span class="ays-pros-cons__text">
+          <strong>[[Con #4 — short title]]</strong>
+          <small>[[Brief context — 1 sentence. Be fair, not damning.]]</small>
+        </span>
+      </div>
+
+    </div><!-- /.ays-pros-cons__col--cons -->
+
+  </div><!-- /.ays-pros-cons__body -->
+
+  <!-- Footer note — E-E-A-T signal -->
+  <div class="ays-pros-cons__footer">
+    Based on [[X hours]] of hands-on testing &amp; [[N]] verified owner reviews
+  </div>
+
+</div>

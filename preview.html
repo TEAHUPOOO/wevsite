@@ -1,0 +1,1462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Everest & Hearth — Buy it once. Use it forever.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset ─────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; color: #2d3748; background: #fff; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    /* ── Tokens ────────────────────────────────────────── */
+    :root {
+      --navy:        #2C3E50;
+      --navy-dark:   #1a252f;
+      --teal:        #27AE60;
+      --teal-dark:   #1e8449;
+      --teal-light:  #eafaf1;
+      --orange:      #E67E22;
+      --orange-dark: #d35400;
+      --orange-light:#fef5ec;
+      --gray-50:     #f8f9fa;
+      --gray-100:    #f1f3f5;
+      --gray-200:    #e9ecef;
+      --gray-400:    #ced4da;
+      --gray-600:    #6c757d;
+      --text:        #2d3748;
+      --shadow-sm:   0 1px 4px rgba(0,0,0,.08);
+      --shadow-md:   0 4px 16px rgba(0,0,0,.10);
+      --shadow-lg:   0 12px 40px rgba(0,0,0,.13);
+      --r-md:  8px;
+      --r-lg:  14px;
+      --r-xl:  20px;
+    }
+
+    /* ════════════════════════════════════════════════════
+       HEADER
+    ════════════════════════════════════════════════════ */
+    .site-header {
+      background: linear-gradient(90deg, #1a3a2a 0%, #2C3E50 100%);
+      border-bottom: 3px solid var(--teal);
+      position: sticky;
+      top: 0;
+      z-index: 300;
+    }
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    /* Logo */
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: .625rem;
+      flex-shrink: 0;
+    }
+    .logo-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--teal);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.125rem;
+    }
+    .logo-text {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 1.125rem;
+      color: #fff;
+      letter-spacing: -.02em;
+      line-height: 1.1;
+    }
+    .logo-text span { color: var(--teal); }
+
+    /* Main nav */
+    .main-nav { display: flex; align-items: center; gap: .25rem; margin-left: .5rem; }
+    .nav-link {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: rgba(255,255,255,.82);
+      padding: .5rem .875rem;
+      border-radius: var(--r-md);
+      transition: all .15s;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: #fff;
+      background: rgba(255,255,255,.1);
+    }
+
+    /* Search + utility */
+    .header-utils { margin-left: auto; display: flex; align-items: center; gap: .75rem; }
+    .search-bar {
+      display: flex;
+      align-items: center;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 99px;
+      padding: .375rem .875rem;
+      gap: .5rem;
+      transition: background .15s;
+    }
+    .search-bar:focus-within { background: rgba(255,255,255,.18); }
+    .search-bar input {
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #fff;
+      font-size: .8125rem;
+      width: 160px;
+    }
+    .search-bar input::placeholder { color: rgba(255,255,255,.5); }
+    .search-icon { color: rgba(255,255,255,.6); font-size: .875rem; }
+    .header-cta {
+      background: var(--orange);
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-size: .75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      padding: .5rem 1.125rem;
+      border-radius: 99px;
+      transition: all .2s;
+    }
+    .header-cta:hover { background: var(--orange-dark); transform: translateY(-1px); }
+
+    /* ════════════════════════════════════════════════════
+       HERO
+    ════════════════════════════════════════════════════ */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      min-height: 480px;
+      display: flex;
+      align-items: center;
+    }
+    /* Garden background via CSS gradient + pattern */
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(105deg, rgba(26,58,42,.92) 0%, rgba(26,58,42,.6) 45%, rgba(26,58,42,.1) 100%),
+        linear-gradient(175deg, #2d6a4f 0%, #40916c 35%, #52b788 55%, #74c69d 75%, #b7e4c7 100%);
+      z-index: 0;
+    }
+    /* Decorative garden "plant" elements */
+    .hero-plants {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 55%;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .hero-plants::before {
+      content: '🌿🌱🥦🌿🫑🌿🌱🌿';
+      position: absolute;
+      font-size: 5rem;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      opacity: .35;
+      letter-spacing: .5rem;
+      filter: blur(1px);
+      white-space: nowrap;
+    }
+    /* Raised-bed garden scene */
+    .garden-scene {
+      position: absolute;
+      right: 5%;
+      top: 50%;
+      transform: translateY(-50%);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .875rem;
+      opacity: .75;
+      z-index: 0;
+    }
+    .garden-bed {
+      width: 130px;
+      height: 90px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      box-shadow: var(--shadow-md);
+    }
+    .garden-bed:nth-child(1) { background: linear-gradient(135deg,#3d5a3e,#4a7c59); }
+    .garden-bed:nth-child(2) { background: linear-gradient(135deg,#4a7c59,#52b788); margin-top:-1.5rem; }
+    .garden-bed:nth-child(3) { background: linear-gradient(135deg,#2d6a4f,#40916c); }
+    .garden-bed:nth-child(4) { background: linear-gradient(135deg,#40916c,#74c69d); margin-top:-1rem; }
+    .garden-bed:nth-child(5) { background: linear-gradient(135deg,#2d6a4f,#3d5a3e); }
+    .garden-bed:nth-child(6) { background: linear-gradient(135deg,#52b788,#95d5b2); margin-top:-1.5rem; }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem;
+      width: 100%;
+    }
+    .hero-eyebrow {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .6875rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      color: var(--teal);
+      margin-bottom: .875rem;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 2px;
+      background: var(--teal);
+    }
+    .hero-headline {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(2.25rem, 5vw, 3.75rem);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.08;
+      letter-spacing: -.03em;
+      margin-bottom: 1.125rem;
+      max-width: 560px;
+    }
+    .hero-sub {
+      font-size: 1.0625rem;
+      color: rgba(255,255,255,.75);
+      line-height: 1.7;
+      max-width: 460px;
+      margin-bottom: 2rem;
+    }
+    .hero-actions { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+    .btn-hero-primary {
+      background: var(--orange);
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-size: .9375rem;
+      font-weight: 700;
+      padding: .9rem 2rem;
+      border-radius: 99px;
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      transition: all .2s;
+      box-shadow: 0 4px 20px rgba(230,126,34,.4);
+    }
+    .btn-hero-primary:hover { background: var(--orange-dark); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(230,126,34,.5); }
+    .btn-hero-secondary {
+      color: rgba(255,255,255,.85);
+      font-family: 'Montserrat', sans-serif;
+      font-size: .875rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: .375rem;
+      border-bottom: 1px solid rgba(255,255,255,.35);
+      padding-bottom: 2px;
+      transition: all .15s;
+    }
+    .btn-hero-secondary:hover { color: #fff; border-bottom-color: rgba(255,255,255,.8); }
+    .hero-trust {
+      margin-top: 2.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .hero-trust-item {
+      display: flex;
+      align-items: center;
+      gap: .375rem;
+      font-size: .8125rem;
+      color: rgba(255,255,255,.65);
+    }
+    .hero-trust-item .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--teal); flex-shrink: 0; }
+
+    /* ════════════════════════════════════════════════════
+       CATEGORY STRIP (below hero)
+    ════════════════════════════════════════════════════ */
+    .category-strip {
+      background: #fff;
+      border-bottom: 1px solid var(--gray-200);
+      box-shadow: 0 4px 16px rgba(0,0,0,.06);
+    }
+    .category-strip-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .cat-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .5rem;
+      padding: 1.375rem 1rem;
+      border-right: 1px solid var(--gray-100);
+      cursor: pointer;
+      transition: all .2s;
+      position: relative;
+      text-decoration: none;
+      color: var(--text);
+    }
+    .cat-item:last-child { border-right: none; }
+    .cat-item::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--teal);
+      transform: scaleX(0);
+      transition: transform .2s;
+      border-radius: 2px 2px 0 0;
+    }
+    .cat-item:hover::after, .cat-item.active::after { transform: scaleX(1); }
+    .cat-item:hover { background: var(--teal-light); }
+    .cat-item.active { background: var(--teal-light); }
+    .cat-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.625rem;
+      transition: transform .2s;
+    }
+    .cat-item:hover .cat-icon { transform: scale(1.08); }
+    .cat-icon--kitchen  { background: #fff4e6; }
+    .cat-icon--home     { background: #e8f4fd; }
+    .cat-icon--garden   { background: #e6f7ee; }
+    .cat-icon--pets     { background: #fce8f3; }
+    .cat-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .8125rem;
+      font-weight: 700;
+      color: var(--navy);
+      text-align: center;
+    }
+    .cat-count {
+      font-size: .6875rem;
+      color: var(--gray-600);
+    }
+
+    /* ════════════════════════════════════════════════════
+       SECTION WRAPPER
+    ════════════════════════════════════════════════════ */
+    .section {
+      padding: 4.5rem 0;
+    }
+    .section--alt { background: var(--gray-50); }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+    .section-eyebrow {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .6875rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      color: var(--teal);
+      margin-bottom: .625rem;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+    .section-eyebrow::before { content: ''; display: inline-block; width: 20px; height: 2px; background: var(--teal); }
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(1.625rem, 3vw, 2.25rem);
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -.025em;
+      margin-bottom: .625rem;
+    }
+    .section-sub {
+      font-size: .9375rem;
+      color: var(--gray-600);
+      line-height: 1.65;
+      max-width: 540px;
+      margin-bottom: 2.5rem;
+    }
+
+    /* ════════════════════════════════════════════════════
+       TOP 3 COMPARISON TABLE
+    ════════════════════════════════════════════════════ */
+    .comparison-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    /* Base card */
+    .prod-card {
+      background: #fff;
+      border: 1.5px solid var(--gray-200);
+      border-radius: var(--r-xl);
+      overflow: visible;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow .25s, transform .25s;
+      position: relative;
+    }
+    .prod-card:hover { box-shadow: var(--shadow-md); }
+
+    /* #1 Elevated */
+    .prod-card--top {
+      border: 2px solid var(--teal);
+      box-shadow: 0 16px 48px rgba(39,174,96,.20);
+      transform: translateY(-12px);
+      border-radius: 20px;
+    }
+    .prod-card--top:hover { box-shadow: 0 24px 60px rgba(39,174,96,.28); transform: translateY(-14px); }
+
+    /* Floating badge */
+    .prod-card__badge {
+      position: absolute;
+      top: -16px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(90deg, var(--teal) 0%, #1a9e54 100%);
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-size: .6875rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      padding: .3125rem 1rem;
+      border-radius: 99px;
+      white-space: nowrap;
+      box-shadow: 0 4px 16px rgba(39,174,96,.45);
+    }
+
+    /* Rank pill */
+    .prod-card__rank {
+      display: flex;
+      align-items: center;
+      gap: .375rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: .6875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--gray-600);
+      padding: 1.125rem 1.375rem 0;
+    }
+    .prod-card__rank--top { color: var(--teal-dark); }
+    .rank-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gray-400); flex-shrink: 0; }
+    .rank-dot--top { background: var(--teal); }
+
+    /* Product image area */
+    .prod-card__img-wrap {
+      margin: 1rem 1.375rem;
+      background: linear-gradient(135deg, #f8f9fa 0%, #f1f3f5 100%);
+      border-radius: 14px;
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .prod-card--top .prod-card__img-wrap {
+      background: linear-gradient(135deg, #eafaf1 0%, #d5f5e3 100%);
+    }
+    .drill-img {
+      font-size: 4rem;
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,.15));
+      transition: transform .3s;
+    }
+    .prod-card:hover .drill-img { transform: scale(1.08) rotate(-5deg); }
+    .img-label {
+      position: absolute;
+      bottom: .625rem;
+      right: .625rem;
+      background: rgba(0,0,0,.55);
+      color: #fff;
+      font-size: .625rem;
+      font-weight: 600;
+      padding: .2rem .5rem;
+      border-radius: 4px;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+    .prod-card--top .img-label { background: var(--teal); }
+
+    /* Body */
+    .prod-card__body { padding: 0 1.375rem 1.375rem; flex: 1; display: flex; flex-direction: column; }
+    .prod-card__brand {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .6875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--gray-600);
+      margin-bottom: .25rem;
+    }
+    .prod-card__name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.0625rem;
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1.25;
+      margin-bottom: .625rem;
+    }
+    .prod-card__rating {
+      display: flex;
+      align-items: center;
+      gap: .375rem;
+      margin-bottom: 1rem;
+    }
+    .stars { color: #f59e0b; font-size: .9375rem; letter-spacing: .05em; }
+    .rating-val { font-size: .8125rem; font-weight: 700; color: var(--navy); }
+    .rating-count { font-size: .75rem; color: var(--gray-600); }
+
+    /* Spec list */
+    .spec-list {
+      list-style: none;
+      border-top: 1px solid var(--gray-100);
+      padding-top: .875rem;
+      margin-bottom: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .spec-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: .375rem 0;
+      border-bottom: 1px solid var(--gray-100);
+      font-size: .8125rem;
+      gap: .5rem;
+    }
+    .spec-row:last-child { border-bottom: none; }
+    .spec-key { color: var(--gray-600); font-weight: 500; }
+    .spec-val { color: var(--navy); font-weight: 700; text-align: right; }
+
+    /* Price */
+    .prod-card__price {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: baseline;
+      gap: .375rem;
+    }
+    .prod-card__price--top { color: var(--teal-dark); }
+    .price-original {
+      font-size: .875rem;
+      font-weight: 500;
+      color: var(--gray-400);
+      text-decoration: line-through;
+    }
+    .price-save {
+      font-size: .75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--teal);
+      padding: .125rem .4rem;
+      border-radius: 4px;
+    }
+
+    /* CTA */
+    .prod-card__cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      padding: .875rem 1rem;
+      border-radius: var(--r-md);
+      font-family: 'Montserrat', sans-serif;
+      font-size: .8125rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      transition: all .2s;
+      margin-top: auto;
+      cursor: pointer;
+    }
+    .prod-card__cta--primary {
+      background: linear-gradient(90deg, var(--teal) 0%, #1a9e54 100%);
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(39,174,96,.25);
+    }
+    .prod-card__cta--primary:hover {
+      background: linear-gradient(90deg, var(--teal-dark) 0%, #147a3f 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(39,174,96,.38);
+    }
+    .prod-card__cta--secondary {
+      background: var(--gray-100);
+      color: var(--navy);
+      border: 1.5px solid var(--gray-200);
+    }
+    .prod-card__cta--secondary:hover { background: var(--gray-200); }
+    .cta-arrow { font-size: .875rem; }
+
+    /* ════════════════════════════════════════════════════
+       VERDICT BOX
+    ════════════════════════════════════════════════════ */
+    .verdict-box {
+      border-radius: var(--r-xl);
+      overflow: hidden;
+      border: 1.5px solid var(--gray-200);
+      box-shadow: 0 6px 28px rgba(0,0,0,.08);
+      margin-top: 3rem;
+    }
+    .verdict-topbar {
+      height: 4px;
+      background: linear-gradient(90deg, var(--teal) 0%, #2C3E50 100%);
+    }
+    .verdict-header {
+      background: var(--navy);
+      padding: 1rem 1.75rem;
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+    }
+    .verdict-header-icon { font-size: 1.125rem; }
+    .verdict-header-text {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: #fff;
+    }
+    .verdict-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .verdict-left {
+      background: var(--gray-50);
+      padding: 2rem;
+      border-right: 1px solid var(--gray-200);
+    }
+    .verdict-right {
+      background: #fff;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+    }
+    .verdict-col-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .6875rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      margin-bottom: 1.125rem;
+    }
+    .verdict-col-label--left  { color: var(--teal); }
+    .verdict-col-label--right { color: var(--orange); }
+    .verdict-list { list-style: none; display: flex; flex-direction: column; gap: .75rem; }
+    .verdict-item {
+      display: flex;
+      align-items: flex-start;
+      gap: .625rem;
+      font-size: .9375rem;
+      color: var(--text);
+      line-height: 1.5;
+    }
+    .v-check {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      margin-top: .1em;
+    }
+    .verdict-rating-row {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      margin-bottom: 1.125rem;
+      padding-bottom: 1.125rem;
+      border-bottom: 1px solid var(--gray-100);
+    }
+    .verdict-rating-label { font-size: .8125rem; font-weight: 600; color: var(--gray-600); }
+    .verdict-rating-value { font-family: 'Montserrat', sans-serif; font-weight: 800; color: var(--navy); margin-left: auto; }
+    .verdict-summary { font-size: .9375rem; color: var(--text); line-height: 1.75; flex: 1; margin-bottom: 1.25rem; }
+    .verdict-cta {
+      display: block;
+      text-align: center;
+      padding: .9375rem 1.5rem;
+      background: var(--orange);
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-size: .875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      border-radius: var(--r-md);
+      transition: all .25s;
+    }
+    .verdict-cta:hover { background: var(--orange-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(230,126,34,.35); }
+    .verdict-cta span { display: block; font-size: .6875rem; font-weight: 400; opacity: .8; letter-spacing: 0; text-transform: none; margin-top: .125rem; }
+
+    /* ════════════════════════════════════════════════════
+       PROS / CONS
+    ════════════════════════════════════════════════════ */
+    .pros-cons {
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      border: 1.5px solid var(--gray-200);
+      margin-top: 2.5rem;
+    }
+    .pc-header { display: grid; grid-template-columns: 1fr 1fr; }
+    .pc-header-col {
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: .625rem;
+    }
+    .pc-header-col--pro { background: var(--teal-light); border-right: 1px solid #d4efdf; }
+    .pc-header-col--con { background: var(--orange-light); }
+    .pc-header-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .6875rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+    }
+    .pc-header-label--pro { color: var(--teal-dark); }
+    .pc-header-label--con { color: var(--orange-dark); }
+    .pc-body { display: grid; grid-template-columns: 1fr 1fr; }
+    .pc-col--pro { border-right: 1px solid var(--gray-200); }
+    .pc-row {
+      display: flex;
+      align-items: flex-start;
+      gap: .75rem;
+      padding: .75rem 1.25rem;
+      border-bottom: 1px solid var(--gray-100);
+      min-height: 54px;
+      transition: background .15s;
+    }
+    .pc-row:last-child { border-bottom: none; }
+    .pc-col--pro .pc-row:hover { background: #f0fdf6; }
+    .pc-col--con .pc-row:hover { background: #fff8f3; }
+    .pc-col--pro .pc-row:nth-child(even),
+    .pc-col--con .pc-row:nth-child(even) { background: #fafbfc; }
+    .pc-text strong { display: block; font-weight: 700; color: var(--navy); font-size: .9375rem; }
+    .pc-text small  { font-size: .8125rem; color: var(--gray-600); display: block; line-height: 1.4; }
+    .pc-footer {
+      padding: .75rem 1.25rem;
+      background: var(--gray-100);
+      border-top: 1px solid var(--gray-200);
+      font-size: .8125rem;
+      color: var(--gray-600);
+      text-align: center;
+    }
+
+    /* ════════════════════════════════════════════════════
+       TRUST BAR
+    ════════════════════════════════════════════════════ */
+    .trust-bar {
+      background: var(--navy-dark);
+      border-top: 3px solid var(--teal);
+      padding: 2.5rem 1.5rem;
+    }
+    .trust-grid {
+      max-width: 960px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      text-align: center;
+    }
+    .trust-icon { font-size: 1.625rem; color: var(--teal); margin-bottom: .5rem; }
+    .trust-title { font-family: 'Montserrat', sans-serif; font-size: .875rem; font-weight: 700; color: #fff; margin-bottom: .25rem; }
+    .trust-sub   { font-size: .75rem; color: rgba(255,255,255,.5); line-height: 1.5; }
+
+    /* ════════════════════════════════════════════════════
+       FOOTER
+    ════════════════════════════════════════════════════ */
+    .site-footer {
+      background: var(--navy-dark);
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding: 3rem 1.5rem 2rem;
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 3rem;
+    }
+    .footer-brand-name {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 1.125rem;
+      color: #fff;
+      margin-bottom: .75rem;
+    }
+    .footer-brand-name span { color: var(--teal); }
+    .footer-tagline { font-size: .875rem; color: rgba(255,255,255,.5); line-height: 1.65; margin-bottom: 1.25rem; }
+    .footer-social { display: flex; gap: .75rem; }
+    .social-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      background: rgba(255,255,255,.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .875rem;
+      color: rgba(255,255,255,.6);
+      transition: all .15s;
+      cursor: pointer;
+    }
+    .social-btn:hover { background: var(--teal); color: #fff; }
+    .footer-col-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .6875rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: var(--teal);
+      margin-bottom: 1rem;
+    }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: .5rem; }
+    .footer-links a { font-size: .875rem; color: rgba(255,255,255,.55); transition: color .15s; }
+    .footer-links a:hover { color: rgba(255,255,255,.9); }
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 2.5rem auto 0;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .footer-bottom p { font-size: .8125rem; color: rgba(255,255,255,.4); }
+    .footer-bottom a { color: rgba(255,255,255,.4); transition: color .15s; }
+    .footer-bottom a:hover { color: rgba(255,255,255,.7); }
+
+    /* ════════════════════════════════════════════════════
+       ARTICLE LAYOUT + TOC
+    ════════════════════════════════════════════════════ */
+    .article-wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3.5rem 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 3.5rem;
+      align-items: start;
+    }
+    .article-body h1 { font-family: 'Montserrat', sans-serif; font-size: 2.125rem; font-weight: 800; color: var(--navy); margin-bottom: 1rem; letter-spacing: -.025em; }
+    .article-body h2 { font-family: 'Montserrat', sans-serif; font-size: 1.375rem; font-weight: 800; color: var(--navy); margin: 2.5rem 0 .875rem; padding-top: 2.5rem; border-top: 1px solid var(--gray-200); letter-spacing: -.02em; }
+    .article-body h2:first-of-type { border-top: none; padding-top: 0; margin-top: 1.5rem; }
+    .article-body p { margin-bottom: 1rem; line-height: 1.8; }
+    .article-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
+    .meta-tag { font-family: 'Montserrat', sans-serif; font-size: .6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--teal-dark); background: var(--teal-light); padding: .25rem .625rem; border-radius: 4px; }
+    .meta-info { font-size: .8125rem; color: var(--gray-600); }
+
+    .toc-widget {
+      position: sticky;
+      top: 84px;
+      background: #fff;
+      border: 1.5px solid var(--gray-200);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      max-height: calc(100vh - 110px);
+      overflow-y: auto;
+    }
+    .toc-header {
+      background: var(--navy);
+      padding: .875rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+    .toc-header-text { font-family: 'Montserrat', sans-serif; font-size: .6875rem; font-weight: 800; text-transform: uppercase; letter-spacing: .12em; color: #fff; }
+    .toc-list { list-style: none; padding: .625rem 0; }
+    .toc-link {
+      display: block;
+      padding: .4375rem 1.25rem;
+      font-size: .8125rem;
+      font-weight: 500;
+      color: var(--gray-800);
+      border-left: 2.5px solid transparent;
+      transition: all .15s;
+      line-height: 1.4;
+    }
+    .toc-link:hover { color: var(--navy); background: var(--gray-50); border-left-color: var(--teal); }
+    .toc-link.active { color: var(--teal-dark); background: var(--teal-light); border-left-color: var(--teal); font-weight: 700; }
+    .toc-item--h3 .toc-link { padding-left: 2rem; font-size: .75rem; opacity: .85; }
+
+    /* ════════════════════════════════════════════════════
+       RESPONSIVE
+    ════════════════════════════════════════════════════ */
+    @media (max-width: 960px) {
+      .comparison-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+      .prod-card--top { transform: none; margin-top: 1.25rem; }
+      .verdict-body { grid-template-columns: 1fr; }
+      .verdict-left { border-right: none; border-bottom: 1px solid var(--gray-200); }
+      .article-wrap { grid-template-columns: 1fr; }
+      .toc-widget { position: static; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+      .trust-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 680px) {
+      .category-strip-inner { grid-template-columns: repeat(2, 1fr); }
+      .cat-item:nth-child(2) { border-right: none; }
+      .cat-item { border-bottom: 1px solid var(--gray-100); }
+      .pc-header, .pc-body { grid-template-columns: 1fr; }
+      .pc-col--pro { border-right: none; border-bottom: 1px solid var(--gray-200); }
+      .hero-headline { font-size: 2.125rem; }
+      .main-nav { display: none; }
+      .search-bar { display: none; }
+      .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════════
+     HEADER
+════════════════════════════════════════════════════ -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <div class="logo-icon">🏡</div>
+      <div class="logo-text">Everest <span>&amp;</span> Hearth</div>
+    </a>
+
+    <nav class="main-nav">
+      <a href="#cat-kitchen"  class="nav-link active">Kitchen</a>
+      <a href="#cat-home"     class="nav-link">Home &amp; Outdoor</a>
+      <a href="#cat-garden"   class="nav-link">Gardening</a>
+      <a href="#cat-pets"     class="nav-link">Pets</a>
+      <a href="#section-article" class="nav-link">Reviews</a>
+    </nav>
+
+    <div class="header-utils">
+      <div class="search-bar">
+        <span class="search-icon">🔍</span>
+        <input type="text" placeholder="Search reviews…" />
+      </div>
+      <a href="#section-comparison" class="header-cta">Best Picks</a>
+    </div>
+  </div>
+</header>
+
+
+<!-- ════════════════════════════════════════════════════
+     HERO
+════════════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-plants"></div>
+
+  <!-- Garden bed scene (right side) -->
+  <div class="garden-scene">
+    <div class="garden-bed">🥦</div>
+    <div class="garden-bed">🌿</div>
+    <div class="garden-bed">🍅</div>
+    <div class="garden-bed">🌱</div>
+    <div class="garden-bed">🥕</div>
+    <div class="garden-bed">🫑</div>
+  </div>
+
+  <div class="hero-content">
+    <p class="hero-eyebrow">Trusted Since 2021 · 200+ Reviews</p>
+    <h1 class="hero-headline">Buy it once.<br>Use it forever.</h1>
+    <p class="hero-sub">We test every product in real homes — kitchens, gardens, patios — so you stop wasting money on things that break in 6 months.</p>
+
+    <div class="hero-actions">
+      <a href="#section-comparison" class="btn-hero-primary">
+        See Our Best Picks →
+      </a>
+      <a href="#section-article" class="btn-hero-secondary">
+        How We Test ↓
+      </a>
+    </div>
+
+    <div class="hero-trust">
+      <div class="hero-trust-item"><span class="dot"></span> 14-week real-home tests</div>
+      <div class="hero-trust-item"><span class="dot"></span> No paid placements</div>
+      <div class="hero-trust-item"><span class="dot"></span> Updated monthly</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     CATEGORY STRIP
+════════════════════════════════════════════════════ -->
+<div class="category-strip">
+  <div class="category-strip-inner">
+    <a href="#cat-kitchen" class="cat-item active" id="cat-kitchen">
+      <div class="cat-icon cat-icon--kitchen">🍳</div>
+      <span class="cat-name">Kitchen</span>
+      <span class="cat-count">48 reviews</span>
+    </a>
+    <a href="#cat-home" class="cat-item" id="cat-home">
+      <div class="cat-icon cat-icon--home">🏡</div>
+      <span class="cat-name">Home &amp; Outdoor</span>
+      <span class="cat-count">32 reviews</span>
+    </a>
+    <a href="#cat-garden" class="cat-item" id="cat-garden">
+      <div class="cat-icon cat-icon--garden">🌱</div>
+      <span class="cat-name">Gardening</span>
+      <span class="cat-count">27 reviews</span>
+    </a>
+    <a href="#cat-pets" class="cat-item" id="cat-pets">
+      <div class="cat-icon cat-icon--pets">🐾</div>
+      <span class="cat-name">Pets</span>
+      <span class="cat-count">19 reviews</span>
+    </a>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════
+     TOP 3 COMPARISON TABLE
+════════════════════════════════════════════════════ -->
+<section class="section section--alt" id="section-comparison">
+  <div class="container">
+    <div class="comparison-header">
+      <div>
+        <p class="section-eyebrow">Top 3 Comparison Table</p>
+        <h2 class="section-title">Best Cordless Drills of 2025</h2>
+        <p class="section-sub">Tested across 300 holes in wood, drywall, and concrete. Here's what actually performs at the price.</p>
+      </div>
+      <div style="display:flex;align-items:center;gap:.5rem;background:#fff;border:1.5px solid var(--gray-200);padding:.625rem 1rem;border-radius:99px;font-size:.8125rem;color:var(--gray-600);">
+        <span style="font-size:.875rem">🔄</span> Last tested: Jan 2025
+      </div>
+    </div>
+
+    <div class="comparison-grid">
+
+      <!-- #1 — DeWalt (elevated) -->
+      <article class="prod-card prod-card--top">
+        <span class="prod-card__badge">★ Best Overall</span>
+        <div class="prod-card__rank prod-card__rank--top">
+          <span class="rank-dot rank-dot--top"></span> #1 Pick
+        </div>
+        <div class="prod-card__img-wrap">
+          <span class="drill-img">🔧</span>
+          <span class="img-label">Best Overall</span>
+        </div>
+        <div class="prod-card__body">
+          <p class="prod-card__brand">DeWalt</p>
+          <h3 class="prod-card__name">DCD777C2 20V MAX Compact</h3>
+          <div class="prod-card__rating">
+            <span class="stars">★★★★★</span>
+            <span class="rating-val">4.9</span>
+            <span class="rating-count">(3,241 reviews)</span>
+          </div>
+          <ul class="spec-list">
+            <li class="spec-row"><span class="spec-key">Voltage</span><span class="spec-val">20V MAX</span></li>
+            <li class="spec-row"><span class="spec-key">Torque</span><span class="spec-val">340 UWO</span></li>
+            <li class="spec-row"><span class="spec-key">Weight</span><span class="spec-val">2.89 lbs</span></li>
+            <li class="spec-row"><span class="spec-key">Battery Life</span><span class="spec-val">~400 holes</span></li>
+          </ul>
+          <p class="prod-card__price prod-card__price--top">
+            $129
+            <span class="price-original">$159</span>
+            <span class="price-save">Save 19%</span>
+          </p>
+          <a href="#" class="prod-card__cta prod-card__cta--primary" onclick="return false">
+            Check Price on Amazon <span class="cta-arrow">→</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- #2 — Milwaukee -->
+      <article class="prod-card">
+        <div class="prod-card__rank">
+          <span class="rank-dot"></span> #2 Pick
+        </div>
+        <div class="prod-card__img-wrap">
+          <span class="drill-img" style="color:#c0392b">🔩</span>
+          <span class="img-label">Runner Up</span>
+        </div>
+        <div class="prod-card__body">
+          <p class="prod-card__brand">Milwaukee</p>
+          <h3 class="prod-card__name">M18 FUEL 1/2" Drill Driver</h3>
+          <div class="prod-card__rating">
+            <span class="stars">★★★★★</span>
+            <span class="rating-val">4.7</span>
+            <span class="rating-count">(1,897 reviews)</span>
+          </div>
+          <ul class="spec-list">
+            <li class="spec-row"><span class="spec-key">Voltage</span><span class="spec-val">18V</span></li>
+            <li class="spec-row"><span class="spec-key">Torque</span><span class="spec-val">1,200 in-lbs</span></li>
+            <li class="spec-row"><span class="spec-key">Weight</span><span class="spec-val">3.4 lbs</span></li>
+            <li class="spec-row"><span class="spec-key">Battery Life</span><span class="spec-val">~550 holes</span></li>
+          </ul>
+          <p class="prod-card__price">$199</p>
+          <a href="#" class="prod-card__cta prod-card__cta--secondary" onclick="return false">
+            Check Price on Amazon <span class="cta-arrow">→</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- #3 — Ryobi -->
+      <article class="prod-card">
+        <div class="prod-card__rank">
+          <span class="rank-dot"></span> #3 Pick
+        </div>
+        <div class="prod-card__img-wrap">
+          <span class="drill-img" style="color:#27ae60">🪛</span>
+          <span class="img-label">Budget Pick</span>
+        </div>
+        <div class="prod-card__body">
+          <p class="prod-card__brand">Ryobi</p>
+          <h3 class="prod-card__name">PCL206K1 ONE+ 18V Brushless</h3>
+          <div class="prod-card__rating">
+            <span class="stars">★★★★☆</span>
+            <span class="rating-val">4.4</span>
+            <span class="rating-count">(7,432 reviews)</span>
+          </div>
+          <ul class="spec-list">
+            <li class="spec-row"><span class="spec-key">Voltage</span><span class="spec-val">18V ONE+</span></li>
+            <li class="spec-row"><span class="spec-key">Torque</span><span class="spec-val">500 UWO</span></li>
+            <li class="spec-row"><span class="spec-key">Weight</span><span class="spec-val">2.4 lbs</span></li>
+            <li class="spec-row"><span class="spec-key">Battery Life</span><span class="spec-val">~280 holes</span></li>
+          </ul>
+          <p class="prod-card__price">$79</p>
+          <a href="#" class="prod-card__cta prod-card__cta--secondary" onclick="return false">
+            Check Price on Amazon <span class="cta-arrow">→</span>
+          </a>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- ── VERDICT BOX ───────────────────────────────── -->
+    <div class="verdict-box">
+      <div class="verdict-topbar"></div>
+      <div class="verdict-header">
+        <span class="verdict-header-icon">✅</span>
+        <span class="verdict-header-text">Our Verdict — DeWalt DCD777C2 20V MAX</span>
+      </div>
+      <div class="verdict-body">
+        <div class="verdict-left">
+          <p class="verdict-col-label verdict-col-label--left">Who It's For</p>
+          <ul class="verdict-list">
+            <li class="verdict-item">
+              <svg class="v-check" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#eafaf1"/><path d="M6 10.5l2.8 2.8 5.2-6.3" stroke="#27AE60" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              DIYers who tackle 2–3 projects a month and want a tool that lasts
+            </li>
+            <li class="verdict-item">
+              <svg class="v-check" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#eafaf1"/><path d="M6 10.5l2.8 2.8 5.2-6.3" stroke="#27AE60" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Homeowners building the DeWalt 20V MAX ecosystem
+            </li>
+            <li class="verdict-item">
+              <svg class="v-check" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#eafaf1"/><path d="M6 10.5l2.8 2.8 5.2-6.3" stroke="#27AE60" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Anyone who's frustrated by cheap drills that lose torque after 6 months
+            </li>
+            <li class="verdict-item">
+              <svg class="v-check" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#eafaf1"/><path d="M6 10.5l2.8 2.8 5.2-6.3" stroke="#27AE60" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Gift buyers — this is the one that impresses on first use
+            </li>
+          </ul>
+        </div>
+        <div class="verdict-right">
+          <p class="verdict-col-label verdict-col-label--right">The Bottom Line</p>
+          <div class="verdict-rating-row">
+            <span class="stars">★★★★★</span>
+            <span class="verdict-rating-label">Our Score</span>
+            <span class="verdict-rating-value">4.9 / 5</span>
+          </div>
+          <p class="verdict-summary">
+            The <strong>DeWalt DCD777C2</strong> earns the top spot by winning the metric that matters most: consistent torque across a full charge cycle. Most competitors fade after 60% battery — the DeWalt didn't. At $129 with two batteries included, it's 35% cheaper than the Milwaukee while outperforming it in our daily-use scenario. If you only buy one drill this decade, buy this one.
+          </p>
+          <a href="#" class="verdict-cta" onclick="return false">
+            Check Price on Amazon
+            <span>Prices update in real time</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── PROS / CONS ───────────────────────────────── -->
+    <div class="pros-cons">
+      <div class="pc-header">
+        <div class="pc-header-col pc-header-col--pro">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="9" fill="#27AE60"/><path d="M5 9.5l2.5 2.5 5.5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="pc-header-label pc-header-label--pro">Pros</span>
+        </div>
+        <div class="pc-header-col pc-header-col--con">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="9" fill="#E67E22"/><path d="M6 6l6 6M12 6l-6 6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <span class="pc-header-label pc-header-label--con">Cons</span>
+        </div>
+      </div>
+      <div class="pc-body">
+        <div class="pc-col pc-col--pro">
+          <div class="pc-row">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#eafaf1"/><path d="M6 10.5l2.8 2.8 5.2-6.3" stroke="#27AE60" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="pc-text"><strong>Consistent torque under load</strong><small>Didn't drop below 90% rated torque even at 15% battery in our stress test.</small></span>
+          </div>
+          <div class="pc-row">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#eafaf1"/><path d="M6 10.5l2.8 2.8 5.2-6.3" stroke="#27AE60" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="pc-text"><strong>Two batteries included at $129</strong><small>The Milwaukee equivalent ships with one battery for $70 more.</small></span>
+          </div>
+          <div class="pc-row">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#eafaf1"/><path d="M6 10.5l2.8 2.8 5.2-6.3" stroke="#27AE60" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="pc-text"><strong>Lightest in its class (2.89 lbs)</strong><small>After 2 hours of overhead drilling, this makes a real difference.</small></span>
+          </div>
+          <div class="pc-row">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#eafaf1"/><path d="M6 10.5l2.8 2.8 5.2-6.3" stroke="#27AE60" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="pc-text"><strong>3-year warranty, honored fast</strong><small>Our test unit had a chuck issue — replaced in 4 business days.</small></span>
+          </div>
+        </div>
+        <div class="pc-col pc-col--con">
+          <div class="pc-row">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#fef5ec"/><path d="M7 7l6 6M13 7l-6 6" stroke="#E67E22" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <span class="pc-text"><strong>Not the highest torque option</strong><small>Milwaukee FUEL produces 2.4× more torque — matters for concrete anchors.</small></span>
+          </div>
+          <div class="pc-row">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#fef5ec"/><path d="M7 7l6 6M13 7l-6 6" stroke="#E67E22" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <span class="pc-text"><strong>Belt clip sold separately</strong><small>Small omission at this price — the Milwaukee includes one out of the box.</small></span>
+          </div>
+          <div class="pc-row">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#fef5ec"/><path d="M7 7l6 6M13 7l-6 6" stroke="#E67E22" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <span class="pc-text"><strong>No brushless motor at base model</strong><small>The 20V brushless is $40 more — worth it if you drill daily.</small></span>
+          </div>
+          <div class="pc-row">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#fef5ec"/><path d="M7 7l6 6M13 7l-6 6" stroke="#E67E22" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <span class="pc-text"><strong>LED work light is dim</strong><small>Functional but doesn't illuminate deep cavities well.</small></span>
+          </div>
+        </div>
+      </div>
+      <div class="pc-footer">Based on 40 hours of hands-on testing &amp; 3,241 verified owner reviews</div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     ARTICLE + STICKY TOC
+════════════════════════════════════════════════════ -->
+<section class="section" id="section-article">
+  <div class="article-wrap">
+
+    <main id="article-main">
+      <div class="article-meta">
+        <span class="meta-tag">Kitchen</span>
+        <span class="meta-info">By Sarah Chen · <span style="color:var(--teal);font-weight:600">Last Updated: Jan 18, 2025</span> · 14 min read</span>
+      </div>
+      <h1>Best Cordless Drills of 2025: 11 Models Tested Over 6 Months</h1>
+      <p>We drilled 300+ holes, wore out two sets of bits, and tested 11 cordless drills across wood, drywall, ceramic tile, and concrete. Here's what we found — and the one that's worth every cent.</p>
+
+      <h2 id="how-we-tested">How We Tested</h2>
+      <p>Every drill was put through the same 6-phase protocol: startup torque measurement, sustained load test (drill 50 holes, measure torque drop), overhead endurance (2 hours continuous), battery drain curve, weight-fatigue assessment, and chuck durability (200 bit changes).</p>
+      <p>We used a calibrated torque sensor on every hole and logged battery percentages at each milestone. No eyeballing — every number in this guide is a measured result.</p>
+
+      <h2 id="our-top-picks">Our Top 3 Picks</h2>
+      <p>After six months and over 3,000 holes, three drills consistently outperformed the field. The DeWalt won on value. The Milwaukee won on raw power. The Ryobi won on price-to-performance for light-duty users.</p>
+
+      <h2 id="dewalt-review">DeWalt DCD777C2 — Full Review</h2>
+      <p>The DeWalt's secret is its motor efficiency curve. Where competitors ramp down at 40% battery to protect the cells, the DeWalt's battery management system sustains full torque down to 15% charge. In our 50-hole test, it averaged 334 UWO from hole 1 to hole 50 — a 1.8% variance. The Milwaukee dropped 11% over the same run.</p>
+      <p>Build quality is exceptional. The chuck has zero wobble at 1 year of daily use. The grip rubber hasn't separated. The LED survived a 6-foot drop onto concrete (unintentional test).</p>
+
+      <h2 id="who-should-buy">Who Should Buy Each Model</h2>
+      <p>Buy the <strong>DeWalt</strong> if you're a homeowner doing regular maintenance, furniture assembly, and occasional framing. It's the right tool for 85% of people reading this guide.</p>
+      <p>Buy the <strong>Milwaukee</strong> if you're in a trade, drilling masonry regularly, or building a Milwaukee ONE-KEY ecosystem. The extra torque is real and measurable.</p>
+      <p>Buy the <strong>Ryobi</strong> if you drill fewer than 10 times a month and you're already in the ONE+ ecosystem. It won't match the DeWalt in durability, but for light use it's excellent value.</p>
+
+      <h2 id="faq">Frequently Asked Questions</h2>
+      <p><strong>Is 20V enough for drilling concrete?</strong> For anchor bolts in soft concrete, yes — pair it with a hammer drill bit. For hard concrete or masonry work, step up to the Milwaukee or a dedicated hammer drill.</p>
+      <p><strong>Can I use my old DeWalt 20V batteries?</strong> Yes. All DeWalt 20V MAX batteries are cross-compatible with the DCD777C2.</p>
+    </main>
+
+    <aside>
+      <div class="toc-widget" id="ays-toc">
+        <div class="toc-header">
+          <span style="font-size:.875rem">📋</span>
+          <span class="toc-header-text">In This Review</span>
+        </div>
+        <ul class="toc-list" id="toc-list">
+          <!-- JS populates this -->
+        </ul>
+      </div>
+    </aside>
+
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     TRUST BAR
+════════════════════════════════════════════════════ -->
+<div class="trust-bar">
+  <div class="trust-grid">
+    <div>
+      <div class="trust-icon">✓</div>
+      <div class="trust-title">Hands-On Tested</div>
+      <div class="trust-sub">Every pick tested in real homes — not a lab</div>
+    </div>
+    <div>
+      <div class="trust-icon">✓</div>
+      <div class="trust-title">No Paid Placements</div>
+      <div class="trust-sub">Rankings based on performance only</div>
+    </div>
+    <div>
+      <div class="trust-icon">✓</div>
+      <div class="trust-title">Updated Monthly</div>
+      <div class="trust-sub">Reviews refreshed when new models launch</div>
+    </div>
+    <div>
+      <div class="trust-icon">✓</div>
+      <div class="trust-title">FTC Compliant</div>
+      <div class="trust-sub">Affiliate relationships always disclosed</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand-name">Everest <span>&amp;</span> Hearth</div>
+      <p class="footer-tagline">Honest, hands-on reviews for the products that matter in your home, garden, and beyond. Buy it once. Use it forever.</p>
+      <div class="footer-social">
+        <div class="social-btn">f</div>
+        <div class="social-btn">𝕏</div>
+        <div class="social-btn">in</div>
+        <div class="social-btn">▶</div>
+      </div>
+    </div>
+    <div>
+      <p class="footer-col-title">Categories</p>
+      <ul class="footer-links">
+        <li><a href="#">Kitchen</a></li>
+        <li><a href="#">Home &amp; Outdoor</a></li>
+        <li><a href="#">Gardening</a></li>
+        <li><a href="#">Pets</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-col-title">Reviews</p>
+      <ul class="footer-links">
+        <li><a href="#">Best Picks 2025</a></li>
+        <li><a href="#">Editor's Choice</a></li>
+        <li><a href="#">Budget Finds</a></li>
+        <li><a href="#">New Arrivals</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-col-title">Company</p>
+      <ul class="footer-links">
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">How We Test</a></li>
+        <li><a href="#">Affiliate Disclosure</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Everest &amp; Hearth. All rights reserved.</p>
+    <p><a href="#">Privacy Policy</a> · <a href="#">Terms</a> · <a href="#">Affiliate Disclosure</a></p>
+  </div>
+</footer>
+
+
+<!-- ════════════════════════════════════════════════════
+     TOC SCRIPT
+════════════════════════════════════════════════════ -->
+<script>
+(function () {
+  'use strict';
+  var article = document.getElementById('article-main');
+  var tocList = document.getElementById('toc-list');
+  if (!article || !tocList) return;
+
+  var headings = Array.from(article.querySelectorAll('h2'));
+  var activeLink = null;
+
+  headings.forEach(function (h) {
+    if (!h.id) h.id = h.textContent.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    var li = document.createElement('li');
+    li.className = 'toc-item toc-item--h2';
+    var a = document.createElement('a');
+    a.className = 'toc-link';
+    a.href = '#' + h.id;
+    a.dataset.id = h.id;
+    a.textContent = h.textContent;
+    li.appendChild(a);
+    tocList.appendChild(li);
+  });
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      var link = tocList.querySelector('[data-id="' + e.target.id + '"]');
+      if (!link || link === activeLink) return;
+      if (activeLink) activeLink.classList.remove('active');
+      link.classList.add('active');
+      activeLink = link;
+    });
+  }, { rootMargin: '-10% 0px -65% 0px', threshold: 0 });
+
+  headings.forEach(function (h) { observer.observe(h); });
+
+  tocList.addEventListener('click', function (e) {
+    var a = e.target.closest('.toc-link');
+    if (!a) return;
+    e.preventDefault();
+    var t = document.getElementById(a.dataset.id);
+    if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    history.pushState(null, '', '#' + a.dataset.id);
+  });
+
+  /* Category strip active state on click */
+  document.querySelectorAll('.cat-item').forEach(function (el) {
+    el.addEventListener('click', function () {
+      document.querySelectorAll('.cat-item').forEach(function (c) { c.classList.remove('active'); });
+      el.classList.add('active');
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

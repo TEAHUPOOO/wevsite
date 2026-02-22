@@ -1,0 +1,365 @@
+<!--
+  HOMEPAGE LAYOUT TEMPLATE — 100% Native Gutenberg Blocks
+  =========================================================
+  Copy each <!-- wp: --> block group into the WordPress Site
+  Editor (Appearance > Editor) or Full-Site Edit mode.
+
+  Structure:
+    1. Hero          — Full-width navy banner, headline, CTA
+    2. Category Grid — 4 category cards (Kitchen, Home & Outdoor, Gardening, Pets)
+    3. Feature Review Spotlight — Latest/featured review pull-out
+
+  All classes map to style.css in this child theme.
+  Replace all [[PLACEHOLDER]] values with real content/URLs.
+  =========================================================
+-->
+
+<!-- ========================================================
+     SECTION 1: HERO
+     Native blocks used: Cover, Group, Heading, Paragraph, Buttons
+     ======================================================== -->
+
+<!-- wp:cover {"url":"[[HERO_IMAGE_URL]]","dimRatio":75,"overlayColor":"navy","minHeight":560,"minHeightUnit":"px","align":"full","className":"ays-hero"} -->
+<div class="wp-block-cover alignfull ays-hero" style="min-height:560px">
+  <span aria-hidden="true" class="wp-block-cover__background has-navy-background-color has-background-dim-75"></span>
+  <img class="wp-block-cover__image-background" alt="[[Hero image alt text]]" src="[[HERO_IMAGE_URL]]" data-object-fit="cover"/>
+  <div class="wp-block-cover__inner-container">
+
+    <!-- wp:group {"layout":{"type":"constrained","contentSize":"680px"},"className":"ays-hero__inner"} -->
+    <div class="wp-block-group ays-hero__inner">
+
+      <!-- wp:paragraph {"className":"ays-hero__eyebrow","textColor":"vivid-green-cyan"} -->
+      <p class="wp-block-paragraph ays-hero__eyebrow has-vivid-green-cyan-color has-text-color">
+        Trusted Reviews &amp; Expert Picks
+      </p>
+      <!-- /wp:paragraph -->
+
+      <!-- wp:heading {"level":1,"className":"ays-hero__headline","textColor":"white"} -->
+      <h1 class="wp-block-heading ays-hero__headline has-white-color has-text-color">
+        [[Your Site's Primary Value Proposition Headline]]
+      </h1>
+      <!-- /wp:heading -->
+
+      <!-- wp:paragraph {"className":"ays-hero__subline","textColor":"white"} -->
+      <p class="wp-block-paragraph ays-hero__subline has-white-color has-text-color">
+        [[1-2 sentences. Who you help, how you help them, why they should trust you.
+        Example: "We test every product in real homes so you can shop with confidence —
+        not just click on the first result Google throws at you."]]
+      </p>
+      <!-- /wp:paragraph -->
+
+      <!-- wp:buttons -->
+      <div class="wp-block-buttons">
+        <!-- wp:button {"className":"is-style-cta"} -->
+        <div class="wp-block-button is-style-cta">
+          <a class="wp-block-button__link wp-element-button" href="[[/best-picks-url]]">
+            See Our Best Picks
+          </a>
+        </div>
+        <!-- /wp:button -->
+
+        <!-- wp:button {"className":"is-style-outline"} -->
+        <div class="wp-block-button is-style-outline">
+          <a class="wp-block-button__link wp-element-button" href="[[/about-url]]">
+            How We Test
+          </a>
+        </div>
+        <!-- /wp:button -->
+      </div>
+      <!-- /wp:buttons -->
+
+    </div>
+    <!-- /wp:group -->
+
+  </div>
+</div>
+<!-- /wp:cover -->
+
+
+<!-- ========================================================
+     SECTION 2: CATEGORY GRID
+     Native blocks: Group, Columns, Column, Cover, Heading, Paragraph
+     ======================================================== -->
+
+<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"4rem","bottom":"4rem"}}},"backgroundColor":"off-white"} -->
+<div class="wp-block-group alignfull" style="padding-top:4rem;padding-bottom:4rem;background-color:#f8f9fa">
+
+  <!-- Section label + heading -->
+  <!-- wp:group {"layout":{"type":"constrained"},"style":{"spacing":{"margin":{"bottom":"2.5rem"}}}} -->
+  <div class="wp-block-group" style="margin-bottom:2.5rem;text-align:center">
+
+    <!-- wp:paragraph {"className":"ays-section-label"} -->
+    <p class="wp-block-paragraph ays-section-label">Browse by Category</p>
+    <!-- /wp:paragraph -->
+
+    <!-- wp:heading {"level":2,"style":{"typography":{"fontSize":"2rem"}}} -->
+    <h2 class="wp-block-heading" style="font-size:2rem">
+      Everything You Need, Tested &amp; Trusted
+    </h2>
+    <!-- /wp:heading -->
+
+  </div>
+  <!-- /wp:group -->
+
+  <!-- 4-column category grid -->
+  <!-- wp:columns {"align":"wide","className":"ays-category-grid","style":{"spacing":{"blockGap":"1.5rem"}}} -->
+  <div class="wp-block-columns alignwide ays-category-grid">
+
+    <!-- ── Kitchen ── -->
+    <!-- wp:column -->
+    <div class="wp-block-column">
+      <!-- wp:cover {"url":"[[KITCHEN_IMAGE_URL]]","dimRatio":55,"minHeight":380,"minHeightUnit":"px","className":"ays-category-card","linkDestination":"/kitchen/"} -->
+      <div class="wp-block-cover ays-category-card" style="min-height:380px">
+        <span aria-hidden="true" class="wp-block-cover__background has-background-dim-55"></span>
+        <img class="wp-block-cover__image-background" src="[[KITCHEN_IMAGE_URL]]" alt="Kitchen category" data-object-fit="cover"/>
+        <div class="wp-block-cover__inner-container">
+          <div class="ays-category-card__overlay"></div>
+          <div class="ays-category-card__label">
+            Kitchen
+            <div class="ays-category-card__count">[[N]] Reviews</div>
+          </div>
+        </div>
+      </div>
+      <!-- /wp:cover -->
+    </div>
+    <!-- /wp:column -->
+
+    <!-- ── Home & Outdoor ── -->
+    <!-- wp:column -->
+    <div class="wp-block-column">
+      <!-- wp:cover {"url":"[[HOME_OUTDOOR_IMAGE_URL]]","dimRatio":55,"minHeight":380,"minHeightUnit":"px","className":"ays-category-card"} -->
+      <div class="wp-block-cover ays-category-card" style="min-height:380px">
+        <span aria-hidden="true" class="wp-block-cover__background has-background-dim-55"></span>
+        <img class="wp-block-cover__image-background" src="[[HOME_OUTDOOR_IMAGE_URL]]" alt="Home and Outdoor category" data-object-fit="cover"/>
+        <div class="wp-block-cover__inner-container">
+          <div class="ays-category-card__overlay"></div>
+          <div class="ays-category-card__label">
+            Home &amp; Outdoor
+            <div class="ays-category-card__count">[[N]] Reviews</div>
+          </div>
+        </div>
+      </div>
+      <!-- /wp:cover -->
+    </div>
+    <!-- /wp:column -->
+
+    <!-- ── Gardening ── -->
+    <!-- wp:column -->
+    <div class="wp-block-column">
+      <!-- wp:cover {"url":"[[GARDENING_IMAGE_URL]]","dimRatio":55,"minHeight":380,"minHeightUnit":"px","className":"ays-category-card"} -->
+      <div class="wp-block-cover ays-category-card" style="min-height:380px">
+        <span aria-hidden="true" class="wp-block-cover__background has-background-dim-55"></span>
+        <img class="wp-block-cover__image-background" src="[[GARDENING_IMAGE_URL]]" alt="Gardening category" data-object-fit="cover"/>
+        <div class="wp-block-cover__inner-container">
+          <div class="ays-category-card__overlay"></div>
+          <div class="ays-category-card__label">
+            Gardening
+            <div class="ays-category-card__count">[[N]] Reviews</div>
+          </div>
+        </div>
+      </div>
+      <!-- /wp:cover -->
+    </div>
+    <!-- /wp:column -->
+
+    <!-- ── Pets ── -->
+    <!-- wp:column -->
+    <div class="wp-block-column">
+      <!-- wp:cover {"url":"[[PETS_IMAGE_URL]]","dimRatio":55,"minHeight":380,"minHeightUnit":"px","className":"ays-category-card"} -->
+      <div class="wp-block-cover ays-category-card" style="min-height:380px">
+        <span aria-hidden="true" class="wp-block-cover__background has-background-dim-55"></span>
+        <img class="wp-block-cover__image-background" src="[[PETS_IMAGE_URL]]" alt="Pets category" data-object-fit="cover"/>
+        <div class="wp-block-cover__inner-container">
+          <div class="ays-category-card__overlay"></div>
+          <div class="ays-category-card__label">
+            Pets
+            <div class="ays-category-card__count">[[N]] Reviews</div>
+          </div>
+        </div>
+      </div>
+      <!-- /wp:cover -->
+    </div>
+    <!-- /wp:column -->
+
+  </div>
+  <!-- /wp:columns -->
+
+</div>
+<!-- /wp:group -->
+
+
+<!-- ========================================================
+     SECTION 3: FEATURE REVIEW SPOTLIGHT
+     Native blocks: Group, Columns, Column, Image, Heading,
+                    Paragraph, Buttons, Separator
+     ======================================================== -->
+
+<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"4.5rem","bottom":"4.5rem"}}}} -->
+<div class="wp-block-group alignfull" style="padding-top:4.5rem;padding-bottom:4.5rem">
+
+  <!-- wp:group {"layout":{"type":"constrained"}} -->
+  <div class="wp-block-group">
+
+    <!-- Section label -->
+    <!-- wp:paragraph {"className":"ays-section-label"} -->
+    <p class="wp-block-paragraph ays-section-label">Featured Review</p>
+    <!-- /wp:paragraph -->
+
+    <!-- Spotlight card -->
+    <!-- wp:group {"className":"ays-spotlight"} -->
+    <div class="wp-block-group ays-spotlight">
+
+      <!-- wp:columns {"style":{"spacing":{"blockGap":"0"}}} -->
+      <div class="wp-block-columns" style="gap:0">
+
+        <!-- Left: product image -->
+        <!-- wp:column {"width":"50%","className":"ays-spotlight__image-wrap"} -->
+        <div class="wp-block-column ays-spotlight__image-wrap" style="flex-basis:50%">
+
+          <!-- Floating badge (HTML block inside column) -->
+          <!-- wp:html -->
+          <span class="ays-spotlight__badge">Editor's Choice [[Year]]</span>
+          <!-- /wp:html -->
+
+          <!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ays-spotlight__image"} -->
+          <figure class="wp-block-image size-full ays-spotlight__image">
+            <img src="[[SPOTLIGHT_PRODUCT_IMAGE_URL]]" alt="[[Product Name]] — [[Category]] Review" loading="lazy"/>
+          </figure>
+          <!-- /wp:image -->
+
+        </div>
+        <!-- /wp:column -->
+
+        <!-- Right: editorial content -->
+        <!-- wp:column {"width":"50%","className":"ays-spotlight__content","style":{"spacing":{"padding":{"top":"3rem","bottom":"3rem","left":"3rem","right":"3rem"}}}} -->
+        <div class="wp-block-column ays-spotlight__content" style="flex-basis:50%;padding:3rem">
+
+          <!-- wp:paragraph {"className":"ays-spotlight__tag"} -->
+          <p class="wp-block-paragraph ays-spotlight__tag">[[Category]] · [[Subcategory]]</p>
+          <!-- /wp:paragraph -->
+
+          <!-- wp:heading {"level":2,"className":"ays-spotlight__title"} -->
+          <h2 class="wp-block-heading ays-spotlight__title">
+            [[Featured Product or Article Headline — make it specific and benefit-led]]
+          </h2>
+          <!-- /wp:heading -->
+
+          <!-- wp:paragraph {"className":"ays-spotlight__excerpt"} -->
+          <p class="wp-block-paragraph ays-spotlight__excerpt">
+            [[2-3 sentence hook. Summarize the most compelling finding from the review.
+            Speak to the reader's pain point first, then introduce the product as the
+            solution. Example: "Most [[category]] reviews skip the durability test.
+            We didn't. After [[X weeks]] of daily use, here's what actually held up — and what didn't."]]
+          </p>
+          <!-- /wp:paragraph -->
+
+          <!-- Rating display (HTML block) -->
+          <!-- wp:html -->
+          <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:1.5rem">
+            <span style="color:#f59e0b;font-size:1.25rem" aria-label="Rated [[RATING]] out of 5">★★★★★</span>
+            <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:.875rem;color:#2C3E50">[[RATING]]/5</span>
+            <span style="font-size:.8125rem;color:#6c757d">([[N]] verified reviews)</span>
+          </div>
+          <!-- /wp:html -->
+
+          <!-- wp:buttons -->
+          <div class="wp-block-buttons">
+            <!-- wp:button {"className":"is-style-cta"} -->
+            <div class="wp-block-button is-style-cta">
+              <a class="wp-block-button__link wp-element-button" href="[[REVIEW_POST_URL]]">
+                Read Full Review
+              </a>
+            </div>
+            <!-- /wp:button -->
+          </div>
+          <!-- /wp:buttons -->
+
+        </div>
+        <!-- /wp:column -->
+
+      </div>
+      <!-- /wp:columns -->
+
+    </div>
+    <!-- /wp:group (spotlight) -->
+
+  </div>
+  <!-- /wp:group (constrained) -->
+
+</div>
+<!-- /wp:group (section) -->
+
+
+<!-- ========================================================
+     SECTION 4: TRUST BAR (optional but recommended)
+     Adds an E-E-A-T signal — "Why Trust Us?" strip
+     ======================================================== -->
+
+<!-- wp:group {"align":"full","backgroundColor":"navy","style":{"spacing":{"padding":{"top":"2rem","bottom":"2rem"}}}} -->
+<div class="wp-block-group alignfull has-navy-background-color has-background" style="padding-top:2rem;padding-bottom:2rem;background-color:#2C3E50">
+
+  <!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":"2rem"}}} -->
+  <div class="wp-block-columns alignwide" style="gap:2rem;justify-content:center;text-align:center">
+
+    <!-- Trust signal 1 -->
+    <!-- wp:column -->
+    <div class="wp-block-column">
+      <!-- wp:html -->
+      <div style="color:#27AE60;font-size:1.75rem;margin-bottom:.375rem">✓</div>
+      <!-- /wp:html -->
+      <!-- wp:paragraph {"textColor":"white","style":{"typography":{"fontWeight":"700","fontSize":"0.875rem"}}} -->
+      <p class="has-white-color has-text-color" style="font-weight:700;font-size:.875rem">Hands-On Tested</p>
+      <!-- /wp:paragraph -->
+      <!-- wp:paragraph {"textColor":"white","style":{"typography":{"fontSize":"0.75rem"},"color":{"text":"rgba(255,255,255,0.65)"}}} -->
+      <p style="font-size:.75rem;color:rgba(255,255,255,.65)">Every pick tested in real conditions</p>
+      <!-- /wp:paragraph -->
+    </div>
+    <!-- /wp:column -->
+
+    <!-- Trust signal 2 -->
+    <!-- wp:column -->
+    <div class="wp-block-column">
+      <!-- wp:html -->
+      <div style="color:#27AE60;font-size:1.75rem;margin-bottom:.375rem">✓</div>
+      <!-- /wp:html -->
+      <!-- wp:paragraph {"textColor":"white","style":{"typography":{"fontWeight":"700","fontSize":"0.875rem"}}} -->
+      <p class="has-white-color has-text-color" style="font-weight:700;font-size:.875rem">No Paid Placements</p>
+      <!-- /wp:paragraph -->
+      <!-- wp:paragraph style="font-size:.75rem;color:rgba(255,255,255,.65)">Rankings based on merit only</p>
+      <!-- /wp:paragraph -->
+    </div>
+    <!-- /wp:column -->
+
+    <!-- Trust signal 3 -->
+    <!-- wp:column -->
+    <div class="wp-block-column">
+      <!-- wp:html -->
+      <div style="color:#27AE60;font-size:1.75rem;margin-bottom:.375rem">✓</div>
+      <!-- /wp:html -->
+      <!-- wp:paragraph {"textColor":"white","style":{"typography":{"fontWeight":"700","fontSize":"0.875rem"}}} -->
+      <p class="has-white-color has-text-color" style="font-weight:700;font-size:.875rem">Regularly Updated</p>
+      <!-- /wp:paragraph -->
+      <!-- wp:paragraph style="font-size:.75rem;color:rgba(255,255,255,.65)">Reviews refreshed as new models launch</p>
+      <!-- /wp:paragraph -->
+    </div>
+    <!-- /wp:column -->
+
+    <!-- Trust signal 4 -->
+    <!-- wp:column -->
+    <div class="wp-block-column">
+      <!-- wp:html -->
+      <div style="color:#27AE60;font-size:1.75rem;margin-bottom:.375rem">✓</div>
+      <!-- /wp:html -->
+      <!-- wp:paragraph {"textColor":"white","style":{"typography":{"fontWeight":"700","fontSize":"0.875rem"}}} -->
+      <p class="has-white-color has-text-color" style="font-weight:700;font-size:.875rem">FTC Compliant</p>
+      <!-- /wp:paragraph -->
+      <!-- wp:paragraph style="font-size:.75rem;color:rgba(255,255,255,.65)">Affiliate links disclosed on every page</p>
+      <!-- /wp:paragraph -->
+    </div>
+    <!-- /wp:column -->
+
+  </div>
+  <!-- /wp:columns -->
+
+</div>
+<!-- /wp:group -->

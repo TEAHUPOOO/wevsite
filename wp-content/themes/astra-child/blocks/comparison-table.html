@@ -1,0 +1,371 @@
+<!--
+  BLOCK: Dynamic Top 3 Comparison Table
+  Usage: Paste into a Gutenberg "Custom HTML" block.
+  The #1 pick card is visually elevated with a floating badge,
+  green border, and slight scale — so it reads as the clear winner
+  without needing a separate "sponsored" feel.
+  Replace all [[PLACEHOLDER]] values with real product data.
+-->
+
+<style>
+/* ── Comparison Table ───────────────────────────────────── */
+.ays-comparison-table {
+  margin: 2.5rem 0;
+  width: 100%;
+}
+
+.ays-comparison-table__heading {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #27AE60;
+  margin-bottom: 1.25rem;
+}
+
+.ays-comparison-table__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  align-items: start; /* cards start at same baseline */
+}
+
+/* ── Base Card ───────────────────────────────────────────── */
+.ays-ct-card {
+  background: #ffffff;
+  border: 1px solid #e9ecef;
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 250ms ease;
+}
+.ays-ct-card:hover {
+  box-shadow: 0 8px 24px rgba(0,0,0,.10);
+}
+
+/* ── #1 Pick — Elevated / Floating Card ─────────────────── */
+.ays-ct-card--top {
+  border: 2px solid #27AE60;
+  border-radius: 16px;
+  box-shadow: 0 12px 36px rgba(39,174,96,.18);
+  transform: translateY(-8px); /* the "float" */
+  z-index: 1;
+  position: relative;
+}
+.ays-ct-card--top:hover {
+  box-shadow: 0 20px 48px rgba(39,174,96,.24);
+}
+
+/* Floating badge anchored to the top card */
+.ays-ct-card__badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #27AE60;
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.25rem 0.875rem;
+  border-radius: 99px;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(39,174,96,.35);
+}
+
+.ays-ct-card__rank {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #6c757d;
+  padding: 1.25rem 1.25rem 0;
+}
+
+.ays-ct-card__rank--top { color: #1e8449; }
+
+.ays-ct-card__image {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: contain;
+  padding: 1rem;
+  background: #f8f9fa;
+}
+
+.ays-ct-card__body {
+  padding: 1.25rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.ays-ct-card__name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #2C3E50;
+  margin: 0 0 0.5rem;
+  line-height: 1.3;
+}
+
+.ays-ct-card__rating {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  margin-bottom: 0.875rem;
+}
+.ays-ct-card__stars { color: #f59e0b; font-size: 0.875rem; }
+.ays-ct-card__score {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #6c757d;
+}
+
+/* Spec rows inside card */
+.ays-ct-card__specs {
+  list-style: none;
+  margin: 0 0 1rem;
+  padding: 0;
+  border-top: 1px solid #f1f3f5;
+  padding-top: 0.875rem;
+}
+.ays-ct-card__spec {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8125rem;
+  padding: 0.3rem 0;
+  border-bottom: 1px solid #f1f3f5;
+  gap: 0.5rem;
+}
+.ays-ct-card__spec-label {
+  color: #6c757d;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.ays-ct-card__spec-value {
+  color: #2C3E50;
+  font-weight: 600;
+  text-align: right;
+}
+
+.ays-ct-card__price {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.375rem;
+  font-weight: 800;
+  color: #2C3E50;
+  margin-bottom: 0.875rem;
+}
+.ays-ct-card__price--top { color: #1e8449; }
+
+/* CTA Button */
+.ays-ct-card__cta {
+  display: block;
+  text-align: center;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  transition: all 250ms ease;
+  margin-top: auto;
+}
+.ays-ct-card__cta--primary {
+  background: #27AE60;
+  color: #ffffff;
+}
+.ays-ct-card__cta--primary:hover {
+  background: #1e8449;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(39,174,96,.35);
+  color: #ffffff;
+}
+.ays-ct-card__cta--secondary {
+  background: #f1f3f5;
+  color: #2C3E50;
+}
+.ays-ct-card__cta--secondary:hover {
+  background: #e9ecef;
+  color: #2C3E50;
+}
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .ays-comparison-table__grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;       /* extra gap to accommodate the badge overhang */
+  }
+  .ays-ct-card--top {
+    transform: none; /* no float on mobile — just a green border */
+    order: -1;       /* always first */
+    margin-top: 1rem;/* space for badge */
+  }
+}
+</style>
+
+<section class="ays-comparison-table" aria-label="Top 3 Product Comparison">
+  <p class="ays-comparison-table__heading">Our Top Picks — [[Category Name]]</p>
+
+  <div class="ays-comparison-table__grid">
+
+    <!-- ══ PICK #1 (Elevated / Floating) ══════════════════ -->
+    <article class="ays-ct-card ays-ct-card--top" aria-label="Best overall pick">
+      <span class="ays-ct-card__badge">★ Best Overall</span>
+      <div class="ays-ct-card__rank ays-ct-card__rank--top">#1 Pick</div>
+
+      <img
+        class="ays-ct-card__image"
+        src="[[IMAGE_URL_1]]"
+        alt="[[Product Name 1]]"
+        loading="lazy"
+        width="400"
+        height="300"
+      />
+
+      <div class="ays-ct-card__body">
+        <h3 class="ays-ct-card__name">[[Product Name 1]]</h3>
+
+        <div class="ays-ct-card__rating" aria-label="Rated 4.8 out of 5">
+          <span class="ays-ct-card__stars" aria-hidden="true">★★★★★</span>
+          <span class="ays-ct-card__score">4.8 (312 reviews)</span>
+        </div>
+
+        <ul class="ays-ct-card__specs">
+          <li class="ays-ct-card__spec">
+            <span class="ays-ct-card__spec-label">[[Spec Label 1]]</span>
+            <span class="ays-ct-card__spec-value">[[Spec Value 1]]</span>
+          </li>
+          <li class="ays-ct-card__spec">
+            <span class="ays-ct-card__spec-label">[[Spec Label 2]]</span>
+            <span class="ays-ct-card__spec-value">[[Spec Value 2]]</span>
+          </li>
+          <li class="ays-ct-card__spec">
+            <span class="ays-ct-card__spec-label">[[Spec Label 3]]</span>
+            <span class="ays-ct-card__spec-value">[[Spec Value 3]]</span>
+          </li>
+        </ul>
+
+        <p class="ays-ct-card__price ays-ct-card__price--top">[[Price 1]]</p>
+
+        <a
+          class="ays-ct-card__cta ays-ct-card__cta--primary"
+          href="[[AFFILIATE_LINK_1]]"
+          target="_blank"
+          rel="nofollow sponsored noopener"
+          aria-label="Check price for [[Product Name 1]]"
+        >
+          Check Price on Amazon
+        </a>
+      </div>
+    </article>
+
+    <!-- ══ PICK #2 ════════════════════════════════════════ -->
+    <article class="ays-ct-card">
+      <div class="ays-ct-card__rank">#2 Pick</div>
+
+      <img
+        class="ays-ct-card__image"
+        src="[[IMAGE_URL_2]]"
+        alt="[[Product Name 2]]"
+        loading="lazy"
+        width="400"
+        height="300"
+      />
+
+      <div class="ays-ct-card__body">
+        <h3 class="ays-ct-card__name">[[Product Name 2]]</h3>
+
+        <div class="ays-ct-card__rating" aria-label="Rated 4.5 out of 5">
+          <span class="ays-ct-card__stars" aria-hidden="true">★★★★½</span>
+          <span class="ays-ct-card__score">4.5 (198 reviews)</span>
+        </div>
+
+        <ul class="ays-ct-card__specs">
+          <li class="ays-ct-card__spec">
+            <span class="ays-ct-card__spec-label">[[Spec Label 1]]</span>
+            <span class="ays-ct-card__spec-value">[[Spec Value 1]]</span>
+          </li>
+          <li class="ays-ct-card__spec">
+            <span class="ays-ct-card__spec-label">[[Spec Label 2]]</span>
+            <span class="ays-ct-card__spec-value">[[Spec Value 2]]</span>
+          </li>
+          <li class="ays-ct-card__spec">
+            <span class="ays-ct-card__spec-label">[[Spec Label 3]]</span>
+            <span class="ays-ct-card__spec-value">[[Spec Value 3]]</span>
+          </li>
+        </ul>
+
+        <p class="ays-ct-card__price">[[Price 2]]</p>
+
+        <a
+          class="ays-ct-card__cta ays-ct-card__cta--secondary"
+          href="[[AFFILIATE_LINK_2]]"
+          target="_blank"
+          rel="nofollow sponsored noopener"
+          aria-label="Check price for [[Product Name 2]]"
+        >
+          Check Price on Amazon
+        </a>
+      </div>
+    </article>
+
+    <!-- ══ PICK #3 ════════════════════════════════════════ -->
+    <article class="ays-ct-card">
+      <div class="ays-ct-card__rank">#3 Pick</div>
+
+      <img
+        class="ays-ct-card__image"
+        src="[[IMAGE_URL_3]]"
+        alt="[[Product Name 3]]"
+        loading="lazy"
+        width="400"
+        height="300"
+      />
+
+      <div class="ays-ct-card__body">
+        <h3 class="ays-ct-card__name">[[Product Name 3]]</h3>
+
+        <div class="ays-ct-card__rating" aria-label="Rated 4.3 out of 5">
+          <span class="ays-ct-card__stars" aria-hidden="true">★★★★☆</span>
+          <span class="ays-ct-card__score">4.3 (87 reviews)</span>
+        </div>
+
+        <ul class="ays-ct-card__specs">
+          <li class="ays-ct-card__spec">
+            <span class="ays-ct-card__spec-label">[[Spec Label 1]]</span>
+            <span class="ays-ct-card__spec-value">[[Spec Value 1]]</span>
+          </li>
+          <li class="ays-ct-card__spec">
+            <span class="ays-ct-card__spec-label">[[Spec Label 2]]</span>
+            <span class="ays-ct-card__spec-value">[[Spec Value 2]]</span>
+          </li>
+          <li class="ays-ct-card__spec">
+            <span class="ays-ct-card__spec-label">[[Spec Label 3]]</span>
+            <span class="ays-ct-card__spec-value">[[Spec Value 3]]</span>
+          </li>
+        </ul>
+
+        <p class="ays-ct-card__price">[[Price 3]]</p>
+
+        <a
+          class="ays-ct-card__cta ays-ct-card__cta--secondary"
+          href="[[AFFILIATE_LINK_3]]"
+          target="_blank"
+          rel="nofollow sponsored noopener"
+          aria-label="Check price for [[Product Name 3]]"
+        >
+          Check Price on Amazon
+        </a>
+      </div>
+    </article>
+
+  </div><!-- /.ays-comparison-table__grid -->
+</section>
