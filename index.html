@@ -1421,6 +1421,218 @@
       border-radius: 0 0 var(--r-md) var(--r-md);
     }
     .skip-link:focus { left: 50%; transform: translateX(-50%); }
+
+    /* ══════════════════════════════════════════════════════
+       SUBCATEGORY SYSTEM
+    ══════════════════════════════════════════════════════ */
+    .subcat-section {
+      margin-top: var(--space-md);
+    }
+    /* Accordion toggle (mobile) */
+    .subcat-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: .875rem var(--space-sm);
+      background: var(--gray-50);
+      border: 1.5px solid var(--gray-200);
+      border-radius: var(--r-lg);
+      cursor: pointer;
+      transition: background .15s, border-color .15s;
+      min-height: 48px;
+    }
+    .subcat-toggle:hover { background: var(--gray-100); border-color: var(--gray-400); }
+    .subcat-toggle:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+    .subcat-toggle__text {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .8125rem;
+      font-weight: 700;
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+    .subcat-toggle__count {
+      font-family: 'Inter', sans-serif;
+      font-size: .6875rem;
+      font-weight: 600;
+      color: var(--gray-600);
+      background: var(--gray-200);
+      padding: .125rem .5rem;
+      border-radius: 99px;
+    }
+    .subcat-toggle__arrow {
+      font-size: .75rem;
+      color: var(--gray-600);
+      transition: transform .25s;
+      flex-shrink: 0;
+    }
+    .subcat-toggle[aria-expanded="true"] .subcat-toggle__arrow {
+      transform: rotate(180deg);
+    }
+    .subcat-toggle[aria-expanded="true"] {
+      background: var(--teal-light);
+      border-color: var(--teal);
+      border-radius: var(--r-lg) var(--r-lg) 0 0;
+    }
+
+    /* Subcategory panel */
+    .subcat-panel {
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transition: max-height .35s ease, opacity .25s ease, padding .25s;
+      border: 1.5px solid var(--gray-200);
+      border-top: none;
+      border-radius: 0 0 var(--r-lg) var(--r-lg);
+      background: #fff;
+    }
+    .subcat-panel.is-open {
+      opacity: 1;
+      padding: var(--space-sm);
+    }
+
+    /* Subgroup label (e.g. "Home" / "Outdoor" split) */
+    .subcat-group-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .6875rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: var(--gray-600);
+      margin-bottom: .625rem;
+      padding-bottom: .375rem;
+      border-bottom: 1px solid var(--gray-100);
+      display: flex;
+      align-items: center;
+      gap: .375rem;
+    }
+    .subcat-group-label:not(:first-child) {
+      margin-top: 1.25rem;
+    }
+
+    /* Chip grid */
+    .subcat-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      list-style: none;
+    }
+    .subcat-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: .375rem;
+      padding: .5rem .875rem;
+      background: var(--gray-50);
+      border: 1.5px solid var(--gray-200);
+      border-radius: 99px;
+      font-size: .8125rem;
+      font-weight: 500;
+      color: var(--navy);
+      transition: all .15s;
+      white-space: nowrap;
+      min-height: 40px;
+      text-decoration: none;
+    }
+    .subcat-chip:hover {
+      background: var(--teal-light);
+      border-color: var(--teal);
+      color: var(--teal-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 2px 8px rgba(39,174,96,.12);
+    }
+    .subcat-chip:focus-visible {
+      outline: 2px solid var(--teal);
+      outline-offset: 2px;
+    }
+    .subcat-chip:active {
+      transform: translateY(0);
+      box-shadow: none;
+    }
+    .subcat-chip__badge {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .5625rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: #fff;
+      background: var(--orange);
+      padding: .125rem .375rem;
+      border-radius: 99px;
+      line-height: 1.2;
+    }
+    .subcat-chip__arrow {
+      font-size: .6875rem;
+      color: var(--gray-400);
+      transition: transform .15s, color .15s;
+    }
+    .subcat-chip:hover .subcat-chip__arrow {
+      transform: translateX(2px);
+      color: var(--teal);
+    }
+
+    /* Start here CTA */
+    .subcat-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: .375rem;
+      margin-top: 1rem;
+      padding: .625rem 1.25rem;
+      background: var(--navy);
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-size: .75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      border-radius: 99px;
+      transition: background .15s, transform .15s;
+      min-height: 44px;
+    }
+    .subcat-cta:hover { background: var(--teal-dark); transform: translateY(-1px); }
+    .subcat-cta:focus-visible { outline: 2px solid var(--orange); outline-offset: 2px; }
+
+    /* Category helper text */
+    .category-section__helper {
+      font-size: .8125rem;
+      color: var(--gray-600);
+      line-height: 1.55;
+      margin-top: -.5rem;
+      margin-bottom: var(--space-md);
+      max-width: 600px;
+    }
+
+    /* Desktop: auto-expand panels, hide toggle arrow */
+    @media (min-width: 1024px) {
+      .subcat-toggle {
+        cursor: default;
+        pointer-events: none;
+        background: transparent;
+        border: none;
+        padding: .5rem 0;
+      }
+      .subcat-toggle:hover { background: transparent; border-color: transparent; }
+      .subcat-toggle__arrow { display: none; }
+      .subcat-toggle[aria-expanded="true"] {
+        background: transparent;
+        border: none;
+        border-radius: 0;
+      }
+      .subcat-panel {
+        max-height: none !important;
+        opacity: 1;
+        padding: 0;
+        border: none;
+        border-radius: 0;
+        overflow: visible;
+      }
+      .subcat-chips { gap: .625rem; }
+      .subcat-chip {
+        padding: .5rem 1rem;
+        font-size: .8125rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1768,9 +1980,32 @@
         <h2 class="section-title" id="kitchen-title">Kitchen Essentials</h2>
         <p class="section-sub">Cookware, appliances, and tools tested in real kitchens — so you invest in gear that performs meal after meal.</p>
       </div>
-      <a href="#" class="category-section__view-all">View All Kitchen Reviews →</a>
+      <a href="/kitchen/" class="category-section__view-all">View All Kitchen Reviews →</a>
     </div>
-    <div class="category-grid">
+    <p class="category-section__helper">From food prep to organization — find the right tools for every corner of your kitchen.</p>
+
+    <!-- Subcategories -->
+    <div class="subcat-section" data-subcat="kitchen">
+      <button class="subcat-toggle" aria-expanded="false" aria-controls="subcat-kitchen">
+        <span class="subcat-toggle__text">Browse Kitchen Subcategories <span class="subcat-toggle__count">8</span></span>
+        <span class="subcat-toggle__arrow" aria-hidden="true">▼</span>
+      </button>
+      <div class="subcat-panel" id="subcat-kitchen" role="region" aria-label="Kitchen subcategories">
+        <ul class="subcat-chips">
+          <li><a href="/kitchen/food-prep-gadgets" class="subcat-chip"><span class="subcat-chip__badge">Popular</span> Food Prep Gadgets <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
+          <li><a href="/kitchen/kitchen-scales-measuring-tools" class="subcat-chip">Kitchen Scales &amp; Measuring Tools <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
+          <li><a href="/kitchen/storage-meal-prep-containers" class="subcat-chip">Storage &amp; Meal Prep Containers <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
+          <li><a href="/kitchen/cookware-bakeware-essentials" class="subcat-chip"><span class="subcat-chip__badge">Popular</span> Cookware &amp; Bakeware Essentials <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
+          <li><a href="/kitchen/coffee-drink-tools" class="subcat-chip">Coffee &amp; Drink Tools <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
+          <li><a href="/kitchen/cutting-boards-knife-accessories" class="subcat-chip">Cutting Boards &amp; Knife Accessories <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
+          <li><a href="/kitchen/air-fryer-small-appliance-accessories" class="subcat-chip">Air Fryer &amp; Small Appliance Accessories <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
+          <li><a href="/kitchen/kitchen-organization-tools" class="subcat-chip">Kitchen Organization Tools <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
+        </ul>
+        <a href="/kitchen/" class="subcat-cta">Start Here: Kitchen Guides →</a>
+      </div>
+    </div>
+
+    <div class="category-grid" style="margin-top:var(--space-lg)">
       <div class="cat-card">
         <div class="cat-card__img cat-card__img--kitchen"><span class="cat-card__tag cat-card__tag--top">Top Pick</span>🔪</div>
         <div class="cat-card__body">
@@ -1828,9 +2063,38 @@
         <h2 class="section-title" id="home-title">Home &amp; Outdoor Gear</h2>
         <p class="section-sub">Power tools, furniture, and outdoor equipment built to handle real life — not just showroom demos.</p>
       </div>
-      <a href="#" class="category-section__view-all">View All Home Reviews →</a>
+      <a href="/home-outdoor/" class="category-section__view-all">View All Home Reviews →</a>
     </div>
-    <div class="category-grid">
+    <p class="category-section__helper">Everything you need to maintain, organize, and enjoy your indoor and outdoor spaces.</p>
+
+    <!-- Subcategories -->
+    <div class="subcat-section" data-subcat="home">
+      <button class="subcat-toggle" aria-expanded="false" aria-controls="subcat-home">
+        <span class="subcat-toggle__text">Browse Home &amp; Outdoor Subcategories <span class="subcat-toggle__count">10</span></span>
+        <span class="subcat-toggle__arrow" aria-hidden="true">▼</span>
+      </button>
+      <div class="subcat-panel" id="subcat-home" role="region" aria-label="Home and Outdoor subcategories">
+        <p class="subcat-group-label">🏠 Home</p>
+        <ul class="subcat-chips">
+          <li><a href="/home-outdoor/cleaning-tools-gadgets" class="subcat-chip"><span class="subcat-chip__badge">Popular</span> Cleaning Tools &amp; Gadgets <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
+          <li><a href="/home-outdoor/storage-organization" class="subcat-chip">Storage &amp; Organization <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
+          <li><a href="/home-outdoor/laundry-tools" class="subcat-chip">Laundry Tools <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
+          <li><a href="/home-outdoor/home-safety-maintenance-gadgets" class="subcat-chip">Home Safety &amp; Maintenance Gadgets <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
+          <li><a href="/home-outdoor/bedroom-comfort-essentials" class="subcat-chip">Bedroom Comfort Essentials <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
+        </ul>
+        <p class="subcat-group-label">🌳 Outdoor</p>
+        <ul class="subcat-chips">
+          <li><a href="/home-outdoor/patio-cleaning-maintenance-tools" class="subcat-chip">Patio Cleaning &amp; Maintenance Tools <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
+          <li><a href="/home-outdoor/outdoor-lighting-solar-gadgets" class="subcat-chip"><span class="subcat-chip__badge">Popular</span> Outdoor Lighting &amp; Solar Gadgets <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
+          <li><a href="/home-outdoor/outdoor-storage-utility" class="subcat-chip">Outdoor Storage &amp; Utility <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
+          <li><a href="/home-outdoor/camping-backyard-utility-tools" class="subcat-chip">Camping / Backyard Utility Tools <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
+          <li><a href="/home-outdoor/seasonal-outdoor-essentials" class="subcat-chip">Seasonal Outdoor Essentials <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
+        </ul>
+        <a href="/home-outdoor/" class="subcat-cta">Start Here: Home &amp; Outdoor Guides →</a>
+      </div>
+    </div>
+
+    <div class="category-grid" style="margin-top:var(--space-lg)">
       <div class="cat-card">
         <div class="cat-card__img cat-card__img--home"><span class="cat-card__tag cat-card__tag--top">Top Pick</span>🔧</div>
         <div class="cat-card__body">
@@ -1888,9 +2152,34 @@
         <h2 class="section-title" id="garden-title">Garden &amp; Grow</h2>
         <p class="section-sub">Tools, soil, planters, and irrigation tested through full growing seasons — from seed to harvest.</p>
       </div>
-      <a href="#" class="category-section__view-all">View All Garden Reviews →</a>
+      <a href="/gardening/" class="category-section__view-all">View All Garden Reviews →</a>
     </div>
-    <div class="category-grid">
+    <p class="category-section__helper">Whether you have acres or a balcony, find the gardening tools that actually make a difference.</p>
+
+    <!-- Subcategories -->
+    <div class="subcat-section" data-subcat="garden">
+      <button class="subcat-toggle" aria-expanded="false" aria-controls="subcat-garden">
+        <span class="subcat-toggle__text">Browse Gardening Subcategories <span class="subcat-toggle__count">10</span></span>
+        <span class="subcat-toggle__arrow" aria-hidden="true">▼</span>
+      </button>
+      <div class="subcat-panel" id="subcat-garden" role="region" aria-label="Gardening subcategories">
+        <ul class="subcat-chips">
+          <li><a href="/gardening/hand-tools-for-beginners" class="subcat-chip"><span class="subcat-chip__badge">Popular</span> Hand Tools for Beginners <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
+          <li><a href="/gardening/watering-tools-irrigation" class="subcat-chip">Watering Tools &amp; Irrigation <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
+          <li><a href="/gardening/pruning-cutting-tools" class="subcat-chip">Pruning &amp; Cutting Tools <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
+          <li><a href="/gardening/weeding-tools" class="subcat-chip">Weeding Tools <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
+          <li><a href="/gardening/raised-bed-soil-tools" class="subcat-chip"><span class="subcat-chip__badge">Popular</span> Raised Bed &amp; Soil Tools <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
+          <li><a href="/gardening/plant-support-training" class="subcat-chip">Plant Support &amp; Training <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
+          <li><a href="/gardening/seed-starting-indoor-grow" class="subcat-chip">Seed Starting &amp; Indoor Grow Supplies <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
+          <li><a href="/gardening/garden-storage-tool-organization" class="subcat-chip">Garden Storage &amp; Tool Organization <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
+          <li><a href="/gardening/pest-plant-protection" class="subcat-chip">Pest &amp; Plant Protection <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
+          <li><a href="/gardening/balcony-small-space-gardening" class="subcat-chip">Balcony / Small-Space Gardening <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
+        </ul>
+        <a href="/gardening/" class="subcat-cta">Start Here: Garden Guides →</a>
+      </div>
+    </div>
+
+    <div class="category-grid" style="margin-top:var(--space-lg)">
       <div class="cat-card">
         <div class="cat-card__img cat-card__img--garden"><span class="cat-card__tag cat-card__tag--top">Top Pick</span>🌻</div>
         <div class="cat-card__body">
@@ -1948,9 +2237,34 @@
         <h2 class="section-title" id="pets-title">Pet Picks</h2>
         <p class="section-sub">Beds, feeders, toys, and grooming tools tested by real pets and their owners — because your fur family deserves the best.</p>
       </div>
-      <a href="#" class="category-section__view-all">View All Pet Reviews →</a>
+      <a href="/pets/" class="category-section__view-all">View All Pet Reviews →</a>
     </div>
-    <div class="category-grid">
+    <p class="category-section__helper">Tested by real pets and their owners — from feeding to grooming to travel.</p>
+
+    <!-- Subcategories -->
+    <div class="subcat-section" data-subcat="pets">
+      <button class="subcat-toggle" aria-expanded="false" aria-controls="subcat-pets">
+        <span class="subcat-toggle__text">Browse Pet Subcategories <span class="subcat-toggle__count">10</span></span>
+        <span class="subcat-toggle__arrow" aria-hidden="true">▼</span>
+      </button>
+      <div class="subcat-panel" id="subcat-pets" role="region" aria-label="Pet subcategories">
+        <ul class="subcat-chips">
+          <li><a href="/pets/dog-feeding-watering" class="subcat-chip"><span class="subcat-chip__badge">Popular</span> Dog Feeding &amp; Watering <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
+          <li><a href="/pets/dog-grooming-tools" class="subcat-chip">Dog Grooming Tools <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
+          <li><a href="/pets/dog-walking-gear" class="subcat-chip">Dog Walking Gear <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
+          <li><a href="/pets/pet-cleaning-odor-control" class="subcat-chip">Pet Cleaning &amp; Odor Control <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
+          <li><a href="/pets/cat-litter-litter-box-accessories" class="subcat-chip"><span class="subcat-chip__badge">Popular</span> Cat Litter &amp; Litter Box Accessories <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
+          <li><a href="/pets/cat-enrichment-toys" class="subcat-chip">Cat Enrichment &amp; Toys <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
+          <li><a href="/pets/pet-beds-comfort" class="subcat-chip">Pet Beds &amp; Comfort <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
+          <li><a href="/pets/travel-car-accessories" class="subcat-chip">Travel &amp; Car Accessories for Pets <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
+          <li><a href="/pets/pet-training-aids" class="subcat-chip">Pet Training Aids <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
+          <li><a href="/pets/smart-pet-gadgets" class="subcat-chip">Smart Pet Gadgets <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
+        </ul>
+        <a href="/pets/" class="subcat-cta">Start Here: Pet Guides →</a>
+      </div>
+    </div>
+
+    <div class="category-grid" style="margin-top:var(--space-lg)">
       <div class="cat-card">
         <div class="cat-card__img cat-card__img--pets"><span class="cat-card__tag cat-card__tag--top">Top Pick</span>🐕</div>
         <div class="cat-card__body">
@@ -2238,6 +2552,36 @@
     el.addEventListener('click', function () {
       document.querySelectorAll('.cat-item').forEach(function (c) { c.classList.remove('active'); });
       el.classList.add('active');
+    });
+  });
+
+  /* ── Subcategory Accordion (mobile) ──────────────── */
+  document.querySelectorAll('.subcat-toggle').forEach(function (btn) {
+    var panelId = btn.getAttribute('aria-controls');
+    var panel = document.getElementById(panelId);
+    if (!panel) return;
+
+    /* Auto-expand on desktop */
+    var desktopMQ = window.matchMedia('(min-width: 1024px)');
+    function handleDesktopSubcat(e) {
+      if (e.matches) {
+        panel.classList.add('is-open');
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    }
+    desktopMQ.addEventListener('change', handleDesktopSubcat);
+    handleDesktopSubcat(desktopMQ);
+
+    btn.addEventListener('click', function () {
+      /* On desktop, toggles are disabled via pointer-events */
+      var isOpen = panel.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', isOpen);
+      if (isOpen) {
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+      } else {
+        panel.style.maxHeight = '0';
+      }
     });
   });
 
