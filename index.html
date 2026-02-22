@@ -1423,134 +1423,66 @@
     .skip-link:focus { left: 50%; transform: translateX(-50%); }
 
     /* ══════════════════════════════════════════════════════
-       SUBCATEGORY SYSTEM
+       MEGA-MENU DROPDOWN SYSTEM
     ══════════════════════════════════════════════════════ */
-    .subcat-section {
-      margin-top: var(--space-md);
+    /* Nav item with dropdown */
+    .nav-item {
+      position: relative;
     }
-    /* Accordion toggle (mobile) */
-    .subcat-toggle {
+    .nav-item > .nav-link {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      width: 100%;
-      padding: .875rem var(--space-sm);
-      background: var(--gray-50);
-      border: 1.5px solid var(--gray-200);
-      border-radius: var(--r-lg);
-      cursor: pointer;
-      transition: background .15s, border-color .15s;
-      min-height: 48px;
+      gap: .35rem;
     }
-    .subcat-toggle:hover { background: var(--gray-100); border-color: var(--gray-400); }
-    .subcat-toggle:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
-    .subcat-toggle__text {
-      font-family: 'Montserrat', sans-serif;
-      font-size: .8125rem;
-      font-weight: 700;
-      color: var(--navy);
-      display: flex;
-      align-items: center;
-      gap: .5rem;
-    }
-    .subcat-toggle__count {
-      font-family: 'Inter', sans-serif;
-      font-size: .6875rem;
-      font-weight: 600;
-      color: var(--gray-600);
-      background: var(--gray-200);
-      padding: .125rem .5rem;
-      border-radius: 99px;
-    }
-    .subcat-toggle__arrow {
-      font-size: .75rem;
-      color: var(--gray-600);
-      transition: transform .25s;
-      flex-shrink: 0;
-    }
-    .subcat-toggle[aria-expanded="true"] .subcat-toggle__arrow {
-      transform: rotate(180deg);
-    }
-    .subcat-toggle[aria-expanded="true"] {
-      background: var(--teal-light);
-      border-color: var(--teal);
-      border-radius: var(--r-lg) var(--r-lg) 0 0;
+    .nav-link__arrow {
+      font-size: .5rem;
+      transition: transform .2s;
+      opacity: .7;
     }
 
-    /* Subcategory panel */
-    .subcat-panel {
-      overflow: hidden;
-      max-height: 0;
-      opacity: 0;
-      transition: max-height .35s ease, opacity .25s ease, padding .25s;
-      border: 1.5px solid var(--gray-200);
-      border-top: none;
-      border-radius: 0 0 var(--r-lg) var(--r-lg);
-      background: #fff;
+    /* ── Mobile: accordion-style dropdowns ──────────────── */
+    .mega-dropdown {
+      display: none;
+      background: rgba(0,0,0,.15);
+      border-radius: var(--r-md);
+      padding: .5rem;
+      margin-top: .25rem;
     }
-    .subcat-panel.is-open {
-      opacity: 1;
-      padding: var(--space-sm);
+    .mega-dropdown.is-open {
+      display: block;
     }
-
-    /* Subgroup label (e.g. "Home" / "Outdoor" split) */
-    .subcat-group-label {
+    .mega-dropdown__group-label {
       font-family: 'Montserrat', sans-serif;
-      font-size: .6875rem;
+      font-size: .625rem;
       font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: .12em;
-      color: var(--gray-600);
-      margin-bottom: .625rem;
-      padding-bottom: .375rem;
-      border-bottom: 1px solid var(--gray-100);
-      display: flex;
-      align-items: center;
-      gap: .375rem;
+      letter-spacing: .1em;
+      color: rgba(255,255,255,.5);
+      padding: .5rem .5rem .25rem;
     }
-    .subcat-group-label:not(:first-child) {
-      margin-top: 1.25rem;
+    .mega-dropdown__group-label:not(:first-child) {
+      margin-top: .5rem;
     }
-
-    /* Chip grid */
-    .subcat-chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .5rem;
+    .mega-dropdown__list {
       list-style: none;
     }
-    .subcat-chip {
-      display: inline-flex;
+    .mega-dropdown__link {
+      display: flex;
       align-items: center;
-      gap: .375rem;
-      padding: .5rem .875rem;
-      background: var(--gray-50);
-      border: 1.5px solid var(--gray-200);
-      border-radius: 99px;
+      gap: .5rem;
+      padding: .5rem .75rem;
       font-size: .8125rem;
       font-weight: 500;
-      color: var(--navy);
-      transition: all .15s;
-      white-space: nowrap;
+      color: rgba(255,255,255,.85);
+      border-radius: var(--r-md);
+      transition: background .15s, color .15s;
       min-height: 40px;
-      text-decoration: none;
     }
-    .subcat-chip:hover {
-      background: var(--teal-light);
-      border-color: var(--teal);
-      color: var(--teal-dark);
-      transform: translateY(-1px);
-      box-shadow: 0 2px 8px rgba(39,174,96,.12);
+    .mega-dropdown__link:hover {
+      background: rgba(255,255,255,.1);
+      color: #fff;
     }
-    .subcat-chip:focus-visible {
-      outline: 2px solid var(--teal);
-      outline-offset: 2px;
-    }
-    .subcat-chip:active {
-      transform: translateY(0);
-      box-shadow: none;
-    }
-    .subcat-chip__badge {
+    .mega-dropdown__badge {
       font-family: 'Montserrat', sans-serif;
       font-size: .5625rem;
       font-weight: 800;
@@ -1562,36 +1494,101 @@
       border-radius: 99px;
       line-height: 1.2;
     }
-    .subcat-chip__arrow {
+    .mega-dropdown__cta {
+      display: block;
+      margin-top: .5rem;
+      padding: .5rem .75rem;
+      font-family: 'Montserrat', sans-serif;
       font-size: .6875rem;
-      color: var(--gray-400);
-      transition: transform .15s, color .15s;
-    }
-    .subcat-chip:hover .subcat-chip__arrow {
-      transform: translateX(2px);
+      font-weight: 700;
       color: var(--teal);
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+    .mega-dropdown__cta:hover { color: #fff; }
+
+    /* ── Desktop: hover flyout panels ──────────────────── */
+    @media (min-width: 1024px) {
+      .nav-item:hover > .nav-link,
+      .nav-item:focus-within > .nav-link {
+        color: #fff;
+        background: rgba(255,255,255,.12);
+      }
+      .nav-item:hover .nav-link__arrow {
+        transform: rotate(180deg);
+      }
+      .mega-dropdown {
+        display: block;
+        visibility: hidden;
+        opacity: 0;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%) translateY(4px);
+        min-width: 280px;
+        background: #fff;
+        border: 1px solid var(--gray-200);
+        border-radius: var(--r-lg);
+        box-shadow: var(--shadow-lg);
+        padding: .75rem 0;
+        z-index: 400;
+        transition: opacity .2s, visibility .2s, transform .2s;
+        margin-top: 0;
+      }
+      .nav-item:hover > .mega-dropdown,
+      .nav-item:focus-within > .mega-dropdown {
+        visibility: visible;
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
+      /* Invisible bridge to prevent gap between link and dropdown */
+      .mega-dropdown::before {
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: 0;
+        right: 0;
+        height: 10px;
+      }
+      .mega-dropdown__group-label {
+        color: var(--gray-600);
+        padding: .5rem 1rem .25rem;
+      }
+      .mega-dropdown__link {
+        color: var(--navy);
+        padding: .5rem 1rem;
+        font-size: .8125rem;
+      }
+      .mega-dropdown__link:hover {
+        background: var(--teal-light);
+        color: var(--teal-dark);
+      }
+      .mega-dropdown__cta {
+        margin: .5rem .75rem 0;
+        padding: .5rem .75rem;
+        background: var(--navy);
+        color: #fff;
+        border-radius: var(--r-md);
+        text-align: center;
+        transition: background .15s;
+      }
+      .mega-dropdown__cta:hover {
+        background: var(--teal-dark);
+        color: #fff;
+      }
     }
 
-    /* Start here CTA */
-    .subcat-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: .375rem;
-      margin-top: 1rem;
-      padding: .625rem 1.25rem;
-      background: var(--navy);
-      color: #fff;
-      font-family: 'Montserrat', sans-serif;
-      font-size: .75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .06em;
-      border-radius: 99px;
-      transition: background .15s, transform .15s;
-      min-height: 44px;
+    /* Wide dropdown for Home & Outdoor (2-column) */
+    @media (min-width: 1024px) {
+      .mega-dropdown--wide {
+        min-width: 480px;
+      }
+      .mega-dropdown--wide .mega-dropdown__columns {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 .5rem;
+      }
     }
-    .subcat-cta:hover { background: var(--teal-dark); transform: translateY(-1px); }
-    .subcat-cta:focus-visible { outline: 2px solid var(--orange); outline-offset: 2px; }
 
     /* Category helper text */
     .category-section__helper {
@@ -1601,37 +1598,6 @@
       margin-top: -.5rem;
       margin-bottom: var(--space-md);
       max-width: 600px;
-    }
-
-    /* Desktop: auto-expand panels, hide toggle arrow */
-    @media (min-width: 1024px) {
-      .subcat-toggle {
-        cursor: default;
-        pointer-events: none;
-        background: transparent;
-        border: none;
-        padding: .5rem 0;
-      }
-      .subcat-toggle:hover { background: transparent; border-color: transparent; }
-      .subcat-toggle__arrow { display: none; }
-      .subcat-toggle[aria-expanded="true"] {
-        background: transparent;
-        border: none;
-        border-radius: 0;
-      }
-      .subcat-panel {
-        max-height: none !important;
-        opacity: 1;
-        padding: 0;
-        border: none;
-        border-radius: 0;
-        overflow: visible;
-      }
-      .subcat-chips { gap: .625rem; }
-      .subcat-chip {
-        padding: .5rem 1rem;
-        font-size: .8125rem;
-      }
     }
   </style>
 </head>
@@ -1655,11 +1621,96 @@
     </button>
 
     <nav class="main-nav" id="main-nav" role="navigation" aria-label="Main navigation">
-      <a href="#section-kitchen"  class="nav-link active">Kitchen</a>
-      <a href="#section-home"     class="nav-link">Home &amp; Outdoor</a>
-      <a href="#section-garden"   class="nav-link">Gardening</a>
-      <a href="#section-pets"     class="nav-link">Pets</a>
-      <a href="#section-article"  class="nav-link">Reviews</a>
+
+      <!-- Kitchen -->
+      <div class="nav-item">
+        <a href="#section-kitchen" class="nav-link active">Kitchen <span class="nav-link__arrow" aria-hidden="true">▼</span></a>
+        <div class="mega-dropdown" aria-label="Kitchen subcategories">
+          <ul class="mega-dropdown__list">
+            <li><a href="/kitchen/food-prep-gadgets" class="mega-dropdown__link"><span class="mega-dropdown__badge">Popular</span> Food Prep Gadgets</a></li>
+            <li><a href="/kitchen/kitchen-scales-measuring-tools" class="mega-dropdown__link">Kitchen Scales &amp; Measuring Tools</a></li>
+            <li><a href="/kitchen/storage-meal-prep-containers" class="mega-dropdown__link">Storage &amp; Meal Prep Containers</a></li>
+            <li><a href="/kitchen/cookware-bakeware-essentials" class="mega-dropdown__link"><span class="mega-dropdown__badge">Popular</span> Cookware &amp; Bakeware Essentials</a></li>
+            <li><a href="/kitchen/coffee-drink-tools" class="mega-dropdown__link">Coffee &amp; Drink Tools</a></li>
+            <li><a href="/kitchen/cutting-boards-knife-accessories" class="mega-dropdown__link">Cutting Boards &amp; Knife Accessories</a></li>
+            <li><a href="/kitchen/air-fryer-small-appliance-accessories" class="mega-dropdown__link">Air Fryer &amp; Small Appliance Accessories</a></li>
+            <li><a href="/kitchen/kitchen-organization-tools" class="mega-dropdown__link">Kitchen Organization Tools</a></li>
+          </ul>
+          <a href="/kitchen/" class="mega-dropdown__cta">All Kitchen Guides →</a>
+        </div>
+      </div>
+
+      <!-- Home & Outdoor -->
+      <div class="nav-item">
+        <a href="#section-home" class="nav-link">Home &amp; Outdoor <span class="nav-link__arrow" aria-hidden="true">▼</span></a>
+        <div class="mega-dropdown mega-dropdown--wide" aria-label="Home and Outdoor subcategories">
+          <div class="mega-dropdown__columns">
+            <div>
+              <p class="mega-dropdown__group-label">🏠 Home</p>
+              <ul class="mega-dropdown__list">
+                <li><a href="/home-outdoor/cleaning-tools-gadgets" class="mega-dropdown__link"><span class="mega-dropdown__badge">Popular</span> Cleaning Tools &amp; Gadgets</a></li>
+                <li><a href="/home-outdoor/storage-organization" class="mega-dropdown__link">Storage &amp; Organization</a></li>
+                <li><a href="/home-outdoor/laundry-tools" class="mega-dropdown__link">Laundry Tools</a></li>
+                <li><a href="/home-outdoor/home-safety-maintenance-gadgets" class="mega-dropdown__link">Home Safety &amp; Maintenance</a></li>
+                <li><a href="/home-outdoor/bedroom-comfort-essentials" class="mega-dropdown__link">Bedroom Comfort Essentials</a></li>
+              </ul>
+            </div>
+            <div>
+              <p class="mega-dropdown__group-label">🌳 Outdoor</p>
+              <ul class="mega-dropdown__list">
+                <li><a href="/home-outdoor/patio-cleaning-maintenance-tools" class="mega-dropdown__link">Patio Cleaning &amp; Maintenance</a></li>
+                <li><a href="/home-outdoor/outdoor-lighting-solar-gadgets" class="mega-dropdown__link"><span class="mega-dropdown__badge">Popular</span> Outdoor Lighting &amp; Solar</a></li>
+                <li><a href="/home-outdoor/outdoor-storage-utility" class="mega-dropdown__link">Outdoor Storage &amp; Utility</a></li>
+                <li><a href="/home-outdoor/camping-backyard-utility-tools" class="mega-dropdown__link">Camping / Backyard Utility</a></li>
+                <li><a href="/home-outdoor/seasonal-outdoor-essentials" class="mega-dropdown__link">Seasonal Outdoor Essentials</a></li>
+              </ul>
+            </div>
+          </div>
+          <a href="/home-outdoor/" class="mega-dropdown__cta">All Home &amp; Outdoor Guides →</a>
+        </div>
+      </div>
+
+      <!-- Gardening -->
+      <div class="nav-item">
+        <a href="#section-garden" class="nav-link">Gardening <span class="nav-link__arrow" aria-hidden="true">▼</span></a>
+        <div class="mega-dropdown" aria-label="Gardening subcategories">
+          <ul class="mega-dropdown__list">
+            <li><a href="/gardening/hand-tools-for-beginners" class="mega-dropdown__link"><span class="mega-dropdown__badge">Popular</span> Hand Tools for Beginners</a></li>
+            <li><a href="/gardening/watering-tools-irrigation" class="mega-dropdown__link">Watering Tools &amp; Irrigation</a></li>
+            <li><a href="/gardening/pruning-cutting-tools" class="mega-dropdown__link">Pruning &amp; Cutting Tools</a></li>
+            <li><a href="/gardening/weeding-tools" class="mega-dropdown__link">Weeding Tools</a></li>
+            <li><a href="/gardening/raised-bed-soil-tools" class="mega-dropdown__link"><span class="mega-dropdown__badge">Popular</span> Raised Bed &amp; Soil Tools</a></li>
+            <li><a href="/gardening/plant-support-training" class="mega-dropdown__link">Plant Support &amp; Training</a></li>
+            <li><a href="/gardening/seed-starting-indoor-grow" class="mega-dropdown__link">Seed Starting &amp; Indoor Grow</a></li>
+            <li><a href="/gardening/garden-storage-tool-organization" class="mega-dropdown__link">Garden Storage &amp; Organization</a></li>
+            <li><a href="/gardening/pest-plant-protection" class="mega-dropdown__link">Pest &amp; Plant Protection</a></li>
+            <li><a href="/gardening/balcony-small-space-gardening" class="mega-dropdown__link">Balcony / Small-Space Gardening</a></li>
+          </ul>
+          <a href="/gardening/" class="mega-dropdown__cta">All Garden Guides →</a>
+        </div>
+      </div>
+
+      <!-- Pets -->
+      <div class="nav-item">
+        <a href="#section-pets" class="nav-link">Pets <span class="nav-link__arrow" aria-hidden="true">▼</span></a>
+        <div class="mega-dropdown" aria-label="Pet subcategories">
+          <ul class="mega-dropdown__list">
+            <li><a href="/pets/dog-feeding-watering" class="mega-dropdown__link"><span class="mega-dropdown__badge">Popular</span> Dog Feeding &amp; Watering</a></li>
+            <li><a href="/pets/dog-grooming-tools" class="mega-dropdown__link">Dog Grooming Tools</a></li>
+            <li><a href="/pets/dog-walking-gear" class="mega-dropdown__link">Dog Walking Gear</a></li>
+            <li><a href="/pets/pet-cleaning-odor-control" class="mega-dropdown__link">Pet Cleaning &amp; Odor Control</a></li>
+            <li><a href="/pets/cat-litter-litter-box-accessories" class="mega-dropdown__link"><span class="mega-dropdown__badge">Popular</span> Cat Litter &amp; Litter Box</a></li>
+            <li><a href="/pets/cat-enrichment-toys" class="mega-dropdown__link">Cat Enrichment &amp; Toys</a></li>
+            <li><a href="/pets/pet-beds-comfort" class="mega-dropdown__link">Pet Beds &amp; Comfort</a></li>
+            <li><a href="/pets/travel-car-accessories" class="mega-dropdown__link">Travel &amp; Car Accessories</a></li>
+            <li><a href="/pets/pet-training-aids" class="mega-dropdown__link">Pet Training Aids</a></li>
+            <li><a href="/pets/smart-pet-gadgets" class="mega-dropdown__link">Smart Pet Gadgets</a></li>
+          </ul>
+          <a href="/pets/" class="mega-dropdown__cta">All Pet Guides →</a>
+        </div>
+      </div>
+
+      <a href="#section-article" class="nav-link">Reviews</a>
     </nav>
 
     <div class="header-utils">
@@ -1984,28 +2035,7 @@
     </div>
     <p class="category-section__helper">From food prep to organization — find the right tools for every corner of your kitchen.</p>
 
-    <!-- Subcategories -->
-    <div class="subcat-section" data-subcat="kitchen">
-      <button class="subcat-toggle" aria-expanded="false" aria-controls="subcat-kitchen">
-        <span class="subcat-toggle__text">Browse Kitchen Subcategories <span class="subcat-toggle__count">8</span></span>
-        <span class="subcat-toggle__arrow" aria-hidden="true">▼</span>
-      </button>
-      <div class="subcat-panel" id="subcat-kitchen" role="region" aria-label="Kitchen subcategories">
-        <ul class="subcat-chips">
-          <li><a href="/kitchen/food-prep-gadgets" class="subcat-chip"><span class="subcat-chip__badge">Popular</span> Food Prep Gadgets <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
-          <li><a href="/kitchen/kitchen-scales-measuring-tools" class="subcat-chip">Kitchen Scales &amp; Measuring Tools <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
-          <li><a href="/kitchen/storage-meal-prep-containers" class="subcat-chip">Storage &amp; Meal Prep Containers <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
-          <li><a href="/kitchen/cookware-bakeware-essentials" class="subcat-chip"><span class="subcat-chip__badge">Popular</span> Cookware &amp; Bakeware Essentials <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
-          <li><a href="/kitchen/coffee-drink-tools" class="subcat-chip">Coffee &amp; Drink Tools <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
-          <li><a href="/kitchen/cutting-boards-knife-accessories" class="subcat-chip">Cutting Boards &amp; Knife Accessories <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
-          <li><a href="/kitchen/air-fryer-small-appliance-accessories" class="subcat-chip">Air Fryer &amp; Small Appliance Accessories <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
-          <li><a href="/kitchen/kitchen-organization-tools" class="subcat-chip">Kitchen Organization Tools <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
-        </ul>
-        <a href="/kitchen/" class="subcat-cta">Start Here: Kitchen Guides →</a>
-      </div>
-    </div>
-
-    <div class="category-grid" style="margin-top:var(--space-lg)">
+    <div class="category-grid">
       <div class="cat-card">
         <div class="cat-card__img cat-card__img--kitchen"><span class="cat-card__tag cat-card__tag--top">Top Pick</span>🔪</div>
         <div class="cat-card__body">
@@ -2067,34 +2097,7 @@
     </div>
     <p class="category-section__helper">Everything you need to maintain, organize, and enjoy your indoor and outdoor spaces.</p>
 
-    <!-- Subcategories -->
-    <div class="subcat-section" data-subcat="home">
-      <button class="subcat-toggle" aria-expanded="false" aria-controls="subcat-home">
-        <span class="subcat-toggle__text">Browse Home &amp; Outdoor Subcategories <span class="subcat-toggle__count">10</span></span>
-        <span class="subcat-toggle__arrow" aria-hidden="true">▼</span>
-      </button>
-      <div class="subcat-panel" id="subcat-home" role="region" aria-label="Home and Outdoor subcategories">
-        <p class="subcat-group-label">🏠 Home</p>
-        <ul class="subcat-chips">
-          <li><a href="/home-outdoor/cleaning-tools-gadgets" class="subcat-chip"><span class="subcat-chip__badge">Popular</span> Cleaning Tools &amp; Gadgets <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
-          <li><a href="/home-outdoor/storage-organization" class="subcat-chip">Storage &amp; Organization <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
-          <li><a href="/home-outdoor/laundry-tools" class="subcat-chip">Laundry Tools <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
-          <li><a href="/home-outdoor/home-safety-maintenance-gadgets" class="subcat-chip">Home Safety &amp; Maintenance Gadgets <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
-          <li><a href="/home-outdoor/bedroom-comfort-essentials" class="subcat-chip">Bedroom Comfort Essentials <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
-        </ul>
-        <p class="subcat-group-label">🌳 Outdoor</p>
-        <ul class="subcat-chips">
-          <li><a href="/home-outdoor/patio-cleaning-maintenance-tools" class="subcat-chip">Patio Cleaning &amp; Maintenance Tools <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
-          <li><a href="/home-outdoor/outdoor-lighting-solar-gadgets" class="subcat-chip"><span class="subcat-chip__badge">Popular</span> Outdoor Lighting &amp; Solar Gadgets <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
-          <li><a href="/home-outdoor/outdoor-storage-utility" class="subcat-chip">Outdoor Storage &amp; Utility <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
-          <li><a href="/home-outdoor/camping-backyard-utility-tools" class="subcat-chip">Camping / Backyard Utility Tools <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
-          <li><a href="/home-outdoor/seasonal-outdoor-essentials" class="subcat-chip">Seasonal Outdoor Essentials <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
-        </ul>
-        <a href="/home-outdoor/" class="subcat-cta">Start Here: Home &amp; Outdoor Guides →</a>
-      </div>
-    </div>
-
-    <div class="category-grid" style="margin-top:var(--space-lg)">
+    <div class="category-grid">
       <div class="cat-card">
         <div class="cat-card__img cat-card__img--home"><span class="cat-card__tag cat-card__tag--top">Top Pick</span>🔧</div>
         <div class="cat-card__body">
@@ -2156,30 +2159,7 @@
     </div>
     <p class="category-section__helper">Whether you have acres or a balcony, find the gardening tools that actually make a difference.</p>
 
-    <!-- Subcategories -->
-    <div class="subcat-section" data-subcat="garden">
-      <button class="subcat-toggle" aria-expanded="false" aria-controls="subcat-garden">
-        <span class="subcat-toggle__text">Browse Gardening Subcategories <span class="subcat-toggle__count">10</span></span>
-        <span class="subcat-toggle__arrow" aria-hidden="true">▼</span>
-      </button>
-      <div class="subcat-panel" id="subcat-garden" role="region" aria-label="Gardening subcategories">
-        <ul class="subcat-chips">
-          <li><a href="/gardening/hand-tools-for-beginners" class="subcat-chip"><span class="subcat-chip__badge">Popular</span> Hand Tools for Beginners <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
-          <li><a href="/gardening/watering-tools-irrigation" class="subcat-chip">Watering Tools &amp; Irrigation <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
-          <li><a href="/gardening/pruning-cutting-tools" class="subcat-chip">Pruning &amp; Cutting Tools <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
-          <li><a href="/gardening/weeding-tools" class="subcat-chip">Weeding Tools <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
-          <li><a href="/gardening/raised-bed-soil-tools" class="subcat-chip"><span class="subcat-chip__badge">Popular</span> Raised Bed &amp; Soil Tools <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
-          <li><a href="/gardening/plant-support-training" class="subcat-chip">Plant Support &amp; Training <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
-          <li><a href="/gardening/seed-starting-indoor-grow" class="subcat-chip">Seed Starting &amp; Indoor Grow Supplies <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
-          <li><a href="/gardening/garden-storage-tool-organization" class="subcat-chip">Garden Storage &amp; Tool Organization <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
-          <li><a href="/gardening/pest-plant-protection" class="subcat-chip">Pest &amp; Plant Protection <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
-          <li><a href="/gardening/balcony-small-space-gardening" class="subcat-chip">Balcony / Small-Space Gardening <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
-        </ul>
-        <a href="/gardening/" class="subcat-cta">Start Here: Garden Guides →</a>
-      </div>
-    </div>
-
-    <div class="category-grid" style="margin-top:var(--space-lg)">
+    <div class="category-grid">
       <div class="cat-card">
         <div class="cat-card__img cat-card__img--garden"><span class="cat-card__tag cat-card__tag--top">Top Pick</span>🌻</div>
         <div class="cat-card__body">
@@ -2241,30 +2221,7 @@
     </div>
     <p class="category-section__helper">Tested by real pets and their owners — from feeding to grooming to travel.</p>
 
-    <!-- Subcategories -->
-    <div class="subcat-section" data-subcat="pets">
-      <button class="subcat-toggle" aria-expanded="false" aria-controls="subcat-pets">
-        <span class="subcat-toggle__text">Browse Pet Subcategories <span class="subcat-toggle__count">10</span></span>
-        <span class="subcat-toggle__arrow" aria-hidden="true">▼</span>
-      </button>
-      <div class="subcat-panel" id="subcat-pets" role="region" aria-label="Pet subcategories">
-        <ul class="subcat-chips">
-          <li><a href="/pets/dog-feeding-watering" class="subcat-chip"><span class="subcat-chip__badge">Popular</span> Dog Feeding &amp; Watering <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
-          <li><a href="/pets/dog-grooming-tools" class="subcat-chip">Dog Grooming Tools <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
-          <li><a href="/pets/dog-walking-gear" class="subcat-chip">Dog Walking Gear <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
-          <li><a href="/pets/pet-cleaning-odor-control" class="subcat-chip">Pet Cleaning &amp; Odor Control <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
-          <li><a href="/pets/cat-litter-litter-box-accessories" class="subcat-chip"><span class="subcat-chip__badge">Popular</span> Cat Litter &amp; Litter Box Accessories <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
-          <li><a href="/pets/cat-enrichment-toys" class="subcat-chip">Cat Enrichment &amp; Toys <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
-          <li><a href="/pets/pet-beds-comfort" class="subcat-chip">Pet Beds &amp; Comfort <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
-          <li><a href="/pets/travel-car-accessories" class="subcat-chip">Travel &amp; Car Accessories for Pets <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
-          <li><a href="/pets/pet-training-aids" class="subcat-chip">Pet Training Aids <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
-          <li><a href="/pets/smart-pet-gadgets" class="subcat-chip">Smart Pet Gadgets <span class="subcat-chip__arrow" aria-hidden="true">→</span></a></li>
-        </ul>
-        <a href="/pets/" class="subcat-cta">Start Here: Pet Guides →</a>
-      </div>
-    </div>
-
-    <div class="category-grid" style="margin-top:var(--space-lg)">
+    <div class="category-grid">
       <div class="cat-card">
         <div class="cat-card__img cat-card__img--pets"><span class="cat-card__tag cat-card__tag--top">Top Pick</span>🐕</div>
         <div class="cat-card__body">
@@ -2457,9 +2414,9 @@
       var open = nav.classList.toggle('is-open');
       menuBtn.setAttribute('aria-expanded', open);
     });
-    /* Close on nav link click (mobile) */
+    /* Close on nav link click (mobile) — only for links without dropdowns */
     nav.addEventListener('click', function (e) {
-      if (e.target.classList.contains('nav-link')) {
+      if (e.target.classList.contains('nav-link') && !e.target.closest('.nav-item')) {
         nav.classList.remove('is-open');
         menuBtn.setAttribute('aria-expanded', 'false');
       }
@@ -2555,34 +2512,40 @@
     });
   });
 
-  /* ── Subcategory Accordion (mobile) ──────────────── */
-  document.querySelectorAll('.subcat-toggle').forEach(function (btn) {
-    var panelId = btn.getAttribute('aria-controls');
-    var panel = document.getElementById(panelId);
-    if (!panel) return;
+  /* ── Mega-Menu: Mobile accordion toggle ─────────── */
+  var navItems = document.querySelectorAll('.nav-item');
+  var isDesktop = window.matchMedia('(min-width: 1024px)');
 
-    /* Auto-expand on desktop */
-    var desktopMQ = window.matchMedia('(min-width: 1024px)');
-    function handleDesktopSubcat(e) {
-      if (e.matches) {
-        panel.classList.add('is-open');
-        panel.style.maxHeight = panel.scrollHeight + 'px';
-        btn.setAttribute('aria-expanded', 'true');
-      }
-    }
-    desktopMQ.addEventListener('change', handleDesktopSubcat);
-    handleDesktopSubcat(desktopMQ);
+  navItems.forEach(function (item) {
+    var link = item.querySelector('.nav-link');
+    var dropdown = item.querySelector('.mega-dropdown');
+    if (!link || !dropdown) return;
 
-    btn.addEventListener('click', function () {
-      /* On desktop, toggles are disabled via pointer-events */
-      var isOpen = panel.classList.toggle('is-open');
-      btn.setAttribute('aria-expanded', isOpen);
-      if (isOpen) {
-        panel.style.maxHeight = panel.scrollHeight + 'px';
-      } else {
-        panel.style.maxHeight = '0';
+    link.addEventListener('click', function (e) {
+      /* On mobile, toggle dropdown instead of navigating */
+      if (!isDesktop.matches) {
+        e.preventDefault();
+        var wasOpen = dropdown.classList.contains('is-open');
+        /* Close all other dropdowns */
+        navItems.forEach(function (other) {
+          var otherDd = other.querySelector('.mega-dropdown');
+          if (otherDd) otherDd.classList.remove('is-open');
+        });
+        if (!wasOpen) dropdown.classList.add('is-open');
       }
     });
+  });
+
+  /* Close dropdowns when clicking a subcategory link (mobile) */
+  nav.addEventListener('click', function (e) {
+    if (e.target.closest('.mega-dropdown__link') || e.target.closest('.mega-dropdown__cta')) {
+      navItems.forEach(function (item) {
+        var dd = item.querySelector('.mega-dropdown');
+        if (dd) dd.classList.remove('is-open');
+      });
+      nav.classList.remove('is-open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    }
   });
 
 })();

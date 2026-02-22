@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Everest & Hearth — Developer & Affiliate Setup Guide</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #2C3E50;
+      --navy-dark: #1a252f;
+      --teal: #27AE60;
+      --teal-dark: #1e8449;
+      --teal-light: #eafaf1;
+      --orange: #E67E22;
+      --orange-light: #fef5ec;
+      --gray-50: #f8f9fa;
+      --gray-100: #f1f3f5;
+      --gray-200: #e9ecef;
+      --gray-600: #6c757d;
+      --text: #2d3748;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      color: var(--text);
+      background: var(--gray-50);
+      line-height: 1.7;
+    }
+    a { color: var(--teal-dark); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code, .code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .875em;
+      background: var(--gray-100);
+      padding: .125rem .375rem;
+      border-radius: 4px;
+      border: 1px solid var(--gray-200);
+    }
+    pre {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .8125rem;
+      background: var(--navy-dark);
+      color: #e2e8f0;
+      padding: 1.25rem 1.5rem;
+      border-radius: 10px;
+      overflow-x: auto;
+      line-height: 1.6;
+      margin: 1rem 0 1.5rem;
+    }
+    pre .comment { color: #718096; }
+    pre .keyword { color: #81e6d9; }
+    pre .string { color: #f6ad55; }
+    pre .tag { color: #fc8181; }
+    pre .attr { color: #90cdf4; }
+
+    /* Layout */
+    .guide-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      max-width: 1280px;
+      margin: 0 auto;
+      min-height: 100vh;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      background: var(--navy-dark);
+      padding: 1.5rem 0;
+      border-right: 3px solid var(--teal);
+    }
+    .sidebar-logo {
+      padding: 0 1.25rem 1.25rem;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+      margin-bottom: 1rem;
+    }
+    .sidebar-logo h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+      font-weight: 800;
+      color: #fff;
+    }
+    .sidebar-logo h1 span { color: var(--teal); }
+    .sidebar-logo p {
+      font-size: .6875rem;
+      color: rgba(255,255,255,.5);
+      margin-top: .25rem;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      font-weight: 600;
+    }
+    .sidebar-section {
+      padding: .75rem 1.25rem .25rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: .625rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      color: var(--teal);
+    }
+    .sidebar-link {
+      display: block;
+      padding: .4375rem 1.25rem;
+      font-size: .8125rem;
+      color: rgba(255,255,255,.65);
+      transition: all .15s;
+      border-left: 3px solid transparent;
+    }
+    .sidebar-link:hover, .sidebar-link.active {
+      color: #fff;
+      background: rgba(255,255,255,.06);
+      border-left-color: var(--teal);
+      text-decoration: none;
+    }
+
+    /* Main content */
+    .guide-main {
+      padding: 3rem 3.5rem;
+      max-width: 860px;
+    }
+    .guide-main h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin: 3rem 0 1rem;
+      padding-top: 2.5rem;
+      border-top: 2px solid var(--gray-200);
+      letter-spacing: -.02em;
+    }
+    .guide-main h2:first-of-type { border-top: none; padding-top: 0; margin-top: 0; }
+    .guide-main h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin: 2rem 0 .75rem;
+    }
+    .guide-main h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .9375rem;
+      font-weight: 700;
+      color: var(--gray-600);
+      margin: 1.5rem 0 .5rem;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+    .guide-main p { margin-bottom: 1rem; }
+    .guide-main ul, .guide-main ol {
+      margin: .5rem 0 1.25rem 1.5rem;
+    }
+    .guide-main li { margin-bottom: .375rem; }
+
+    /* Info boxes */
+    .info-box {
+      padding: 1rem 1.25rem;
+      border-radius: 10px;
+      margin: 1.25rem 0;
+      border-left: 4px solid;
+    }
+    .info-box--tip {
+      background: var(--teal-light);
+      border-left-color: var(--teal);
+    }
+    .info-box--warning {
+      background: var(--orange-light);
+      border-left-color: var(--orange);
+    }
+    .info-box--info {
+      background: #e8f4fd;
+      border-left-color: #3182ce;
+    }
+    .info-box strong {
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: .75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: .25rem;
+    }
+    .info-box p { margin-bottom: .25rem; font-size: .9375rem; }
+
+    /* Table */
+    .guide-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0 1.5rem;
+      font-size: .875rem;
+    }
+    .guide-table th {
+      background: var(--navy);
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-size: .6875rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      padding: .75rem 1rem;
+      text-align: left;
+    }
+    .guide-table td {
+      padding: .625rem 1rem;
+      border-bottom: 1px solid var(--gray-200);
+    }
+    .guide-table tr:nth-child(even) td { background: var(--gray-50); }
+
+    /* Badge */
+    .badge {
+      display: inline-block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: .625rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      padding: .125rem .5rem;
+      border-radius: 99px;
+      color: #fff;
+    }
+    .badge--teal { background: var(--teal); }
+    .badge--orange { background: var(--orange); }
+    .badge--navy { background: var(--navy); }
+
+    /* Intro banner */
+    .guide-banner {
+      background: linear-gradient(135deg, var(--navy) 0%, #1a3a2a 100%);
+      border-radius: 14px;
+      padding: 2rem 2.5rem;
+      margin-bottom: 2.5rem;
+      color: #fff;
+    }
+    .guide-banner h2 {
+      color: #fff !important;
+      border: none !important;
+      padding: 0 !important;
+      margin: 0 0 .5rem !important;
+      font-size: 1.5rem !important;
+    }
+    .guide-banner p { color: rgba(255,255,255,.75); margin-bottom: .25rem; }
+    .guide-banner .version {
+      display: inline-block;
+      margin-top: .75rem;
+      font-size: .75rem;
+      font-weight: 600;
+      color: var(--teal);
+      background: rgba(39,174,96,.15);
+      padding: .25rem .75rem;
+      border-radius: 99px;
+    }
+
+    /* Step numbers */
+    .step {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px; height: 28px;
+      background: var(--teal);
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-size: .75rem;
+      font-weight: 800;
+      border-radius: 50%;
+      margin-right: .5rem;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 860px) {
+      .guide-layout { grid-template-columns: 1fr; }
+      .sidebar { position: static; height: auto; }
+      .guide-main { padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="guide-layout">
+
+  <!-- ── SIDEBAR NAV ──────────────────────────────── -->
+  <nav class="sidebar">
+    <div class="sidebar-logo">
+      <h1>Everest <span>&</span> Hearth</h1>
+      <p>Developer & Affiliate Guide</p>
+    </div>
+
+    <div class="sidebar-section">Getting Started</div>
+    <a href="#overview" class="sidebar-link active">Project Overview</a>
+    <a href="#file-structure" class="sidebar-link">File Structure</a>
+    <a href="#tech-stack" class="sidebar-link">Tech Stack</a>
+
+    <div class="sidebar-section">Site Architecture</div>
+    <a href="#design-tokens" class="sidebar-link">Design Tokens (CSS)</a>
+    <a href="#components" class="sidebar-link">Component Reference</a>
+    <a href="#responsive" class="sidebar-link">Responsive Breakpoints</a>
+    <a href="#categories" class="sidebar-link">Categories & Subcategories</a>
+
+    <div class="sidebar-section">Editing the Site</div>
+    <a href="#add-product" class="sidebar-link">Add a Product Card</a>
+    <a href="#add-subcategory" class="sidebar-link">Add a Subcategory</a>
+    <a href="#add-review" class="sidebar-link">Add a Review Article</a>
+    <a href="#edit-comparison" class="sidebar-link">Edit Comparison Table</a>
+
+    <div class="sidebar-section">Affiliate Setup</div>
+    <a href="#affiliate-links" class="sidebar-link">Connecting Affiliate Links</a>
+    <a href="#amazon-associates" class="sidebar-link">Amazon Associates Setup</a>
+    <a href="#tracking" class="sidebar-link">Link Tracking & Attribution</a>
+    <a href="#disclosure" class="sidebar-link">FTC Disclosure</a>
+
+    <div class="sidebar-section">Deployment</div>
+    <a href="#deploy-vercel" class="sidebar-link">Deploy to Vercel</a>
+    <a href="#deploy-wordpress" class="sidebar-link">Migrate to WordPress</a>
+    <a href="#domain" class="sidebar-link">Custom Domain Setup</a>
+    <a href="#seo-checklist" class="sidebar-link">SEO Launch Checklist</a>
+  </nav>
+
+
+  <!-- ── MAIN CONTENT ─────────────────────────────── -->
+  <main class="guide-main">
+
+    <div class="guide-banner">
+      <h2>Developer & Affiliate Setup Guide</h2>
+      <p>Everything you need to customize, extend, and monetize the Everest & Hearth affiliate site.</p>
+      <span class="version">v1.0 — Last updated: Feb 2026</span>
+    </div>
+
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <h2 id="overview">Project Overview</h2>
+    <!-- ═══════════════════════════════════════════════ -->
+
+    <p>Everest & Hearth is a single-page affiliate website prototype built with static HTML, CSS, and vanilla JS. It's designed as a "trust-first" editorial review site across 4 categories: <strong>Kitchen</strong>, <strong>Home & Outdoor</strong>, <strong>Gardening</strong>, and <strong>Pets</strong>.</p>
+
+    <p>The site is optimized for:</p>
+    <ul>
+      <li><strong>Affiliate conversions</strong> — clear CTAs, comparison tables, verdict boxes</li>
+      <li><strong>SEO</strong> — semantic HTML, JSON-LD, proper heading hierarchy, silo structure</li>
+      <li><strong>Mobile performance</strong> — mobile-first CSS, touch-friendly targets, accordion navigation</li>
+      <li><strong>Trust & credibility</strong> — editorial design, disclosure banners, testing methodology</li>
+    </ul>
+
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <h2 id="file-structure">File Structure</h2>
+    <!-- ═══════════════════════════════════════════════ -->
+
+    <pre><span class="comment">wevsite/</span>
+├── index.html            <span class="comment"># Main site (all HTML/CSS/JS)</span>
+├── guide.html            <span class="comment"># This guide</span>
+├── CLAUDE.md             <span class="comment"># AI assistant instructions</span>
+│
+└── wp-content/themes/astra-child/   <span class="comment"># WordPress migration files</span>
+    ├── style.css          <span class="comment"># Design system / overrides</span>
+    ├── functions.php      <span class="comment"># Schema, timestamp, link filters</span>
+    ├── js/toc.js          <span class="comment"># Table of contents script</span>
+    └── blocks/            <span class="comment"># Reusable Gutenberg patterns</span>
+        ├── comparison-table.html
+        ├── verdict-box.html
+        ├── pros-cons.html
+        └── homepage-template.html</pre>
+
+    <div class="info-box info-box--info">
+      <strong>Note</strong>
+      <p>The site currently runs as a static HTML file. The <code>wp-content/</code> folder contains files for future WordPress migration.</p>
+    </div>
+
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <h2 id="tech-stack">Tech Stack</h2>
+    <!-- ═══════════════════════════════════════════════ -->
+
+    <table class="guide-table">
+      <thead><tr><th>Layer</th><th>Technology</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>HTML</td><td>Semantic HTML5</td><td>Single file, no framework</td></tr>
+        <tr><td>CSS</td><td>Custom properties + mobile-first media queries</td><td>No preprocessor needed</td></tr>
+        <tr><td>JS</td><td>Vanilla ES5 (IIFE)</td><td>~80 lines, no dependencies</td></tr>
+        <tr><td>Fonts</td><td>Google Fonts (Inter + Montserrat)</td><td>Preconnected for performance</td></tr>
+        <tr><td>Hosting</td><td>Vercel (static)</td><td>Auto-deploys from GitHub</td></tr>
+        <tr><td>Repo</td><td>GitHub (TEAHUPOOO/wevsite)</td><td>Push to deploy</td></tr>
+      </tbody>
+    </table>
+
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <h2 id="design-tokens">Design Tokens (CSS Custom Properties)</h2>
+    <!-- ═══════════════════════════════════════════════ -->
+
+    <h3>Colors</h3>
+    <table class="guide-table">
+      <thead><tr><th>Token</th><th>Value</th><th>Usage</th></tr></thead>
+      <tbody>
+        <tr><td><code>--navy</code></td><td>#2C3E50</td><td>Headers, dark text, dark backgrounds</td></tr>
+        <tr><td><code>--teal</code></td><td>#27AE60</td><td>Primary accent, CTAs, badges, active states</td></tr>
+        <tr><td><code>--orange</code></td><td>#E67E22</td><td>Secondary CTA, urgency, "cons" sections</td></tr>
+        <tr><td><code>--gray-50</code></td><td>#f8f9fa</td><td>Section backgrounds (alternating)</td></tr>
+        <tr><td><code>--gray-200</code></td><td>#e9ecef</td><td>Borders, dividers</td></tr>
+        <tr><td><code>--gray-600</code></td><td>#6c757d</td><td>Secondary text, labels</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Spacing</h3>
+    <table class="guide-table">
+      <thead><tr><th>Token</th><th>Value</th><th>Usage</th></tr></thead>
+      <tbody>
+        <tr><td><code>--space-xs</code></td><td>.5rem (8px)</td><td>Tight gaps</td></tr>
+        <tr><td><code>--space-sm</code></td><td>1rem (16px)</td><td>Default padding, card body</td></tr>
+        <tr><td><code>--space-md</code></td><td>1.5rem (24px)</td><td>Container padding, medium spacing</td></tr>
+        <tr><td><code>--space-lg</code></td><td>2.5rem (40px)</td><td>Section padding (mobile)</td></tr>
+        <tr><td><code>--space-xl</code></td><td>4rem (64px)</td><td>Section padding (desktop)</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Border Radius</h3>
+    <table class="guide-table">
+      <thead><tr><th>Token</th><th>Value</th><th>Usage</th></tr></thead>
+      <tbody>
+        <tr><td><code>--r-md</code></td><td>8px</td><td>Buttons, inputs, small cards</td></tr>
+        <tr><td><code>--r-lg</code></td><td>14px</td><td>Cards, panels, TOC</td></tr>
+        <tr><td><code>--r-xl</code></td><td>20px</td><td>Hero elements, main product cards</td></tr>
+      </tbody>
+    </table>
+
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <h2 id="components">Component Reference</h2>
+    <!-- ═══════════════════════════════════════════════ -->
+
+    <h3>Product Card (<code>.prod-card</code>)</h3>
+    <p>Used in the comparison grid. The <code>.prod-card--top</code> modifier elevates the #1 pick.</p>
+    <pre><span class="tag">&lt;article</span> <span class="attr">class</span>=<span class="string">"prod-card prod-card--top"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;span</span> <span class="attr">class</span>=<span class="string">"prod-card__badge"</span><span class="tag">&gt;</span>★ Best Overall<span class="tag">&lt;/span&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="string">"prod-card__rank prod-card__rank--top"</span><span class="tag">&gt;</span>...<span class="tag">&lt;/div&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="string">"prod-card__img-wrap"</span><span class="tag">&gt;</span>...<span class="tag">&lt;/div&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="string">"prod-card__body"</span><span class="tag">&gt;</span>
+    <span class="comment">&lt;!-- brand, name, rating, specs, price, CTA --&gt;</span>
+  <span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;/article&gt;</span></pre>
+
+    <h3>Category Card (<code>.cat-card</code>)</h3>
+    <p>Used in category grids. Image area uses modifier classes for colors.</p>
+    <pre><span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="string">"cat-card"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="string">"cat-card__img cat-card__img--kitchen"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;span</span> <span class="attr">class</span>=<span class="string">"cat-card__tag cat-card__tag--top"</span><span class="tag">&gt;</span>Top Pick<span class="tag">&lt;/span&gt;</span>
+    🔪
+  <span class="tag">&lt;/div&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="string">"cat-card__body"</span><span class="tag">&gt;</span>...<span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;/div&gt;</span></pre>
+
+    <h3>Subcategory Chips (<code>.subcat-chip</code>)</h3>
+    <p>Accordion-toggled chip grid under each category. Auto-expands on desktop.</p>
+    <pre><span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="string">"/kitchen/food-prep-gadgets"</span> <span class="attr">class</span>=<span class="string">"subcat-chip"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;span</span> <span class="attr">class</span>=<span class="string">"subcat-chip__badge"</span><span class="tag">&gt;</span>Popular<span class="tag">&lt;/span&gt;</span>
+  Food Prep Gadgets
+  <span class="tag">&lt;span</span> <span class="attr">class</span>=<span class="string">"subcat-chip__arrow"</span><span class="tag">&gt;</span>→<span class="tag">&lt;/span&gt;</span>
+<span class="tag">&lt;/a&gt;</span></pre>
+
+    <h3>Verdict Box (<code>.verdict-box</code>)</h3>
+    <p>Dual-column layout: "Who It's For" (left) + "The Bottom Line" (right). Stacks on mobile.</p>
+
+    <h3>Pros/Cons (<code>.pros-cons</code>)</h3>
+    <p>Side-by-side spec sheet with SVG icons. Stacks on mobile.</p>
+
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <h2 id="responsive">Responsive Breakpoints</h2>
+    <!-- ═══════════════════════════════════════════════ -->
+
+    <table class="guide-table">
+      <thead><tr><th>Breakpoint</th><th>Target</th><th>Key Changes</th></tr></thead>
+      <tbody>
+        <tr><td>Base (0px+)</td><td>Mobile phones</td><td>1-col layouts, hamburger menu, accordion TOC/subcats</td></tr>
+        <tr><td><code>640px</code></td><td>Large phones / small tablets</td><td>2-col category grids, horizontal hero actions, 4-col category strip</td></tr>
+        <tr><td><code>768px</code></td><td>Tablets</td><td>Larger spacing, hero decorations visible, 2-col verdict box</td></tr>
+        <tr><td><code>1024px</code></td><td>Desktop</td><td>Full nav bar, 3-col comparison, 4-col grids, sticky TOC sidebar, subcats auto-expanded</td></tr>
+        <tr><td><code>1440px</code></td><td>Large desktop</td><td>Wider max-width (1280px), more article/TOC gap</td></tr>
+      </tbody>
+    </table>
+
+    <div class="info-box info-box--tip">
+      <strong>Mobile-First Rule</strong>
+      <p>All CSS is written mobile-first. Base styles are for phones, then <code>@media (min-width: ...)</code> adds enhancements. Never use <code>max-width</code> breakpoints.</p>
+    </div>
+
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <h2 id="categories">Categories & Subcategories</h2>
+    <!-- ═══════════════════════════════════════════════ -->
+
+    <h3>URL Silo Structure</h3>
+    <pre><span class="comment"># Category pillar pages</span>
+/kitchen/
+/home-outdoor/
+/gardening/
+/pets/
+
+<span class="comment"># Subcategory pages (38 total)</span>
+/kitchen/food-prep-gadgets
+/kitchen/kitchen-scales-measuring-tools
+/kitchen/storage-meal-prep-containers
+/kitchen/cookware-bakeware-essentials
+/kitchen/coffee-drink-tools
+/kitchen/cutting-boards-knife-accessories
+/kitchen/air-fryer-small-appliance-accessories
+/kitchen/kitchen-organization-tools
+
+/home-outdoor/cleaning-tools-gadgets
+/home-outdoor/storage-organization
+/home-outdoor/laundry-tools
+/home-outdoor/home-safety-maintenance-gadgets
+/home-outdoor/bedroom-comfort-essentials
+/home-outdoor/patio-cleaning-maintenance-tools
+/home-outdoor/outdoor-lighting-solar-gadgets
+/home-outdoor/outdoor-storage-utility
+/home-outdoor/camping-backyard-utility-tools
+/home-outdoor/seasonal-outdoor-essentials
+
+/gardening/hand-tools-for-beginners
+/gardening/watering-tools-irrigation
+/gardening/pruning-cutting-tools
+/gardening/weeding-tools
+/gardening/raised-bed-soil-tools
+/gardening/plant-support-training
+/gardening/seed-starting-indoor-grow
+/gardening/garden-storage-tool-organization
+/gardening/pest-plant-protection
+/gardening/balcony-small-space-gardening
+
+/pets/dog-feeding-watering
+/pets/dog-grooming-tools
+/pets/dog-walking-gear
+/pets/pet-cleaning-odor-control
+/pets/cat-litter-litter-box-accessories
+/pets/cat-enrichment-toys
+/pets/pet-beds-comfort
+/pets/travel-car-accessories
+/pets/pet-training-aids
+/pets/smart-pet-gadgets</pre>
+
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <h2 id="add-product">How to Add a Product Card</h2>
+    <!-- ═══════════════════════════════════════════════ -->
+
+    <p><span class="step">1</span> Find the <code>.category-grid</code> for the category you want (e.g., Kitchen).</p>
+    <p><span class="step">2</span> Copy an existing <code>.cat-card</code> block.</p>
+    <p><span class="step">3</span> Update the content:</p>
+
+    <pre><span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="string">"cat-card"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="string">"cat-card__img cat-card__img--kitchen"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;span</span> <span class="attr">class</span>=<span class="string">"cat-card__tag cat-card__tag--new"</span><span class="tag">&gt;</span>New<span class="tag">&lt;/span&gt;</span>
+    🫕  <span class="comment">&lt;!-- Replace emoji with product image later --&gt;</span>
+  <span class="tag">&lt;/div&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="string">"cat-card__body"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;p</span> <span class="attr">class</span>=<span class="string">"cat-card__category"</span><span class="tag">&gt;</span>YOUR SUBCATEGORY<span class="tag">&lt;/p&gt;</span>
+    <span class="tag">&lt;h3</span> <span class="attr">class</span>=<span class="string">"cat-card__title"</span><span class="tag">&gt;</span>Your Product Title<span class="tag">&lt;/h3&gt;</span>
+    <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="string">"cat-card__rating"</span><span class="tag">&gt;</span>
+      <span class="tag">&lt;span</span> <span class="attr">class</span>=<span class="string">"stars"</span><span class="tag">&gt;</span>★★★★☆<span class="tag">&lt;/span&gt;</span>
+      <span class="tag">&lt;span</span> <span class="attr">class</span>=<span class="string">"rating-val"</span><span class="tag">&gt;</span>4.3<span class="tag">&lt;/span&gt;</span>
+    <span class="tag">&lt;/div&gt;</span>
+    <span class="tag">&lt;p</span> <span class="attr">class</span>=<span class="string">"cat-card__excerpt"</span><span class="tag">&gt;</span>Short review summary...<span class="tag">&lt;/p&gt;</span>
+    <span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="string">"/kitchen/your-slug"</span> <span class="attr">class</span>=<span class="string">"cat-card__link"</span><span class="tag">&gt;</span>Read Review →<span class="tag">&lt;/a&gt;</span>
+  <span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;/div&gt;</span></pre>
+
+    <h4>Tag Variants</h4>
+    <ul>
+      <li><code>.cat-card__tag--top</code> — <span class="badge badge--orange">Top Pick</span> (orange)</li>
+      <li><code>.cat-card__tag--new</code> — <span class="badge badge--teal">New</span> (green)</li>
+      <li><code>.cat-card__tag--pick</code> — <span class="badge badge--navy">Editor's Pick</span> (navy)</li>
+    </ul>
+
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <h2 id="add-subcategory">How to Add a Subcategory</h2>
+    <!-- ═══════════════════════════════════════════════ -->
+
+    <p><span class="step">1</span> Find the <code>.subcat-chips</code> list for the target category.</p>
+    <p><span class="step">2</span> Add a new <code>&lt;li&gt;</code> with a chip link:</p>
+
+    <pre><span class="tag">&lt;li&gt;</span>
+  <span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="string">"/kitchen/your-new-subcategory"</span> <span class="attr">class</span>=<span class="string">"subcat-chip"</span><span class="tag">&gt;</span>
+    Your New Subcategory
+    <span class="tag">&lt;span</span> <span class="attr">class</span>=<span class="string">"subcat-chip__arrow"</span> <span class="attr">aria-hidden</span>=<span class="string">"true"</span><span class="tag">&gt;</span>→<span class="tag">&lt;/span&gt;</span>
+  <span class="tag">&lt;/a&gt;</span>
+<span class="tag">&lt;/li&gt;</span></pre>
+
+    <p><span class="step">3</span> Update the count badge in the toggle button:</p>
+    <pre><span class="tag">&lt;span</span> <span class="attr">class</span>=<span class="string">"subcat-toggle__count"</span><span class="tag">&gt;</span>9<span class="tag">&lt;/span&gt;</span> <span class="comment">&lt;!-- was 8, now 9 --&gt;</span></pre>
+
+    <p><span class="step">4</span> Optional: Add a "Popular" badge to high-intent subcategories:</p>
+    <pre><span class="tag">&lt;span</span> <span class="attr">class</span>=<span class="string">"subcat-chip__badge"</span><span class="tag">&gt;</span>Popular<span class="tag">&lt;/span&gt;</span></pre>
+
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <h2 id="add-review">How to Add a Review Article</h2>
+    <!-- ═══════════════════════════════════════════════ -->
+
+    <p>The article section lives inside <code>#article-main</code>. To add new content:</p>
+
+    <p><span class="step">1</span> Add new <code>&lt;h2 id="your-section"&gt;</code> headings — the TOC auto-populates from these.</p>
+    <p><span class="step">2</span> Use the existing comparison table, verdict box, and pros/cons patterns as templates.</p>
+    <p><span class="step">3</span> Update the <code>.article-meta</code> with correct category, author, and date.</p>
+
+    <div class="info-box info-box--tip">
+      <strong>TOC Auto-Build</strong>
+      <p>The JavaScript automatically scans <code>#article-main h2[id]</code> elements and builds TOC links. Just give your h2s an <code>id</code> attribute and they appear in the sidebar TOC.</p>
+    </div>
+
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <h2 id="edit-comparison">How to Edit the Comparison Table</h2>
+    <!-- ═══════════════════════════════════════════════ -->
+
+    <p>The comparison section is in <code>#section-comparison</code>. Key areas to update:</p>
+
+    <ol>
+      <li><strong>Product names & brands</strong> — in <code>.prod-card__brand</code> and <code>.prod-card__name</code></li>
+      <li><strong>Specs</strong> — in <code>.spec-list</code> rows (key/value pairs)</li>
+      <li><strong>Prices</strong> — in <code>.prod-card__price</code></li>
+      <li><strong>CTA links</strong> — in <code>.prod-card__cta</code> (update <code>href</code> to real affiliate URL)</li>
+      <li><strong>Verdict text</strong> — in <code>.verdict-summary</code></li>
+      <li><strong>Pros/Cons</strong> — in <code>.pc-row</code> elements</li>
+    </ol>
+
+    <div class="info-box info-box--warning">
+      <strong>Important</strong>
+      <p>Always keep <code>rel="nofollow sponsored noopener"</code> and <code>target="_blank"</code> on affiliate links. This is required by FTC and Google guidelines.</p>
+    </div>
+
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <h2 id="affiliate-links">Connecting Affiliate Links</h2>
+    <!-- ═══════════════════════════════════════════════ -->
+
+    <p>All affiliate CTAs currently link to <code>#</code>. To connect real affiliate links:</p>
+
+    <h3>Find & Replace Pattern</h3>
+    <p>Search for <code>class="prod-card__cta"</code> and <code>class="verdict-cta"</code> — update their <code>href</code> values.</p>
+
+    <pre><span class="comment">&lt;!-- Before --&gt;</span>
+<span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">class</span>=<span class="string">"prod-card__cta prod-card__cta--primary"</span>
+   <span class="attr">rel</span>=<span class="string">"nofollow sponsored noopener"</span> <span class="attr">target</span>=<span class="string">"_blank"</span><span class="tag">&gt;</span>
+
+<span class="comment">&lt;!-- After --&gt;</span>
+<span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="string">"https://www.amazon.com/dp/B08HJR9WGX?tag=yourtag-20"</span>
+   <span class="attr">class</span>=<span class="string">"prod-card__cta prod-card__cta--primary"</span>
+   <span class="attr">rel</span>=<span class="string">"nofollow sponsored noopener"</span> <span class="attr">target</span>=<span class="string">"_blank"</span><span class="tag">&gt;</span></pre>
+
+    <h3>Required Attributes on Every Affiliate Link</h3>
+    <table class="guide-table">
+      <thead><tr><th>Attribute</th><th>Value</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td><code>rel</code></td><td><code>nofollow sponsored noopener</code></td><td>Google & FTC compliance</td></tr>
+        <tr><td><code>target</code></td><td><code>_blank</code></td><td>Opens in new tab (keeps user on your site)</td></tr>
+      </tbody>
+    </table>
+
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <h2 id="amazon-associates">Amazon Associates Setup</h2>
+    <!-- ═══════════════════════════════════════════════ -->
+
+    <p><span class="step">1</span> <strong>Sign up</strong> at <a href="https://affiliate-program.amazon.com" target="_blank">affiliate-program.amazon.com</a></p>
+    <p><span class="step">2</span> <strong>Get your tracking tag</strong> — it looks like <code>yoursitename-20</code></p>
+    <p><span class="step">3</span> <strong>Build affiliate links</strong> using the format:</p>
+
+    <pre>https://www.amazon.com/dp/<span class="string">PRODUCT_ASIN</span>?tag=<span class="string">yourtag-20</span></pre>
+
+    <p><span class="step">4</span> <strong>Replace placeholder links</strong> in <code>index.html</code></p>
+
+    <div class="info-box info-box--info">
+      <strong>Finding ASINs</strong>
+      <p>The ASIN is in every Amazon product URL: <code>amazon.com/dp/<strong>B08HJR9WGX</strong></code>. You can also find it in the "Product Information" section of any listing.</p>
+    </div>
+
+    <h3>Other Affiliate Networks</h3>
+    <table class="guide-table">
+      <thead><tr><th>Network</th><th>Good For</th><th>Commission</th></tr></thead>
+      <tbody>
+        <tr><td>Amazon Associates</td><td>Everything (broadest catalog)</td><td>1-4%</td></tr>
+        <tr><td>ShareASale</td><td>Home, garden, specialty brands</td><td>5-20%</td></tr>
+        <tr><td>Impact</td><td>DTC brands, premium products</td><td>8-15%</td></tr>
+        <tr><td>CJ Affiliate</td><td>Large retailers (Home Depot, Lowe's)</td><td>2-8%</td></tr>
+        <tr><td>Skimlinks</td><td>Auto-affiliate all merchant links</td><td>Varies</td></tr>
+      </tbody>
+    </table>
+
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <h2 id="tracking">Link Tracking & Attribution</h2>
+    <!-- ═══════════════════════════════════════════════ -->
+
+    <h3>Option A: Amazon's Built-in Tracking</h3>
+    <p>Amazon automatically tracks clicks through your <code>?tag=</code> parameter. View reports in the Associates dashboard.</p>
+
+    <h3>Option B: UTM Parameters (for analytics)</h3>
+    <p>Add UTM params to track which sections/pages convert best:</p>
+    <pre>https://amazon.com/dp/B08HJR9WGX?tag=yourtag-20<span class="string">&utm_source=everesthearth&utm_medium=comparison&utm_campaign=drills-2025</span></pre>
+
+    <h3>Option C: Link Management Plugin (WordPress)</h3>
+    <p>When you migrate to WordPress, use <strong>Pretty Links</strong> or <strong>ThirstyAffiliates</strong> to:</p>
+    <ul>
+      <li>Cloak links: <code>everest-hearth.com/go/dewalt-drill</code></li>
+      <li>Track clicks per link</li>
+      <li>Bulk-update links when URLs change</li>
+      <li>Auto-add <code>nofollow</code> attributes</li>
+    </ul>
+
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <h2 id="disclosure">FTC Disclosure Requirements</h2>
+    <!-- ═══════════════════════════════════════════════ -->
+
+    <p>The site already includes an affiliate disclosure banner above the comparison section. Here's what's required:</p>
+
+    <ol>
+      <li><strong>Visible disclosure</strong> — near the first affiliate link on every page (already done)</li>
+      <li><strong>Dedicated disclosure page</strong> — linked from footer (create <code>/affiliate-disclosure/</code>)</li>
+      <li><strong>Clear language</strong> — "We earn a commission from qualifying purchases" (avoid vague wording)</li>
+      <li><strong>"Sponsored" rel attribute</strong> — on all affiliate links (already implemented)</li>
+    </ol>
+
+    <div class="info-box info-box--warning">
+      <strong>FTC Requirement</strong>
+      <p>The disclosure must be visible <strong>before</strong> the user encounters affiliate links — not hidden in the footer. The current placement above the comparison section satisfies this.</p>
+    </div>
+
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <h2 id="deploy-vercel">Deploy to Vercel</h2>
+    <!-- ═══════════════════════════════════════════════ -->
+
+    <p>The site auto-deploys to Vercel when you push to GitHub. Manual steps:</p>
+
+    <p><span class="step">1</span> Make changes to <code>index.html</code></p>
+    <p><span class="step">2</span> Commit and push:</p>
+    <pre>git add index.html
+git commit -m "Update product links"
+git push</pre>
+    <p><span class="step">3</span> Vercel auto-deploys within ~60 seconds.</p>
+
+    <h3>Vercel Settings</h3>
+    <table class="guide-table">
+      <thead><tr><th>Setting</th><th>Value</th></tr></thead>
+      <tbody>
+        <tr><td>Framework Preset</td><td>Other (static)</td></tr>
+        <tr><td>Build Command</td><td><em>(leave empty)</em></td></tr>
+        <tr><td>Output Directory</td><td><code>./</code> (root)</td></tr>
+        <tr><td>Root Directory</td><td><code>./</code></td></tr>
+      </tbody>
+    </table>
+
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <h2 id="deploy-wordpress">Migrate to WordPress</h2>
+    <!-- ═══════════════════════════════════════════════ -->
+
+    <p>When you're ready to scale beyond a single page:</p>
+
+    <p><span class="step">1</span> <strong>Get hosting</strong> — Bluehost, SiteGround, or Cloudways</p>
+    <p><span class="step">2</span> <strong>Install WordPress + Astra theme</strong></p>
+    <p><span class="step">3</span> <strong>Upload the child theme</strong> from <code>wp-content/themes/astra-child/</code></p>
+    <p><span class="step">4</span> <strong>Create pages</strong> matching the silo structure:</p>
+
+    <pre><span class="comment"># WordPress pages to create:</span>
+Homepage        → Use homepage-template.html as Gutenberg layout
+/kitchen/       → Category pillar page
+/kitchen/food-prep-gadgets  → Subcategory page
+/kitchen/best-chefs-knives  → Individual review post</pre>
+
+    <p><span class="step">5</span> <strong>Install key plugins:</strong></p>
+    <ul>
+      <li><strong>RankMath / Yoast</strong> — SEO (sitemaps, meta, schema)</li>
+      <li><strong>ThirstyAffiliates</strong> — Link cloaking & tracking</li>
+      <li><strong>WP Rocket</strong> — Caching & performance</li>
+      <li><strong>ShortPixel</strong> — Image optimization</li>
+      <li><strong>Jepack / MonsterInsights</strong> — Analytics</li>
+    </ul>
+
+    <p><span class="step">6</span> <strong>Use the child theme files:</strong></p>
+    <ul>
+      <li><code>style.css</code> — Design tokens and component styles</li>
+      <li><code>functions.php</code> — JSON-LD schema, "Last Updated" timestamps, affiliate link filter</li>
+      <li><code>blocks/</code> — Paste into Gutenberg Custom HTML blocks</li>
+    </ul>
+
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <h2 id="domain">Custom Domain Setup</h2>
+    <!-- ═══════════════════════════════════════════════ -->
+
+    <p><span class="step">1</span> Buy a domain (Namecheap, Cloudflare, Google Domains)</p>
+    <p><span class="step">2</span> In Vercel: Settings → Domains → Add your domain</p>
+    <p><span class="step">3</span> Add DNS records as Vercel instructs (usually CNAME or A record)</p>
+    <p><span class="step">4</span> Update <code>&lt;link rel="canonical"&gt;</code> and Open Graph URLs in <code>index.html</code></p>
+    <p><span class="step">5</span> SSL is automatic with Vercel</p>
+
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <h2 id="seo-checklist">SEO Launch Checklist</h2>
+    <!-- ═══════════════════════════════════════════════ -->
+
+    <table class="guide-table">
+      <thead><tr><th>Item</th><th>Status</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Single <code>&lt;h1&gt;</code> per page</td><td><span class="badge badge--teal">Done</span></td><td>Hero headline is the h1</td></tr>
+        <tr><td>Meta description</td><td><span class="badge badge--teal">Done</span></td><td>In <code>&lt;head&gt;</code></td></tr>
+        <tr><td>Canonical URL</td><td><span class="badge badge--orange">Update</span></td><td>Change to your real domain</td></tr>
+        <tr><td>Open Graph tags</td><td><span class="badge badge--teal">Done</span></td><td>Add OG image when available</td></tr>
+        <tr><td>JSON-LD (Organization)</td><td><span class="badge badge--teal">Done</span></td><td></td></tr>
+        <tr><td>JSON-LD (WebSite + Search)</td><td><span class="badge badge--teal">Done</span></td><td></td></tr>
+        <tr><td>JSON-LD (ItemList)</td><td><span class="badge badge--teal">Done</span></td><td>Top 3 products</td></tr>
+        <tr><td>JSON-LD (FAQ)</td><td><span class="badge badge--teal">Done</span></td><td>2 questions implemented</td></tr>
+        <tr><td>Semantic heading hierarchy</td><td><span class="badge badge--teal">Done</span></td><td>h1 → h2 → h3 proper nesting</td></tr>
+        <tr><td>Image alt text</td><td><span class="badge badge--orange">Pending</span></td><td>Add when replacing emoji with real images</td></tr>
+        <tr><td>Sitemap.xml</td><td><span class="badge badge--orange">Pending</span></td><td>Create when building subcategory pages</td></tr>
+        <tr><td>Robots.txt</td><td><span class="badge badge--orange">Pending</span></td><td>Create before launch</td></tr>
+        <tr><td>Page speed (mobile)</td><td><span class="badge badge--teal">Fast</span></td><td>No images, minimal JS, inline CSS</td></tr>
+        <tr><td>Affiliate disclosure</td><td><span class="badge badge--teal">Done</span></td><td>Above comparison section</td></tr>
+        <tr><td>Affiliate link rel attrs</td><td><span class="badge badge--teal">Done</span></td><td><code>nofollow sponsored noopener</code></td></tr>
+        <tr><td>Mobile responsive</td><td><span class="badge badge--teal">Done</span></td><td>Mobile-first CSS, tested 320px+</td></tr>
+        <tr><td>Accessibility</td><td><span class="badge badge--teal">Done</span></td><td>ARIA, focus-visible, skip link, landmarks</td></tr>
+      </tbody>
+    </table>
+
+    <div class="info-box info-box--tip">
+      <strong>Before Going Live</strong>
+      <p>1. Replace all <code>#</code> placeholder links with real URLs<br>
+         2. Update canonical URL to your domain<br>
+         3. Add <code>robots.txt</code> and <code>sitemap.xml</code><br>
+         4. Replace emoji placeholders with real product images<br>
+         5. Submit to Google Search Console</p>
+    </div>
+
+    <br><br>
+    <p style="text-align:center;color:var(--gray-600);font-size:.875rem;">— End of Guide —</p>
+    <br>
+
+  </main>
+</div>
+
+<!-- Sidebar active link highlighting -->
+<script>
+(function() {
+  var links = document.querySelectorAll('.sidebar-link');
+  var sections = [];
+  links.forEach(function(l) {
+    var id = l.getAttribute('href').replace('#','');
+    var el = document.getElementById(id);
+    if (el) sections.push({ link: l, el: el });
+  });
+  var active = null;
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (!e.isIntersecting) return;
+      var match = sections.find(function(s) { return s.el === e.target; });
+      if (!match || match.link === active) return;
+      if (active) active.classList.remove('active');
+      match.link.classList.add('active');
+      active = match.link;
+    });
+  }, { rootMargin: '-10% 0px -70% 0px' });
+  sections.forEach(function(s) { observer.observe(s.el); });
+})();
+</script>
+
+</body>
+</html>
