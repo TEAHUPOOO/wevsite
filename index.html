@@ -3522,12 +3522,21 @@
       var navItems = document.querySelectorAll('.nav-item');
       var isDesktop = window.matchMedia('(min-width: 1024px)');
 
+      /* All nav links (including standalone like Reviews) */
+      var allNavLinks = nav.querySelectorAll('.nav-link');
+
+      function setActiveNav(activeLink) {
+        allNavLinks.forEach(function (l) { l.classList.remove('active'); });
+        activeLink.classList.add('active');
+      }
+
       navItems.forEach(function (item) {
         var link = item.querySelector('.nav-link');
         var dropdown = item.querySelector('.mega-dropdown');
         if (!link || !dropdown) return;
 
         link.addEventListener('click', function (e) {
+          setActiveNav(link);
           /* On mobile, toggle dropdown instead of navigating */
           if (!isDesktop.matches) {
             e.preventDefault();
@@ -3539,6 +3548,14 @@
             });
             if (!wasOpen) dropdown.classList.add('is-open');
           }
+        });
+      });
+
+      /* Standalone nav links (no dropdown, e.g. Reviews) */
+      allNavLinks.forEach(function (link) {
+        if (link.closest('.nav-item')) return;
+        link.addEventListener('click', function () {
+          setActiveNav(link);
         });
       });
 
