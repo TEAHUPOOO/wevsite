@@ -88,6 +88,9 @@
   }
   </script>
 
+  <!-- Apply dark mode before render to prevent flash -->
+  <script>if(localStorage.getItem('theme')==='dark')document.documentElement.setAttribute('data-theme','dark');</script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -2445,6 +2448,169 @@
       max-width: 600px;
     }
 
+    /* ══════════════════════════════════════════════════════
+       DARK MODE TOGGLE
+    ══════════════════════════════════════════════════════ */
+    .darkmode-toggle {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.1);
+      border: 1.5px solid rgba(255,255,255,.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.125rem;
+      cursor: pointer;
+      transition: background .2s, transform .2s;
+      flex-shrink: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .darkmode-toggle:hover {
+      background: rgba(255,255,255,.2);
+      transform: scale(1.1);
+    }
+    .darkmode-toggle .dm-icon-sun { display: none; }
+    .darkmode-toggle .dm-icon-moon { display: block; }
+
+    /* ══════════════════════════════════════════════════════
+       DARK MODE THEME
+    ══════════════════════════════════════════════════════ */
+    [data-theme="dark"] {
+      --text: #e0e0e0;
+      --gray-50: #1e1e1e;
+      --gray-100: #252525;
+      --gray-200: #333;
+      --gray-400: #555;
+      --gray-600: #999;
+      --gray-800: #ddd;
+      --shadow-sm: 0 1px 4px rgba(0,0,0,.3);
+      --shadow-md: 0 4px 16px rgba(0,0,0,.4);
+      --shadow-lg: 0 12px 40px rgba(0,0,0,.5);
+      --teal-light: #1a3328;
+      --orange-light: #332210;
+    }
+    [data-theme="dark"] body,
+    [data-theme="dark"] {
+      background: #141414;
+      color: var(--text);
+    }
+    [data-theme="dark"] .darkmode-toggle .dm-icon-sun { display: block; }
+    [data-theme="dark"] .darkmode-toggle .dm-icon-moon { display: none; }
+
+    /* Header */
+    [data-theme="dark"] .site-header {
+      background: linear-gradient(90deg, #0d1a12 0%, #151f28 100%);
+    }
+    [data-theme="dark"] .main-nav {
+      background: #151f28;
+    }
+
+    /* Cards & surfaces */
+    [data-theme="dark"] .cat-card,
+    [data-theme="dark"] .prod-card,
+    [data-theme="dark"] .toc-widget,
+    [data-theme="dark"] .verdict-box,
+    [data-theme="dark"] .pros-cons {
+      background: #1e1e1e;
+      border-color: #333;
+    }
+    [data-theme="dark"] .prod-card--top {
+      border-color: var(--teal);
+    }
+
+    /* Card images */
+    [data-theme="dark"] .cat-card__img--kitchen { background: linear-gradient(135deg, #332a1a, #3d2f1a); }
+    [data-theme="dark"] .cat-card__img--home { background: linear-gradient(135deg, #1a2833, #1a2d3d); }
+    [data-theme="dark"] .cat-card__img--garden { background: linear-gradient(135deg, #1a331e, #1a3d24); }
+    [data-theme="dark"] .cat-card__img--pets { background: linear-gradient(135deg, #331a2a, #3d1a30); }
+    [data-theme="dark"] .prod-card__img-wrap { background: linear-gradient(135deg, #1e1e1e, #252525); }
+    [data-theme="dark"] .prod-card--top .prod-card__img-wrap { background: linear-gradient(135deg, #1a3328, #1a3d2e); }
+
+    /* Category strip */
+    [data-theme="dark"] .category-strip {
+      background: #1a1a1a;
+      border-color: #333;
+      box-shadow: none;
+    }
+    [data-theme="dark"] .cat-item {
+      border-color: #2a2a2a;
+      color: var(--text);
+    }
+    [data-theme="dark"] .cat-item:hover,
+    [data-theme="dark"] .cat-item.active {
+      background: var(--teal-light);
+    }
+    [data-theme="dark"] .cat-icon--kitchen { background: #332a1a; }
+    [data-theme="dark"] .cat-icon--home { background: #1a2833; }
+    [data-theme="dark"] .cat-icon--garden { background: #1a331e; }
+    [data-theme="dark"] .cat-icon--pets { background: #331a2a; }
+
+    /* Titles that use --navy hardcoded */
+    [data-theme="dark"] .section-title,
+    [data-theme="dark"] .cat-card__title,
+    [data-theme="dark"] .prod-card__name,
+    [data-theme="dark"] .cat-name,
+    [data-theme="dark"] .article-h1,
+    [data-theme="dark"] #article-main h2,
+    [data-theme="dark"] .verdict-rating-value,
+    [data-theme="dark"] .pc-text strong,
+    [data-theme="dark"] .prod-card__price {
+      color: #f0f0f0;
+    }
+
+    /* Verdict */
+    [data-theme="dark"] .verdict-left { background: #1a1a1a; border-color: #333; }
+    [data-theme="dark"] .verdict-right { background: #1e1e1e; }
+    [data-theme="dark"] .verdict-header { background: #0d1a12; }
+
+    /* Pros/Cons */
+    [data-theme="dark"] .pc-header-col--pro { background: var(--teal-light); border-color: #1a3328; }
+    [data-theme="dark"] .pc-header-col--con { background: var(--orange-light); }
+    [data-theme="dark"] .pc-col--pro { border-color: #333; }
+    [data-theme="dark"] .pc-col--pro .pc-row:hover { background: #1a2b1e; }
+    [data-theme="dark"] .pc-col--con .pc-row:hover { background: #2b1f14; }
+    [data-theme="dark"] .pc-footer { background: #1a1a1a; border-color: #333; }
+    [data-theme="dark"] .pc-row { border-color: #2a2a2a; }
+
+    /* Search bar */
+    [data-theme="dark"] .search-bar { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.12); }
+
+    /* Affiliate disclosure */
+    [data-theme="dark"] .affiliate-disclosure { background: #1a1a1a; border-color: #333; }
+    [data-theme="dark"] .affiliate-disclosure strong { color: #e0e0e0; }
+
+    /* Comparison meta */
+    [data-theme="dark"] .comparison-meta { background: #1e1e1e; border-color: #333; }
+
+    /* TOC */
+    [data-theme="dark"] .toc-header { background: #0d1a12; }
+    [data-theme="dark"] .toc-link:hover { background: #252525; }
+    [data-theme="dark"] .toc-link.active { background: var(--teal-light); }
+
+    /* Mega dropdown desktop */
+    @media (min-width: 1024px) {
+      [data-theme="dark"] .mega-dropdown {
+        background: #1e1e1e;
+        border-color: #333;
+      }
+      [data-theme="dark"] .mega-dropdown__link { color: #ccc; }
+      [data-theme="dark"] .mega-dropdown__link:hover { background: var(--teal-light); color: var(--teal); }
+      [data-theme="dark"] .mega-dropdown__cta { background: #252525; color: var(--teal); }
+      [data-theme="dark"] .mega-dropdown__cta:hover { background: var(--teal-dark); color: #fff; }
+    }
+
+    /* Category sections alternating */
+    [data-theme="dark"] .category-section:nth-child(even) { background: #1a1a1a; }
+
+    /* Footer & Trust bar — already dark, just tweak borders */
+    [data-theme="dark"] .trust-bar { background: #0d0d0d; }
+    [data-theme="dark"] .site-footer { background: #0d0d0d; }
+
+    /* Spec rows */
+    [data-theme="dark"] .spec-row { border-color: #2a2a2a; }
+    [data-theme="dark"] .spec-list { border-color: #2a2a2a; }
+
   </style>
 </head>
 
@@ -2462,6 +2628,11 @@
         <div class="logo-icon" aria-hidden="true">🏡</div>
         <div class="logo-text">Everest <span>&amp;</span> Hearth</div>
       </a>
+
+      <button class="darkmode-toggle" id="darkmode-btn" aria-label="Toggle dark mode">
+        <span class="dm-icon-moon" aria-hidden="true">🌙</span>
+        <span class="dm-icon-sun" aria-hidden="true">☀️</span>
+      </button>
 
       <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation menu">
         <span class="bar" aria-hidden="true"></span>
@@ -3408,6 +3579,25 @@
   <script>
     (function () {
       'use strict';
+
+      /* ── Dark Mode Toggle ─────────────────────────────── */
+      var dmBtn = document.getElementById('darkmode-btn');
+      var savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+      if (dmBtn) {
+        dmBtn.addEventListener('click', function () {
+          var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+          if (isDark) {
+            document.documentElement.removeAttribute('data-theme');
+            localStorage.setItem('theme', 'light');
+          } else {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+          }
+        });
+      }
 
       /* ── Mobile Menu Toggle ──────────────────────────── */
       var menuBtn = document.querySelector('.menu-toggle');
