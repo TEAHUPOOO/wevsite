@@ -2452,15 +2452,15 @@
        DARK MODE TOGGLE
     ══════════════════════════════════════════════════════ */
     .darkmode-toggle {
-      width: 40px;
-      height: 40px;
+      width: 28px;
+      height: 28px;
       border-radius: 50%;
       background: rgba(255,255,255,.1);
-      border: 1.5px solid rgba(255,255,255,.2);
+      border: 1px solid rgba(255,255,255,.15);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.125rem;
+      font-size: .75rem;
       cursor: pointer;
       transition: background .2s, transform .2s;
       flex-shrink: 0;
@@ -2629,11 +2629,6 @@
         <div class="logo-text">Everest <span>&amp;</span> Hearth</div>
       </a>
 
-      <button class="darkmode-toggle" id="darkmode-btn" aria-label="Toggle dark mode">
-        <span class="dm-icon-moon" aria-hidden="true">🌙</span>
-        <span class="dm-icon-sun" aria-hidden="true">☀️</span>
-      </button>
-
       <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation menu">
         <span class="bar" aria-hidden="true"></span>
       </button>
@@ -2770,6 +2765,10 @@
         </div>
         <a href="#section-comparison" class="header-cta">Best Picks</a>
       </div>
+      <button class="darkmode-toggle" id="darkmode-btn" aria-label="Toggle dark mode">
+        <span class="dm-icon-moon" aria-hidden="true">🌙</span>
+        <span class="dm-icon-sun" aria-hidden="true">☀️</span>
+      </button>
     </div>
   </header>
 
