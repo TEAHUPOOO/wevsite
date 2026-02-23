@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Everest & Hearth — Buy it once. Use it forever.</title>
-  <meta name="description" content="Honest, hands-on product reviews for kitchen, home, garden & pet gear. We test everything in real homes so you buy once and use it forever." />
+  <meta name="description"
+    content="Honest, hands-on product reviews for kitchen, home, garden & pet gear. We test everything in real homes so you buy once and use it forever." />
   <link rel="canonical" href="https://everest-hearth.com/" />
 
   <!-- Open Graph -->
@@ -88,14 +90,27 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap"
+    rel="stylesheet" />
 
   <style>
     /* ══════════════════════════════════════════════════════
        RESET & BASE (Mobile-First)
     ══════════════════════════════════════════════════════ */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
     body {
       font-family: 'Inter', system-ui, sans-serif;
       font-size: clamp(.875rem, 2.5vw, 1rem);
@@ -104,17 +119,37 @@
       line-height: 1.6;
       overflow-x: hidden;
     }
-    a { text-decoration: none; color: inherit; }
-    img, svg, video { max-width: 100%; display: block; }
-    button { font: inherit; cursor: pointer; border: none; background: none; }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img,
+    svg,
+    video {
+      max-width: 100%;
+      display: block;
+    }
+
+    button {
+      font: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
 
     /* ── Focus & Motion ─────────────────────────────────── */
     :focus-visible {
       outline: 2px solid var(--teal);
       outline-offset: 2px;
     }
+
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
+
+      *,
+      *::before,
+      *::after {
         animation-duration: 0.01ms !important;
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
@@ -123,27 +158,27 @@
 
     /* ── Design Tokens ──────────────────────────────────── */
     :root {
-      --navy:        #2C3E50;
-      --navy-dark:   #1a252f;
-      --teal:        #27AE60;
-      --teal-dark:   #1e8449;
-      --teal-light:  #eafaf1;
-      --orange:      #E67E22;
+      --navy: #2C3E50;
+      --navy-dark: #1a252f;
+      --teal: #27AE60;
+      --teal-dark: #1e8449;
+      --teal-light: #eafaf1;
+      --orange: #E67E22;
       --orange-dark: #d35400;
-      --orange-light:#fef5ec;
-      --gray-50:     #f8f9fa;
-      --gray-100:    #f1f3f5;
-      --gray-200:    #e9ecef;
-      --gray-400:    #ced4da;
-      --gray-600:    #6c757d;
-      --gray-800:    #343a40;
-      --text:        #2d3748;
-      --shadow-sm:   0 1px 4px rgba(0,0,0,.08);
-      --shadow-md:   0 4px 16px rgba(0,0,0,.10);
-      --shadow-lg:   0 12px 40px rgba(0,0,0,.13);
-      --r-md:  8px;
-      --r-lg:  14px;
-      --r-xl:  20px;
+      --orange-light: #fef5ec;
+      --gray-50: #f8f9fa;
+      --gray-100: #f1f3f5;
+      --gray-200: #e9ecef;
+      --gray-400: #ced4da;
+      --gray-600: #6c757d;
+      --gray-800: #343a40;
+      --text: #2d3748;
+      --shadow-sm: 0 1px 4px rgba(0, 0, 0, .08);
+      --shadow-md: 0 4px 16px rgba(0, 0, 0, .10);
+      --shadow-lg: 0 12px 40px rgba(0, 0, 0, .13);
+      --r-md: 8px;
+      --r-lg: 14px;
+      --r-xl: 20px;
       --space-xs: .5rem;
       --space-sm: 1rem;
       --space-md: 1.5rem;
@@ -170,6 +205,7 @@
       top: 0;
       z-index: 300;
     }
+
     .header-inner {
       max-width: 1200px;
       margin: 0 auto;
@@ -179,19 +215,25 @@
       align-items: center;
       gap: .75rem;
     }
+
     .logo {
       display: flex;
       align-items: center;
       gap: .5rem;
       flex-shrink: 0;
     }
+
     .logo-icon {
-      width: 32px; height: 32px;
+      width: 32px;
+      height: 32px;
       background: var(--teal);
       border-radius: var(--r-md);
-      display: flex; align-items: center; justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-size: 1rem;
     }
+
     .logo-text {
       font-family: 'Montserrat', sans-serif;
       font-weight: 800;
@@ -200,47 +242,75 @@
       letter-spacing: -.02em;
       line-height: 1.1;
     }
-    .logo-text span { color: var(--teal); }
+
+    .logo-text span {
+      color: var(--teal);
+    }
 
     /* ── Mobile Menu Toggle ─────────────────────────────── */
     .menu-toggle {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 44px; height: 44px;
+      width: 44px;
+      height: 44px;
       color: #fff;
       border-radius: var(--r-md);
       margin-left: auto;
       -webkit-tap-highlight-color: transparent;
     }
-    .menu-toggle:hover { background: rgba(255,255,255,.1); }
+
+    .menu-toggle:hover {
+      background: rgba(255, 255, 255, .1);
+    }
+
     .menu-toggle .bar {
       display: block;
-      width: 20px; height: 2px;
+      width: 20px;
+      height: 2px;
       background: #fff;
       position: relative;
       transition: background .2s;
     }
+
     .menu-toggle .bar::before,
     .menu-toggle .bar::after {
       content: '';
       position: absolute;
-      left: 0; width: 100%; height: 2px;
+      left: 0;
+      width: 100%;
+      height: 2px;
       background: #fff;
       transition: transform .2s;
     }
-    .menu-toggle .bar::before { top: -6px; }
-    .menu-toggle .bar::after  { top: 6px; }
-    .menu-toggle[aria-expanded="true"] .bar { background: transparent; }
-    .menu-toggle[aria-expanded="true"] .bar::before { transform: translateY(6px) rotate(45deg); }
-    .menu-toggle[aria-expanded="true"] .bar::after  { transform: translateY(-6px) rotate(-45deg); }
+
+    .menu-toggle .bar::before {
+      top: -6px;
+    }
+
+    .menu-toggle .bar::after {
+      top: 6px;
+    }
+
+    .menu-toggle[aria-expanded="true"] .bar {
+      background: transparent;
+    }
+
+    .menu-toggle[aria-expanded="true"] .bar::before {
+      transform: translateY(6px) rotate(45deg);
+    }
+
+    .menu-toggle[aria-expanded="true"] .bar::after {
+      transform: translateY(-6px) rotate(-45deg);
+    }
 
     /* ── Main Nav (Mobile: dropdown) ────────────────────── */
     .main-nav {
       display: none;
       position: absolute;
       top: var(--header-h);
-      left: 0; right: 0;
+      left: 0;
+      right: 0;
       background: var(--navy-dark);
       border-bottom: 3px solid var(--teal);
       padding: var(--space-sm);
@@ -248,14 +318,18 @@
       gap: .25rem;
       z-index: 299;
     }
-    .main-nav.is-open { display: flex; }
+
+    .main-nav.is-open {
+      display: flex;
+    }
+
     .nav-link {
       font-family: 'Montserrat', sans-serif;
       font-size: .8125rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: .06em;
-      color: rgba(255,255,255,.82);
+      color: rgba(255, 255, 255, .82);
       padding: .75rem var(--space-sm);
       border-radius: var(--r-md);
       transition: background .15s, color .15s;
@@ -263,24 +337,36 @@
       display: flex;
       align-items: center;
     }
-    .nav-link:hover, .nav-link.active {
+
+    .nav-link:hover,
+    .nav-link.active {
       color: #fff;
-      background: rgba(255,255,255,.1);
+      background: rgba(255, 255, 255, .1);
     }
 
     /* ── Search & CTA (hidden mobile, shown desktop) ───── */
-    .header-utils { margin-left: auto; display: none; align-items: center; gap: .75rem; }
+    .header-utils {
+      margin-left: auto;
+      display: none;
+      align-items: center;
+      gap: .75rem;
+    }
+
     .search-bar {
       display: flex;
       align-items: center;
-      background: rgba(255,255,255,.12);
-      border: 1px solid rgba(255,255,255,.2);
+      background: rgba(255, 255, 255, .12);
+      border: 1px solid rgba(255, 255, 255, .2);
       border-radius: 99px;
       padding: .375rem .875rem;
       gap: .5rem;
       transition: background .15s;
     }
-    .search-bar:focus-within { background: rgba(255,255,255,.18); }
+
+    .search-bar:focus-within {
+      background: rgba(255, 255, 255, .18);
+    }
+
     .search-bar input {
       background: transparent;
       border: none;
@@ -289,8 +375,16 @@
       font-size: .8125rem;
       width: 140px;
     }
-    .search-bar input::placeholder { color: rgba(255,255,255,.5); }
-    .search-icon { color: rgba(255,255,255,.6); font-size: .875rem; }
+
+    .search-bar input::placeholder {
+      color: rgba(255, 255, 255, .5);
+    }
+
+    .search-icon {
+      color: rgba(255, 255, 255, .6);
+      font-size: .875rem;
+    }
+
     .header-cta {
       background: var(--orange);
       color: #fff;
@@ -306,7 +400,11 @@
       display: inline-flex;
       align-items: center;
     }
-    .header-cta:hover { background: var(--orange-dark); transform: translateY(-1px); }
+
+    .header-cta:hover {
+      background: var(--orange-dark);
+      transform: translateY(-1px);
+    }
 
     /* ══════════════════════════════════════════════════════
        HERO (Mobile-First)
@@ -318,36 +416,44 @@
       display: flex;
       align-items: center;
     }
+
     .hero-bg {
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(105deg, rgba(26,58,42,.95) 0%, rgba(26,58,42,.7) 50%, rgba(26,58,42,.3) 100%),
+        linear-gradient(105deg, rgba(26, 58, 42, .95) 0%, rgba(26, 58, 42, .7) 50%, rgba(26, 58, 42, .3) 100%),
         linear-gradient(175deg, #2d6a4f 0%, #40916c 35%, #52b788 55%, #74c69d 75%, #b7e4c7 100%);
       z-index: 0;
     }
+
     .hero-plants {
       position: absolute;
-      right: 0; top: 0; bottom: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
       width: 55%;
       z-index: 0;
       overflow: hidden;
       display: none;
     }
+
     .hero-plants::before {
       content: '\1F33F\1F331\1F966\1F33F\1FAD1\1F33F\1F331\1F33F';
       position: absolute;
       font-size: 5rem;
-      top: 50%; left: 50%;
-      transform: translate(-50%,-50%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       opacity: .35;
       letter-spacing: .5rem;
       filter: blur(1px);
       white-space: nowrap;
     }
+
     .garden-scene {
       position: absolute;
-      right: 5%; top: 50%;
+      right: 5%;
+      top: 50%;
       transform: translateY(-50%);
       display: none;
       grid-template-columns: repeat(3, 1fr);
@@ -355,19 +461,44 @@
       opacity: .75;
       z-index: 0;
     }
+
     .garden-bed {
-      width: 110px; height: 76px;
+      width: 110px;
+      height: 76px;
       border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-size: 2rem;
       box-shadow: var(--shadow-md);
     }
-    .garden-bed:nth-child(1) { background: linear-gradient(135deg,#3d5a3e,#4a7c59); }
-    .garden-bed:nth-child(2) { background: linear-gradient(135deg,#4a7c59,#52b788); margin-top:-1.5rem; }
-    .garden-bed:nth-child(3) { background: linear-gradient(135deg,#2d6a4f,#40916c); }
-    .garden-bed:nth-child(4) { background: linear-gradient(135deg,#40916c,#74c69d); margin-top:-1rem; }
-    .garden-bed:nth-child(5) { background: linear-gradient(135deg,#2d6a4f,#3d5a3e); }
-    .garden-bed:nth-child(6) { background: linear-gradient(135deg,#52b788,#95d5b2); margin-top:-1.5rem; }
+
+    .garden-bed:nth-child(1) {
+      background: linear-gradient(135deg, #3d5a3e, #4a7c59);
+    }
+
+    .garden-bed:nth-child(2) {
+      background: linear-gradient(135deg, #4a7c59, #52b788);
+      margin-top: -1.5rem;
+    }
+
+    .garden-bed:nth-child(3) {
+      background: linear-gradient(135deg, #2d6a4f, #40916c);
+    }
+
+    .garden-bed:nth-child(4) {
+      background: linear-gradient(135deg, #40916c, #74c69d);
+      margin-top: -1rem;
+    }
+
+    .garden-bed:nth-child(5) {
+      background: linear-gradient(135deg, #2d6a4f, #3d5a3e);
+    }
+
+    .garden-bed:nth-child(6) {
+      background: linear-gradient(135deg, #52b788, #95d5b2);
+      margin-top: -1.5rem;
+    }
 
     .hero-content {
       position: relative;
@@ -377,6 +508,7 @@
       padding: var(--space-lg) var(--space-sm);
       width: 100%;
     }
+
     .hero-eyebrow {
       font-family: 'Montserrat', sans-serif;
       font-size: .6875rem;
@@ -389,12 +521,15 @@
       align-items: center;
       gap: .5rem;
     }
+
     .hero-eyebrow::before {
       content: '';
       display: inline-block;
-      width: 20px; height: 2px;
+      width: 20px;
+      height: 2px;
       background: var(--teal);
     }
+
     .hero-headline {
       font-family: 'Montserrat', sans-serif;
       font-size: clamp(2rem, 6vw, 3.75rem);
@@ -405,18 +540,21 @@
       margin-bottom: 1rem;
       max-width: 560px;
     }
+
     .hero-sub {
       font-size: clamp(.9375rem, 2.5vw, 1.0625rem);
-      color: rgba(255,255,255,.75);
+      color: rgba(255, 255, 255, .75);
       line-height: 1.7;
       max-width: 460px;
       margin-bottom: 1.75rem;
     }
+
     .hero-actions {
       display: flex;
       flex-direction: column;
       gap: .75rem;
     }
+
     .btn-hero-primary {
       background: var(--orange);
       color: #fff;
@@ -430,13 +568,19 @@
       justify-content: center;
       gap: .5rem;
       transition: background .2s, transform .2s, box-shadow .2s;
-      box-shadow: 0 4px 20px rgba(230,126,34,.4);
+      box-shadow: 0 4px 20px rgba(230, 126, 34, .4);
       min-height: 48px;
       text-align: center;
     }
-    .btn-hero-primary:hover { background: var(--orange-dark); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(230,126,34,.5); }
+
+    .btn-hero-primary:hover {
+      background: var(--orange-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(230, 126, 34, .5);
+    }
+
     .btn-hero-secondary {
-      color: rgba(255,255,255,.85);
+      color: rgba(255, 255, 255, .85);
       font-family: 'Montserrat', sans-serif;
       font-size: .875rem;
       font-weight: 600;
@@ -444,27 +588,35 @@
       align-items: center;
       justify-content: center;
       gap: .375rem;
-      border-bottom: 1px solid rgba(255,255,255,.35);
+      border-bottom: 1px solid rgba(255, 255, 255, .35);
       padding-bottom: 2px;
       transition: color .15s, border-color .15s;
       min-height: 44px;
     }
-    .btn-hero-secondary:hover { color: #fff; border-bottom-color: rgba(255,255,255,.8); }
+
+    .btn-hero-secondary:hover {
+      color: #fff;
+      border-bottom-color: rgba(255, 255, 255, .8);
+    }
+
     .hero-trust {
       margin-top: 2rem;
       display: flex;
       flex-direction: column;
       gap: .75rem;
     }
+
     .hero-trust-item {
       display: flex;
       align-items: center;
       gap: .375rem;
       font-size: .8125rem;
-      color: rgba(255,255,255,.65);
+      color: rgba(255, 255, 255, .65);
     }
+
     .hero-trust-item .dot {
-      width: 6px; height: 6px;
+      width: 6px;
+      height: 6px;
       border-radius: 50%;
       background: var(--teal);
       flex-shrink: 0;
@@ -476,14 +628,16 @@
     .category-strip {
       background: #fff;
       border-bottom: 1px solid var(--gray-200);
-      box-shadow: 0 4px 16px rgba(0,0,0,.06);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, .06);
     }
+
     .category-strip-inner {
       max-width: 1200px;
       margin: 0 auto;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
     }
+
     .cat-item {
       display: flex;
       flex-direction: column;
@@ -499,32 +653,69 @@
       color: var(--text);
       min-height: 44px;
     }
-    .cat-item:nth-child(2n) { border-right: none; }
-    .cat-item:nth-child(n+3) { border-bottom: none; }
+
+    .cat-item:nth-child(2n) {
+      border-right: none;
+    }
+
+    .cat-item:nth-child(n+3) {
+      border-bottom: none;
+    }
+
     .cat-item::after {
       content: '';
       position: absolute;
-      bottom: 0; left: 0; right: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
       height: 3px;
       background: var(--teal);
       transform: scaleX(0);
       transition: transform .2s;
       border-radius: 2px 2px 0 0;
     }
-    .cat-item:hover::after, .cat-item.active::after { transform: scaleX(1); }
-    .cat-item:hover, .cat-item.active { background: var(--teal-light); }
+
+    .cat-item:hover::after,
+    .cat-item.active::after {
+      transform: scaleX(1);
+    }
+
+    .cat-item:hover,
+    .cat-item.active {
+      background: var(--teal-light);
+    }
+
     .cat-icon {
-      width: 44px; height: 44px;
+      width: 44px;
+      height: 44px;
       border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-size: 1.375rem;
       transition: transform .2s;
     }
-    .cat-item:hover .cat-icon { transform: scale(1.08); }
-    .cat-icon--kitchen  { background: #fff4e6; }
-    .cat-icon--home     { background: #e8f4fd; }
-    .cat-icon--garden   { background: #e6f7ee; }
-    .cat-icon--pets     { background: #fce8f3; }
+
+    .cat-item:hover .cat-icon {
+      transform: scale(1.08);
+    }
+
+    .cat-icon--kitchen {
+      background: #fff4e6;
+    }
+
+    .cat-icon--home {
+      background: #e8f4fd;
+    }
+
+    .cat-icon--garden {
+      background: #e6f7ee;
+    }
+
+    .cat-icon--pets {
+      background: #fce8f3;
+    }
+
     .cat-name {
       font-family: 'Montserrat', sans-serif;
       font-size: .75rem;
@@ -532,6 +723,7 @@
       color: var(--navy);
       text-align: center;
     }
+
     .cat-count {
       font-size: .6875rem;
       color: var(--gray-600);
@@ -543,7 +735,11 @@
     .section {
       padding: var(--space-lg) 0;
     }
-    .section--alt { background: var(--gray-50); }
+
+    .section--alt {
+      background: var(--gray-50);
+    }
+
     .section-eyebrow {
       font-family: 'Montserrat', sans-serif;
       font-size: .6875rem;
@@ -556,12 +752,15 @@
       align-items: center;
       gap: .5rem;
     }
+
     .section-eyebrow::before {
       content: '';
       display: inline-block;
-      width: 20px; height: 2px;
+      width: 20px;
+      height: 2px;
       background: var(--teal);
     }
+
     .section-title {
       font-family: 'Montserrat', sans-serif;
       font-size: clamp(1.5rem, 4vw, 2.25rem);
@@ -570,6 +769,7 @@
       letter-spacing: -.025em;
       margin-bottom: .5rem;
     }
+
     .section-sub {
       font-size: clamp(.875rem, 2.5vw, .9375rem);
       color: var(--gray-600);
@@ -589,7 +789,10 @@
       color: var(--gray-600);
       line-height: 1.5;
     }
-    .affiliate-disclosure strong { color: var(--navy); }
+
+    .affiliate-disclosure strong {
+      color: var(--navy);
+    }
 
     /* ══════════════════════════════════════════════════════
        COMPARISON SECTION
@@ -600,6 +803,7 @@
       gap: 1rem;
       margin-bottom: var(--space-lg);
     }
+
     .comparison-meta {
       display: flex;
       align-items: center;
@@ -612,6 +816,7 @@
       color: var(--gray-600);
       align-self: flex-start;
     }
+
     .comparison-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -631,16 +836,25 @@
       transition: box-shadow .25s;
       position: relative;
     }
-    .prod-card:hover { box-shadow: var(--shadow-md); }
+
+    .prod-card:hover {
+      box-shadow: var(--shadow-md);
+    }
+
     .prod-card--top {
       border: 2px solid var(--teal);
-      box-shadow: 0 12px 36px rgba(39,174,96,.18);
+      box-shadow: 0 12px 36px rgba(39, 174, 96, .18);
       border-radius: 20px;
     }
-    .prod-card--top:hover { box-shadow: 0 16px 48px rgba(39,174,96,.25); }
+
+    .prod-card--top:hover {
+      box-shadow: 0 16px 48px rgba(39, 174, 96, .25);
+    }
+
     .prod-card__badge {
       position: absolute;
-      top: -14px; left: 50%;
+      top: -14px;
+      left: 50%;
       transform: translateX(-50%);
       background: linear-gradient(90deg, var(--teal) 0%, #1a9e54 100%);
       color: #fff;
@@ -652,8 +866,9 @@
       padding: .25rem .875rem;
       border-radius: 99px;
       white-space: nowrap;
-      box-shadow: 0 4px 16px rgba(39,174,96,.45);
+      box-shadow: 0 4px 16px rgba(39, 174, 96, .45);
     }
+
     .prod-card__rank {
       display: flex;
       align-items: center;
@@ -666,14 +881,23 @@
       color: var(--gray-600);
       padding: 1rem 1.25rem 0;
     }
-    .prod-card__rank--top { color: var(--teal-dark); }
+
+    .prod-card__rank--top {
+      color: var(--teal-dark);
+    }
+
     .rank-dot {
-      width: 8px; height: 8px;
+      width: 8px;
+      height: 8px;
       border-radius: 50%;
       background: var(--gray-400);
       flex-shrink: 0;
     }
-    .rank-dot--top { background: var(--teal); }
+
+    .rank-dot--top {
+      background: var(--teal);
+    }
+
     .prod-card__img-wrap {
       margin: .875rem 1.25rem;
       background: linear-gradient(135deg, #f8f9fa 0%, #f1f3f5 100%);
@@ -685,19 +909,26 @@
       position: relative;
       overflow: hidden;
     }
+
     .prod-card--top .prod-card__img-wrap {
       background: linear-gradient(135deg, #eafaf1 0%, #d5f5e3 100%);
     }
+
     .drill-img {
       font-size: 3.5rem;
-      filter: drop-shadow(0 4px 12px rgba(0,0,0,.15));
+      filter: drop-shadow(0 4px 12px rgba(0, 0, 0, .15));
       transition: transform .3s;
     }
-    .prod-card:hover .drill-img { transform: scale(1.08) rotate(-5deg); }
+
+    .prod-card:hover .drill-img {
+      transform: scale(1.08) rotate(-5deg);
+    }
+
     .img-label {
       position: absolute;
-      bottom: .5rem; right: .5rem;
-      background: rgba(0,0,0,.55);
+      bottom: .5rem;
+      right: .5rem;
+      background: rgba(0, 0, 0, .55);
       color: #fff;
       font-size: .625rem;
       font-weight: 600;
@@ -706,13 +937,18 @@
       letter-spacing: .04em;
       text-transform: uppercase;
     }
-    .prod-card--top .img-label { background: var(--teal); }
+
+    .prod-card--top .img-label {
+      background: var(--teal);
+    }
+
     .prod-card__body {
       padding: 0 1.25rem 1.25rem;
       flex: 1;
       display: flex;
       flex-direction: column;
     }
+
     .prod-card__brand {
       font-family: 'Montserrat', sans-serif;
       font-size: .6875rem;
@@ -722,6 +958,7 @@
       color: var(--gray-600);
       margin-bottom: .25rem;
     }
+
     .prod-card__name {
       font-family: 'Montserrat', sans-serif;
       font-size: 1rem;
@@ -730,6 +967,7 @@
       line-height: 1.25;
       margin-bottom: .5rem;
     }
+
     .prod-card__rating {
       display: flex;
       align-items: center;
@@ -737,9 +975,24 @@
       margin-bottom: .75rem;
       flex-wrap: wrap;
     }
-    .stars { color: #f59e0b; font-size: .9375rem; letter-spacing: .05em; }
-    .rating-val { font-size: .8125rem; font-weight: 700; color: var(--navy); }
-    .rating-count { font-size: .75rem; color: var(--gray-600); }
+
+    .stars {
+      color: #f59e0b;
+      font-size: .9375rem;
+      letter-spacing: .05em;
+    }
+
+    .rating-val {
+      font-size: .8125rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .rating-count {
+      font-size: .75rem;
+      color: var(--gray-600);
+    }
+
     .spec-list {
       list-style: none;
       border-top: 1px solid var(--gray-100);
@@ -748,6 +1001,7 @@
       display: flex;
       flex-direction: column;
     }
+
     .spec-row {
       display: flex;
       justify-content: space-between;
@@ -757,9 +1011,22 @@
       font-size: .8125rem;
       gap: .5rem;
     }
-    .spec-row:last-child { border-bottom: none; }
-    .spec-key { color: var(--gray-600); font-weight: 500; }
-    .spec-val { color: var(--navy); font-weight: 700; text-align: right; }
+
+    .spec-row:last-child {
+      border-bottom: none;
+    }
+
+    .spec-key {
+      color: var(--gray-600);
+      font-weight: 500;
+    }
+
+    .spec-val {
+      color: var(--navy);
+      font-weight: 700;
+      text-align: right;
+    }
+
     .prod-card__price {
       font-family: 'Montserrat', sans-serif;
       font-size: 1.375rem;
@@ -771,13 +1038,18 @@
       gap: .375rem;
       flex-wrap: wrap;
     }
-    .prod-card__price--top { color: var(--teal-dark); }
+
+    .prod-card__price--top {
+      color: var(--teal-dark);
+    }
+
     .price-original {
       font-size: .875rem;
       font-weight: 500;
       color: var(--gray-400);
       text-decoration: line-through;
     }
+
     .price-save {
       font-size: .75rem;
       font-weight: 700;
@@ -786,6 +1058,7 @@
       padding: .125rem .4rem;
       border-radius: 4px;
     }
+
     .prod-card__cta {
       display: flex;
       align-items: center;
@@ -803,23 +1076,32 @@
       cursor: pointer;
       min-height: 48px;
     }
+
     .prod-card__cta--primary {
       background: linear-gradient(90deg, var(--teal) 0%, #1a9e54 100%);
       color: #fff;
-      box-shadow: 0 4px 16px rgba(39,174,96,.25);
+      box-shadow: 0 4px 16px rgba(39, 174, 96, .25);
     }
+
     .prod-card__cta--primary:hover {
       background: linear-gradient(90deg, var(--teal-dark) 0%, #147a3f 100%);
       transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(39,174,96,.38);
+      box-shadow: 0 8px 24px rgba(39, 174, 96, .38);
     }
+
     .prod-card__cta--secondary {
       background: var(--gray-100);
       color: var(--navy);
       border: 1.5px solid var(--gray-200);
     }
-    .prod-card__cta--secondary:hover { background: var(--gray-200); }
-    .cta-arrow { font-size: .875rem; }
+
+    .prod-card__cta--secondary:hover {
+      background: var(--gray-200);
+    }
+
+    .cta-arrow {
+      font-size: .875rem;
+    }
 
     /* ══════════════════════════════════════════════════════
        VERDICT BOX
@@ -828,13 +1110,15 @@
       border-radius: var(--r-xl);
       overflow: hidden;
       border: 1.5px solid var(--gray-200);
-      box-shadow: 0 6px 28px rgba(0,0,0,.08);
+      box-shadow: 0 6px 28px rgba(0, 0, 0, .08);
       margin-top: var(--space-lg);
     }
+
     .verdict-topbar {
       height: 4px;
       background: linear-gradient(90deg, var(--teal) 0%, #2C3E50 100%);
     }
+
     .verdict-header {
       background: var(--navy);
       padding: .875rem var(--space-sm);
@@ -842,7 +1126,11 @@
       align-items: center;
       gap: .625rem;
     }
-    .verdict-header-icon { font-size: 1.125rem; }
+
+    .verdict-header-icon {
+      font-size: 1.125rem;
+    }
+
     .verdict-header-text {
       font-family: 'Montserrat', sans-serif;
       font-size: .6875rem;
@@ -851,21 +1139,25 @@
       letter-spacing: .12em;
       color: #fff;
     }
+
     .verdict-body {
       display: grid;
       grid-template-columns: 1fr;
     }
+
     .verdict-left {
       background: var(--gray-50);
       padding: var(--space-md);
       border-bottom: 1px solid var(--gray-200);
     }
+
     .verdict-right {
       background: #fff;
       padding: var(--space-md);
       display: flex;
       flex-direction: column;
     }
+
     .verdict-col-label {
       font-family: 'Montserrat', sans-serif;
       font-size: .6875rem;
@@ -874,9 +1166,22 @@
       letter-spacing: .12em;
       margin-bottom: 1rem;
     }
-    .verdict-col-label--left  { color: var(--teal); }
-    .verdict-col-label--right { color: var(--orange); }
-    .verdict-list { list-style: none; display: flex; flex-direction: column; gap: .75rem; }
+
+    .verdict-col-label--left {
+      color: var(--teal);
+    }
+
+    .verdict-col-label--right {
+      color: var(--orange);
+    }
+
+    .verdict-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: .75rem;
+    }
+
     .verdict-item {
       display: flex;
       align-items: flex-start;
@@ -885,7 +1190,14 @@
       color: var(--text);
       line-height: 1.5;
     }
-    .v-check { flex-shrink: 0; width: 20px; height: 20px; margin-top: .1em; }
+
+    .v-check {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      margin-top: .1em;
+    }
+
     .verdict-rating-row {
       display: flex;
       align-items: center;
@@ -895,9 +1207,28 @@
       border-bottom: 1px solid var(--gray-100);
       flex-wrap: wrap;
     }
-    .verdict-rating-label { font-size: .8125rem; font-weight: 600; color: var(--gray-600); }
-    .verdict-rating-value { font-family: 'Montserrat', sans-serif; font-weight: 800; color: var(--navy); margin-left: auto; }
-    .verdict-summary { font-size: .9375rem; color: var(--text); line-height: 1.75; flex: 1; margin-bottom: 1.25rem; }
+
+    .verdict-rating-label {
+      font-size: .8125rem;
+      font-weight: 600;
+      color: var(--gray-600);
+    }
+
+    .verdict-rating-value {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      color: var(--navy);
+      margin-left: auto;
+    }
+
+    .verdict-summary {
+      font-size: .9375rem;
+      color: var(--text);
+      line-height: 1.75;
+      flex: 1;
+      margin-bottom: 1.25rem;
+    }
+
     .verdict-cta {
       display: block;
       text-align: center;
@@ -913,8 +1244,22 @@
       transition: background .25s, transform .2s, box-shadow .2s;
       min-height: 48px;
     }
-    .verdict-cta:hover { background: var(--orange-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(230,126,34,.35); }
-    .verdict-cta span { display: block; font-size: .6875rem; font-weight: 400; opacity: .8; letter-spacing: 0; text-transform: none; margin-top: .125rem; }
+
+    .verdict-cta:hover {
+      background: var(--orange-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(230, 126, 34, .35);
+    }
+
+    .verdict-cta span {
+      display: block;
+      font-size: .6875rem;
+      font-weight: 400;
+      opacity: .8;
+      letter-spacing: 0;
+      text-transform: none;
+      margin-top: .125rem;
+    }
 
     /* ══════════════════════════════════════════════════════
        PROS / CONS
@@ -925,15 +1270,27 @@
       border: 1.5px solid var(--gray-200);
       margin-top: var(--space-lg);
     }
-    .pc-header { display: grid; grid-template-columns: 1fr; }
+
+    .pc-header {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
     .pc-header-col {
       padding: .875rem var(--space-sm);
       display: flex;
       align-items: center;
       gap: .5rem;
     }
-    .pc-header-col--pro { background: var(--teal-light); }
-    .pc-header-col--con { background: var(--orange-light); }
+
+    .pc-header-col--pro {
+      background: var(--teal-light);
+    }
+
+    .pc-header-col--con {
+      background: var(--orange-light);
+    }
+
     .pc-header-label {
       font-family: 'Montserrat', sans-serif;
       font-size: .6875rem;
@@ -941,10 +1298,24 @@
       text-transform: uppercase;
       letter-spacing: .12em;
     }
-    .pc-header-label--pro { color: var(--teal-dark); }
-    .pc-header-label--con { color: var(--orange-dark); }
-    .pc-body { display: grid; grid-template-columns: 1fr; }
-    .pc-col--pro { border-bottom: 1px solid var(--gray-200); }
+
+    .pc-header-label--pro {
+      color: var(--teal-dark);
+    }
+
+    .pc-header-label--con {
+      color: var(--orange-dark);
+    }
+
+    .pc-body {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    .pc-col--pro {
+      border-bottom: 1px solid var(--gray-200);
+    }
+
     .pc-row {
       display: flex;
       align-items: flex-start;
@@ -954,11 +1325,33 @@
       min-height: 48px;
       transition: background .15s;
     }
-    .pc-row:last-child { border-bottom: none; }
-    .pc-col--pro .pc-row:hover { background: #f0fdf6; }
-    .pc-col--con .pc-row:hover { background: #fff8f3; }
-    .pc-text strong { display: block; font-weight: 700; color: var(--navy); font-size: .9375rem; }
-    .pc-text small  { font-size: .8125rem; color: var(--gray-600); display: block; line-height: 1.4; }
+
+    .pc-row:last-child {
+      border-bottom: none;
+    }
+
+    .pc-col--pro .pc-row:hover {
+      background: #f0fdf6;
+    }
+
+    .pc-col--con .pc-row:hover {
+      background: #fff8f3;
+    }
+
+    .pc-text strong {
+      display: block;
+      font-weight: 700;
+      color: var(--navy);
+      font-size: .9375rem;
+    }
+
+    .pc-text small {
+      font-size: .8125rem;
+      color: var(--gray-600);
+      display: block;
+      line-height: 1.4;
+    }
+
     .pc-footer {
       padding: .75rem var(--space-sm);
       background: var(--gray-100);
@@ -971,21 +1364,32 @@
     /* ══════════════════════════════════════════════════════
        CATEGORY SECTIONS
     ══════════════════════════════════════════════════════ */
-    .category-section { padding: var(--space-lg) 0; }
-    .category-section:nth-child(even) { background: var(--gray-50); }
+    .category-section {
+      padding: var(--space-lg) 0;
+    }
+
+    .category-section:nth-child(even) {
+      background: var(--gray-50);
+    }
+
     .category-section__header {
       display: flex;
       flex-direction: column;
       gap: 1rem;
       margin-bottom: var(--space-lg);
     }
+
     .category-section__icon {
-      width: 48px; height: 48px;
+      width: 48px;
+      height: 48px;
       border-radius: var(--r-lg);
-      display: flex; align-items: center; justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-size: 1.5rem;
       margin-bottom: .5rem;
     }
+
     .category-section__view-all {
       font-family: 'Montserrat', sans-serif;
       font-size: .8125rem;
@@ -1000,12 +1404,17 @@
       min-height: 44px;
       align-self: flex-start;
     }
-    .category-section__view-all:hover { border-bottom-color: var(--teal); }
+
+    .category-section__view-all:hover {
+      border-bottom-color: var(--teal);
+    }
+
     .category-grid {
       display: grid;
       grid-template-columns: 1fr;
       gap: 1.25rem;
     }
+
     .cat-card {
       background: #fff;
       border: 1.5px solid var(--gray-200);
@@ -1015,10 +1424,12 @@
       display: flex;
       flex-direction: column;
     }
+
     .cat-card:hover {
       box-shadow: var(--shadow-md);
       transform: translateY(-4px);
     }
+
     .cat-card__img {
       aspect-ratio: 16/9;
       display: flex;
@@ -1027,13 +1438,27 @@
       font-size: 3rem;
       position: relative;
     }
-    .cat-card__img--kitchen  { background: linear-gradient(135deg, #fff4e6, #ffe8cc); }
-    .cat-card__img--home     { background: linear-gradient(135deg, #e8f4fd, #d0e9fa); }
-    .cat-card__img--garden   { background: linear-gradient(135deg, #e6f7ee, #c8f0d8); }
-    .cat-card__img--pets     { background: linear-gradient(135deg, #fce8f3, #f9d0e8); }
+
+    .cat-card__img--kitchen {
+      background: linear-gradient(135deg, #fff4e6, #ffe8cc);
+    }
+
+    .cat-card__img--home {
+      background: linear-gradient(135deg, #e8f4fd, #d0e9fa);
+    }
+
+    .cat-card__img--garden {
+      background: linear-gradient(135deg, #e6f7ee, #c8f0d8);
+    }
+
+    .cat-card__img--pets {
+      background: linear-gradient(135deg, #fce8f3, #f9d0e8);
+    }
+
     .cat-card__tag {
       position: absolute;
-      top: .625rem; left: .625rem;
+      top: .625rem;
+      left: .625rem;
       font-family: 'Montserrat', sans-serif;
       font-size: .625rem;
       font-weight: 800;
@@ -1043,10 +1468,26 @@
       border-radius: 99px;
       color: #fff;
     }
-    .cat-card__tag--new { background: var(--teal); }
-    .cat-card__tag--top { background: var(--orange); }
-    .cat-card__tag--pick { background: var(--navy); }
-    .cat-card__body { padding: 1rem; flex: 1; display: flex; flex-direction: column; }
+
+    .cat-card__tag--new {
+      background: var(--teal);
+    }
+
+    .cat-card__tag--top {
+      background: var(--orange);
+    }
+
+    .cat-card__tag--pick {
+      background: var(--navy);
+    }
+
+    .cat-card__body {
+      padding: 1rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
     .cat-card__category {
       font-family: 'Montserrat', sans-serif;
       font-size: .625rem;
@@ -1056,6 +1497,7 @@
       color: var(--gray-600);
       margin-bottom: .25rem;
     }
+
     .cat-card__title {
       font-family: 'Montserrat', sans-serif;
       font-size: .9375rem;
@@ -1064,14 +1506,22 @@
       line-height: 1.3;
       margin-bottom: .5rem;
     }
+
     .cat-card__rating {
       display: flex;
       align-items: center;
       gap: .375rem;
       margin-bottom: .625rem;
     }
-    .cat-card__rating .stars { font-size: .8125rem; }
-    .cat-card__rating .rating-val { font-size: .75rem; }
+
+    .cat-card__rating .stars {
+      font-size: .8125rem;
+    }
+
+    .cat-card__rating .rating-val {
+      font-size: .75rem;
+    }
+
     .cat-card__excerpt {
       font-size: .8125rem;
       color: var(--gray-600);
@@ -1079,6 +1529,7 @@
       margin-bottom: .875rem;
       flex: 1;
     }
+
     .cat-card__link {
       font-family: 'Montserrat', sans-serif;
       font-size: .75rem;
@@ -1090,7 +1541,10 @@
       transition: gap .15s;
       min-height: 44px;
     }
-    .cat-card:hover .cat-card__link { gap: .5rem; }
+
+    .cat-card:hover .cat-card__link {
+      gap: .5rem;
+    }
 
     /* ══════════════════════════════════════════════════════
        ARTICLE + TOC (Mobile-First)
@@ -1103,6 +1557,7 @@
       flex-direction: column;
       gap: var(--space-lg);
     }
+
     #article-main h2 {
       font-family: 'Montserrat', sans-serif;
       font-size: clamp(1.25rem, 3vw, 1.375rem);
@@ -1113,8 +1568,18 @@
       border-top: 1px solid var(--gray-200);
       letter-spacing: -.02em;
     }
-    #article-main h2:first-of-type { border-top: none; padding-top: 0; margin-top: 1.25rem; }
-    #article-main p { margin-bottom: 1rem; line-height: 1.8; }
+
+    #article-main h2:first-of-type {
+      border-top: none;
+      padding-top: 0;
+      margin-top: 1.25rem;
+    }
+
+    #article-main p {
+      margin-bottom: 1rem;
+      line-height: 1.8;
+    }
+
     .article-h1 {
       font-family: 'Montserrat', sans-serif;
       font-size: clamp(1.5rem, 4vw, 2.125rem);
@@ -1124,7 +1589,15 @@
       letter-spacing: -.025em;
       line-height: 1.15;
     }
-    .article-meta { display: flex; align-items: center; gap: .75rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
     .meta-tag {
       font-family: 'Montserrat', sans-serif;
       font-size: .6875rem;
@@ -1136,7 +1609,11 @@
       padding: .25rem .625rem;
       border-radius: 4px;
     }
-    .meta-info { font-size: .8125rem; color: var(--gray-600); }
+
+    .meta-info {
+      font-size: .8125rem;
+      color: var(--gray-600);
+    }
 
     /* ── TOC (Mobile: collapsible) ──────────────────────── */
     .toc-widget {
@@ -1146,6 +1623,7 @@
       overflow: hidden;
       box-shadow: var(--shadow-sm);
     }
+
     .toc-header {
       background: var(--navy);
       padding: .75rem var(--space-sm);
@@ -1155,6 +1633,7 @@
       cursor: pointer;
       min-height: 44px;
     }
+
     .toc-header-text {
       font-family: 'Montserrat', sans-serif;
       font-size: .6875rem;
@@ -1163,24 +1642,31 @@
       letter-spacing: .12em;
       color: #fff;
     }
+
     .toc-toggle-icon {
       margin-left: auto;
-      color: rgba(255,255,255,.7);
+      color: rgba(255, 255, 255, .7);
       font-size: .75rem;
       transition: transform .2s;
     }
-    .toc-widget.is-collapsed .toc-toggle-icon { transform: rotate(180deg); }
+
+    .toc-widget.is-collapsed .toc-toggle-icon {
+      transform: rotate(180deg);
+    }
+
     .toc-list {
       list-style: none;
       padding: .5rem 0;
       transition: max-height .3s ease, opacity .2s;
       overflow: hidden;
     }
+
     .toc-widget.is-collapsed .toc-list {
       max-height: 0 !important;
       opacity: 0;
       padding: 0;
     }
+
     .toc-link {
       display: block;
       padding: .5rem var(--space-sm);
@@ -1194,8 +1680,19 @@
       display: flex;
       align-items: center;
     }
-    .toc-link:hover { color: var(--navy); background: var(--gray-50); border-left-color: var(--teal); }
-    .toc-link.active { color: var(--teal-dark); background: var(--teal-light); border-left-color: var(--teal); font-weight: 700; }
+
+    .toc-link:hover {
+      color: var(--navy);
+      background: var(--gray-50);
+      border-left-color: var(--teal);
+    }
+
+    .toc-link.active {
+      color: var(--teal-dark);
+      background: var(--teal-light);
+      border-left-color: var(--teal);
+      font-weight: 700;
+    }
 
     /* ══════════════════════════════════════════════════════
        TRUST BAR
@@ -1205,6 +1702,7 @@
       border-top: 3px solid var(--teal);
       padding: var(--space-lg) var(--space-sm);
     }
+
     .trust-grid {
       max-width: 960px;
       margin: 0 auto;
@@ -1213,18 +1711,36 @@
       gap: 1.5rem;
       text-align: center;
     }
-    .trust-icon { font-size: 1.5rem; color: var(--teal); margin-bottom: .375rem; }
-    .trust-title { font-family: 'Montserrat', sans-serif; font-size: .8125rem; font-weight: 700; color: #fff; margin-bottom: .25rem; }
-    .trust-sub   { font-size: .75rem; color: rgba(255,255,255,.5); line-height: 1.5; }
+
+    .trust-icon {
+      font-size: 1.5rem;
+      color: var(--teal);
+      margin-bottom: .375rem;
+    }
+
+    .trust-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .8125rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: .25rem;
+    }
+
+    .trust-sub {
+      font-size: .75rem;
+      color: rgba(255, 255, 255, .5);
+      line-height: 1.5;
+    }
 
     /* ══════════════════════════════════════════════════════
        FOOTER
     ══════════════════════════════════════════════════════ */
     .site-footer {
       background: var(--navy-dark);
-      border-top: 1px solid rgba(255,255,255,.08);
+      border-top: 1px solid rgba(255, 255, 255, .08);
       padding: var(--space-lg) var(--space-sm) 1.5rem;
     }
+
     .footer-inner {
       max-width: 1200px;
       margin: 0 auto;
@@ -1232,6 +1748,7 @@
       grid-template-columns: 1fr;
       gap: 2rem;
     }
+
     .footer-brand-name {
       font-family: 'Montserrat', sans-serif;
       font-weight: 800;
@@ -1239,22 +1756,42 @@
       color: #fff;
       margin-bottom: .625rem;
     }
-    .footer-brand-name span { color: var(--teal); }
-    .footer-tagline { font-size: .875rem; color: rgba(255,255,255,.5); line-height: 1.65; margin-bottom: 1rem; }
-    .footer-social { display: flex; gap: .625rem; }
+
+    .footer-brand-name span {
+      color: var(--teal);
+    }
+
+    .footer-tagline {
+      font-size: .875rem;
+      color: rgba(255, 255, 255, .5);
+      line-height: 1.65;
+      margin-bottom: 1rem;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: .625rem;
+    }
+
     .social-btn {
-      width: 44px; height: 44px;
+      width: 44px;
+      height: 44px;
       border-radius: var(--r-md);
-      background: rgba(255,255,255,.08);
+      background: rgba(255, 255, 255, .08);
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: .875rem;
-      color: rgba(255,255,255,.6);
+      color: rgba(255, 255, 255, .6);
       transition: background .15s, color .15s;
       cursor: pointer;
     }
-    .social-btn:hover { background: var(--teal); color: #fff; }
+
+    .social-btn:hover {
+      background: var(--teal);
+      color: #fff;
+    }
+
     .footer-col-title {
       font-family: 'Montserrat', sans-serif;
       font-size: .6875rem;
@@ -1264,82 +1801,320 @@
       color: var(--teal);
       margin-bottom: .75rem;
     }
-    .footer-links { list-style: none; display: flex; flex-direction: column; gap: .5rem; }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+    }
+
     .footer-links a {
       font-size: .875rem;
-      color: rgba(255,255,255,.55);
+      color: rgba(255, 255, 255, .55);
       transition: color .15s;
       min-height: 44px;
       display: flex;
       align-items: center;
     }
-    .footer-links a:hover { color: rgba(255,255,255,.9); }
+
+    .footer-links a:hover {
+      color: rgba(255, 255, 255, .9);
+    }
+
     .footer-bottom {
       max-width: 1200px;
       margin: 2rem auto 0;
       padding-top: 1.25rem;
-      border-top: 1px solid rgba(255,255,255,.08);
+      border-top: 1px solid rgba(255, 255, 255, .08);
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
       gap: .75rem;
     }
-    .footer-bottom p { font-size: .8125rem; color: rgba(255,255,255,.4); }
-    .footer-bottom a { color: rgba(255,255,255,.4); transition: color .15s; }
-    .footer-bottom a:hover { color: rgba(255,255,255,.7); }
+
+    .footer-bottom p {
+      font-size: .8125rem;
+      color: rgba(255, 255, 255, .4);
+    }
+
+    .footer-bottom a {
+      color: rgba(255, 255, 255, .4);
+      transition: color .15s;
+    }
+
+    .footer-bottom a:hover {
+      color: rgba(255, 255, 255, .7);
+    }
+
+    /* ══════════════════════════════════════════════════════
+       MOBILE FIXES (base / small screens)
+    ══════════════════════════════════════════════════════ */
+    /* Mobile nav: scrollable when dropdowns are open */
+    .main-nav.is-open {
+      max-height: calc(100vh - var(--header-h));
+      max-height: calc(100dvh - var(--header-h));
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* Prevent body scroll when nav is open */
+    body.nav-open {
+      overflow: hidden;
+    }
+
+    /* Long text wrapping for all card-like elements */
+    .prod-card__name,
+    .cat-card__title,
+    .hero-headline,
+    .section-title {
+      overflow-wrap: break-word;
+      word-break: break-word;
+    }
+
+    /* Spec rows: prevent overflow on narrow screens */
+    .spec-row {
+      flex-wrap: wrap;
+    }
+    .spec-val {
+      min-width: 0;
+      overflow-wrap: break-word;
+    }
+
+    /* Price row: allow wrapping */
+    .prod-card__price {
+      flex-wrap: wrap;
+    }
+
+    /* Comparison grid on very small screens */
+    @media (max-width: 359px) {
+      .comparison-grid {
+        max-width: 100%;
+      }
+      .prod-card__body {
+        padding: 0 .875rem 1rem;
+      }
+      .prod-card__img-wrap {
+        margin: .625rem .875rem;
+      }
+      .hero-headline {
+        font-size: 1.75rem;
+      }
+      .hero-sub {
+        font-size: .875rem;
+      }
+      .btn-hero-primary {
+        font-size: .8125rem;
+        padding: .875rem 1.5rem;
+      }
+    }
+
+    /* Ensure images and emojis don't overflow on mobile */
+    .cat-card__img,
+    .prod-card__img-wrap {
+      overflow: hidden;
+    }
+
+    /* Category helper text wrapping */
+    .category-section__helper {
+      overflow-wrap: break-word;
+    }
+
+    /* Verdict box: ensure text doesn't overflow */
+    .verdict-summary {
+      overflow-wrap: break-word;
+    }
+    .verdict-item {
+      overflow-wrap: break-word;
+    }
+
+    /* Mobile mega-dropdown link touch targets */
+    .mega-dropdown__link {
+      min-height: 44px;
+      flex-wrap: wrap;
+    }
+
+    /* Trust bar text: prevent overflow */
+    .trust-title,
+    .trust-sub {
+      overflow-wrap: break-word;
+    }
+
+    /* Footer links: ensure they wrap */
+    .footer-bottom p {
+      overflow-wrap: break-word;
+      word-break: break-word;
+    }
 
     /* ══════════════════════════════════════════════════════
        TABLET (min-width: 640px)
     ══════════════════════════════════════════════════════ */
     @media (min-width: 640px) {
-      .hero-actions { flex-direction: row; align-items: center; }
-      .hero-trust { flex-direction: row; gap: 1.5rem; }
-      .category-strip-inner { grid-template-columns: repeat(4, 1fr); }
-      .cat-item { border-bottom: none; padding: 1.25rem 1rem; }
-      .cat-item:nth-child(2n) { border-right: 1px solid var(--gray-100); }
-      .cat-item:last-child { border-right: none; }
-      .cat-icon { width: 52px; height: 52px; font-size: 1.625rem; }
-      .cat-name { font-size: .8125rem; }
-      .category-grid { grid-template-columns: repeat(2, 1fr); }
-      .cat-card__img { aspect-ratio: 4/3; }
-      .pc-header { grid-template-columns: 1fr 1fr; }
-      .pc-header-col--pro { border-right: 1px solid #d4efdf; }
-      .pc-body { grid-template-columns: 1fr 1fr; }
-      .pc-col--pro { border-bottom: none; border-right: 1px solid var(--gray-200); }
-      .footer-inner { grid-template-columns: 1fr 1fr; }
-      .footer-bottom { flex-direction: row; justify-content: space-between; text-align: left; }
+      .hero-actions {
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .hero-trust {
+        flex-direction: row;
+        gap: 1.5rem;
+      }
+
+      .category-strip-inner {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .cat-item {
+        border-bottom: none;
+        padding: 1.25rem 1rem;
+      }
+
+      .cat-item:nth-child(2n) {
+        border-right: 1px solid var(--gray-100);
+      }
+
+      .cat-item:last-child {
+        border-right: none;
+      }
+
+      .cat-icon {
+        width: 52px;
+        height: 52px;
+        font-size: 1.625rem;
+      }
+
+      .cat-name {
+        font-size: .8125rem;
+      }
+
+      .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .cat-card__img {
+        aspect-ratio: 4/3;
+      }
+
+      .pc-header {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .pc-header-col--pro {
+        border-right: 1px solid #d4efdf;
+      }
+
+      .pc-body {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .pc-col--pro {
+        border-bottom: none;
+        border-right: 1px solid var(--gray-200);
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .footer-bottom {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+      }
     }
 
     /* ══════════════════════════════════════════════════════
        TABLET-LARGE / SMALL DESKTOP (min-width: 768px)
     ══════════════════════════════════════════════════════ */
     @media (min-width: 768px) {
-      :root { --header-h: 64px; }
-      .container { padding: 0 var(--space-md); }
-      .header-inner { padding: 0 var(--space-md); }
-      .section { padding: var(--space-xl) 0; }
-      .category-section { padding: var(--space-xl) 0; }
-      .logo-icon { width: 36px; height: 36px; font-size: 1.125rem; }
-      .logo-text { font-size: 1.125rem; }
-      .hero { min-height: 440px; }
-      .hero-content { padding: var(--space-xl) var(--space-md); }
-      .hero-plants { display: block; }
-      .comparison-header { flex-direction: row; align-items: flex-end; justify-content: space-between; }
-      .verdict-body { grid-template-columns: 1fr 1fr; }
-      .verdict-left { border-bottom: none; border-right: 1px solid var(--gray-200); padding: 2rem; }
-      .verdict-right { padding: 2rem; }
-      .verdict-header { padding: 1rem 1.75rem; }
-      .trust-grid { grid-template-columns: repeat(4, 1fr); }
-      .category-section__header { flex-direction: row; align-items: flex-end; justify-content: space-between; }
+      :root {
+        --header-h: 64px;
+      }
+
+      .container {
+        padding: 0 var(--space-md);
+      }
+
+      .header-inner {
+        padding: 0 var(--space-md);
+      }
+
+      .section {
+        padding: var(--space-xl) 0;
+      }
+
+      .category-section {
+        padding: var(--space-xl) 0;
+      }
+
+      .logo-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 1.125rem;
+      }
+
+      .logo-text {
+        font-size: 1.125rem;
+      }
+
+      .hero {
+        min-height: 440px;
+      }
+
+      .hero-content {
+        padding: var(--space-xl) var(--space-md);
+      }
+
+      .hero-plants {
+        display: block;
+      }
+
+      .comparison-header {
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+      }
+
+      .verdict-body {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .verdict-left {
+        border-bottom: none;
+        border-right: 1px solid var(--gray-200);
+        padding: 2rem;
+      }
+
+      .verdict-right {
+        padding: 2rem;
+      }
+
+      .verdict-header {
+        padding: 1rem 1.75rem;
+      }
+
+      .trust-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .category-section__header {
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+      }
     }
 
     /* ══════════════════════════════════════════════════════
        DESKTOP (min-width: 1024px)
     ══════════════════════════════════════════════════════ */
     @media (min-width: 1024px) {
+
       /* Header: show full nav, hide hamburger */
-      .menu-toggle { display: none; }
+      .menu-toggle {
+        display: none;
+      }
+
       .main-nav {
         display: flex !important;
         position: static;
@@ -1350,17 +2125,31 @@
         gap: .25rem;
         margin-left: .5rem;
       }
+
       .nav-link {
         font-size: .75rem;
         padding: .5rem .875rem;
         min-height: auto;
       }
-      .header-utils { display: flex; }
+
+      .header-utils {
+        display: flex;
+      }
 
       /* Hero */
-      .hero { min-height: 480px; }
-      .garden-scene { display: grid; }
-      .garden-bed { width: 130px; height: 90px; font-size: 2.5rem; }
+      .hero {
+        min-height: 480px;
+      }
+
+      .garden-scene {
+        display: grid;
+      }
+
+      .garden-bed {
+        width: 130px;
+        height: 90px;
+        font-size: 2.5rem;
+      }
 
       /* Comparison */
       .comparison-grid {
@@ -1368,12 +2157,23 @@
         gap: 1.5rem;
         max-width: none;
       }
-      .prod-card--top { transform: translateY(-12px); }
-      .prod-card--top:hover { transform: translateY(-14px); }
-      .drill-img { font-size: 4rem; }
+
+      .prod-card--top {
+        transform: translateY(-12px);
+      }
+
+      .prod-card--top:hover {
+        transform: translateY(-14px);
+      }
+
+      .drill-img {
+        font-size: 4rem;
+      }
 
       /* Category grids */
-      .category-grid { grid-template-columns: repeat(4, 1fr); }
+      .category-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
 
       /* Article + TOC sidebar */
       .article-wrap {
@@ -1382,14 +2182,22 @@
         gap: 3rem;
         align-items: start;
       }
+
       .toc-widget {
         position: sticky;
         top: calc(var(--header-h) + 20px);
         max-height: calc(100vh - var(--header-h) - 40px);
         overflow-y: auto;
       }
-      .toc-header { cursor: default; }
-      .toc-toggle-icon { display: none; }
+
+      .toc-header {
+        cursor: default;
+      }
+
+      .toc-toggle-icon {
+        display: none;
+      }
+
       .toc-widget.is-collapsed .toc-list {
         max-height: none !important;
         opacity: 1;
@@ -1397,15 +2205,24 @@
       }
 
       /* Footer */
-      .footer-inner { grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem; }
+      .footer-inner {
+        grid-template-columns: 1.5fr 1fr 1fr 1fr;
+        gap: 3rem;
+      }
     }
 
     /* ══════════════════════════════════════════════════════
        LARGE DESKTOP (min-width: 1440px)
     ══════════════════════════════════════════════════════ */
     @media (min-width: 1440px) {
-      .container { max-width: 1280px; }
-      .article-wrap { grid-template-columns: 1fr 300px; gap: 3.5rem; }
+      .container {
+        max-width: 1280px;
+      }
+
+      .article-wrap {
+        grid-template-columns: 1fr 300px;
+        gap: 3.5rem;
+      }
     }
 
     /* ── Skip link (a11y) ───────────────────────────────── */
@@ -1420,7 +2237,11 @@
       z-index: 999;
       border-radius: 0 0 var(--r-md) var(--r-md);
     }
-    .skip-link:focus { left: 50%; transform: translateX(-50%); }
+
+    .skip-link:focus {
+      left: 50%;
+      transform: translateX(-50%);
+    }
 
     /* ══════════════════════════════════════════════════════
        MEGA-MENU DROPDOWN SYSTEM
@@ -1429,11 +2250,13 @@
     .nav-item {
       position: relative;
     }
-    .nav-item > .nav-link {
+
+    .nav-item>.nav-link {
       display: flex;
       align-items: center;
       gap: .35rem;
     }
+
     .nav-link__arrow {
       font-size: .5rem;
       transition: transform .2s;
@@ -1443,29 +2266,34 @@
     /* ── Mobile: accordion-style dropdowns ──────────────── */
     .mega-dropdown {
       display: none;
-      background: rgba(0,0,0,.15);
+      background: rgba(0, 0, 0, .15);
       border-radius: var(--r-md);
       padding: .5rem;
       margin-top: .25rem;
     }
+
     .mega-dropdown.is-open {
       display: block;
     }
+
     .mega-dropdown__group-label {
       font-family: 'Montserrat', sans-serif;
       font-size: .625rem;
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: .1em;
-      color: rgba(255,255,255,.5);
+      color: rgba(255, 255, 255, .5);
       padding: .5rem .5rem .25rem;
     }
+
     .mega-dropdown__group-label:not(:first-child) {
       margin-top: .5rem;
     }
+
     .mega-dropdown__list {
       list-style: none;
     }
+
     .mega-dropdown__link {
       display: flex;
       align-items: center;
@@ -1473,15 +2301,17 @@
       padding: .5rem .75rem;
       font-size: .8125rem;
       font-weight: 500;
-      color: rgba(255,255,255,.85);
+      color: rgba(255, 255, 255, .85);
       border-radius: var(--r-md);
       transition: background .15s, color .15s;
       min-height: 40px;
     }
+
     .mega-dropdown__link:hover {
-      background: rgba(255,255,255,.1);
+      background: rgba(255, 255, 255, .1);
       color: #fff;
     }
+
     .mega-dropdown__badge {
       font-family: 'Montserrat', sans-serif;
       font-size: .5625rem;
@@ -1494,6 +2324,7 @@
       border-radius: 99px;
       line-height: 1.2;
     }
+
     .mega-dropdown__cta {
       display: block;
       margin-top: .5rem;
@@ -1505,18 +2336,24 @@
       text-transform: uppercase;
       letter-spacing: .05em;
     }
-    .mega-dropdown__cta:hover { color: #fff; }
+
+    .mega-dropdown__cta:hover {
+      color: #fff;
+    }
 
     /* ── Desktop: hover flyout panels ──────────────────── */
     @media (min-width: 1024px) {
-      .nav-item:hover > .nav-link,
-      .nav-item:focus-within > .nav-link {
+
+      .nav-item:hover>.nav-link,
+      .nav-item:focus-within>.nav-link {
         color: #fff;
-        background: rgba(255,255,255,.12);
+        background: rgba(255, 255, 255, .12);
       }
+
       .nav-item:hover .nav-link__arrow {
         transform: rotate(180deg);
       }
+
       .mega-dropdown {
         display: block;
         visibility: hidden;
@@ -1535,12 +2372,14 @@
         transition: opacity .2s, visibility .2s, transform .2s;
         margin-top: 0;
       }
-      .nav-item:hover > .mega-dropdown,
-      .nav-item:focus-within > .mega-dropdown {
+
+      .nav-item:hover>.mega-dropdown,
+      .nav-item:focus-within>.mega-dropdown {
         visibility: visible;
         opacity: 1;
         transform: translateX(-50%) translateY(0);
       }
+
       /* Invisible bridge to prevent gap between link and dropdown */
       .mega-dropdown::before {
         content: '';
@@ -1550,19 +2389,23 @@
         right: 0;
         height: 10px;
       }
+
       .mega-dropdown__group-label {
         color: var(--gray-600);
         padding: .5rem 1rem .25rem;
       }
+
       .mega-dropdown__link {
         color: var(--navy);
         padding: .5rem 1rem;
         font-size: .8125rem;
       }
+
       .mega-dropdown__link:hover {
         background: var(--teal-light);
         color: var(--teal-dark);
       }
+
       .mega-dropdown__cta {
         margin: .5rem .75rem 0;
         padding: .5rem .75rem;
@@ -1572,6 +2415,7 @@
         text-align: center;
         transition: background .15s;
       }
+
       .mega-dropdown__cta:hover {
         background: var(--teal-dark);
         color: #fff;
@@ -1583,6 +2427,7 @@
       .mega-dropdown--wide {
         min-width: 480px;
       }
+
       .mega-dropdown--wide .mega-dropdown__columns {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -1599,957 +2444,1120 @@
       margin-bottom: var(--space-md);
       max-width: 600px;
     }
+
   </style>
 </head>
+
 <body>
 
-<!-- Skip to content (a11y) -->
-<a href="#main-content" class="skip-link">Skip to main content</a>
+  <!-- Skip to content (a11y) -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
-<!-- ══════════════════════════════════════════════════════
+  <!-- ══════════════════════════════════════════════════════
      HEADER
 ══════════════════════════════════════════════════════ -->
-<header class="site-header" role="banner">
-  <div class="header-inner">
-    <a href="#" class="logo" aria-label="Everest & Hearth — Home">
-      <div class="logo-icon" aria-hidden="true">🏡</div>
-      <div class="logo-text">Everest <span>&amp;</span> Hearth</div>
-    </a>
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a href="#" class="logo" aria-label="Everest & Hearth — Home">
+        <div class="logo-icon" aria-hidden="true">🏡</div>
+        <div class="logo-text">Everest <span>&amp;</span> Hearth</div>
+      </a>
 
-    <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation menu">
-      <span class="bar" aria-hidden="true"></span>
-    </button>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation menu">
+        <span class="bar" aria-hidden="true"></span>
+      </button>
 
-    <nav class="main-nav" id="main-nav" role="navigation" aria-label="Main navigation">
+      <nav class="main-nav" id="main-nav" role="navigation" aria-label="Main navigation">
 
-      <!-- Kitchen -->
-      <div class="nav-item">
-        <a href="#section-kitchen" class="nav-link active">Kitchen <span class="nav-link__arrow" aria-hidden="true">▼</span></a>
-        <div class="mega-dropdown" aria-label="Kitchen subcategories">
-          <ul class="mega-dropdown__list">
-            <li><a href="/kitchen/food-prep-gadgets" class="mega-dropdown__link"><span class="mega-dropdown__badge">Popular</span> Food Prep Gadgets</a></li>
-            <li><a href="/kitchen/kitchen-scales-measuring-tools" class="mega-dropdown__link">Kitchen Scales &amp; Measuring Tools</a></li>
-            <li><a href="/kitchen/storage-meal-prep-containers" class="mega-dropdown__link">Storage &amp; Meal Prep Containers</a></li>
-            <li><a href="/kitchen/cookware-bakeware-essentials" class="mega-dropdown__link"><span class="mega-dropdown__badge">Popular</span> Cookware &amp; Bakeware Essentials</a></li>
-            <li><a href="/kitchen/coffee-drink-tools" class="mega-dropdown__link">Coffee &amp; Drink Tools</a></li>
-            <li><a href="/kitchen/cutting-boards-knife-accessories" class="mega-dropdown__link">Cutting Boards &amp; Knife Accessories</a></li>
-            <li><a href="/kitchen/air-fryer-small-appliance-accessories" class="mega-dropdown__link">Air Fryer &amp; Small Appliance Accessories</a></li>
-            <li><a href="/kitchen/kitchen-organization-tools" class="mega-dropdown__link">Kitchen Organization Tools</a></li>
-          </ul>
-          <a href="/kitchen/" class="mega-dropdown__cta">All Kitchen Guides →</a>
-        </div>
-      </div>
-
-      <!-- Home & Outdoor -->
-      <div class="nav-item">
-        <a href="#section-home" class="nav-link">Home &amp; Outdoor <span class="nav-link__arrow" aria-hidden="true">▼</span></a>
-        <div class="mega-dropdown mega-dropdown--wide" aria-label="Home and Outdoor subcategories">
-          <div class="mega-dropdown__columns">
-            <div>
-              <p class="mega-dropdown__group-label">🏠 Home</p>
-              <ul class="mega-dropdown__list">
-                <li><a href="/home-outdoor/cleaning-tools-gadgets" class="mega-dropdown__link"><span class="mega-dropdown__badge">Popular</span> Cleaning Tools &amp; Gadgets</a></li>
-                <li><a href="/home-outdoor/storage-organization" class="mega-dropdown__link">Storage &amp; Organization</a></li>
-                <li><a href="/home-outdoor/laundry-tools" class="mega-dropdown__link">Laundry Tools</a></li>
-                <li><a href="/home-outdoor/home-safety-maintenance-gadgets" class="mega-dropdown__link">Home Safety &amp; Maintenance</a></li>
-                <li><a href="/home-outdoor/bedroom-comfort-essentials" class="mega-dropdown__link">Bedroom Comfort Essentials</a></li>
-              </ul>
-            </div>
-            <div>
-              <p class="mega-dropdown__group-label">🌳 Outdoor</p>
-              <ul class="mega-dropdown__list">
-                <li><a href="/home-outdoor/patio-cleaning-maintenance-tools" class="mega-dropdown__link">Patio Cleaning &amp; Maintenance</a></li>
-                <li><a href="/home-outdoor/outdoor-lighting-solar-gadgets" class="mega-dropdown__link"><span class="mega-dropdown__badge">Popular</span> Outdoor Lighting &amp; Solar</a></li>
-                <li><a href="/home-outdoor/outdoor-storage-utility" class="mega-dropdown__link">Outdoor Storage &amp; Utility</a></li>
-                <li><a href="/home-outdoor/camping-backyard-utility-tools" class="mega-dropdown__link">Camping / Backyard Utility</a></li>
-                <li><a href="/home-outdoor/seasonal-outdoor-essentials" class="mega-dropdown__link">Seasonal Outdoor Essentials</a></li>
-              </ul>
-            </div>
+        <!-- Kitchen -->
+        <div class="nav-item">
+          <a href="#section-kitchen" class="nav-link active">Kitchen <span class="nav-link__arrow"
+              aria-hidden="true">▼</span></a>
+          <div class="mega-dropdown" aria-label="Kitchen subcategories">
+            <ul class="mega-dropdown__list">
+              <li><a href="/kitchen/food-prep-gadgets" class="mega-dropdown__link"><span
+                    class="mega-dropdown__badge">Popular</span> Food Prep Gadgets</a></li>
+              <li><a href="/kitchen/kitchen-scales-measuring-tools" class="mega-dropdown__link">Kitchen Scales &amp;
+                  Measuring Tools</a></li>
+              <li><a href="/kitchen/storage-meal-prep-containers" class="mega-dropdown__link">Storage &amp; Meal Prep
+                  Containers</a></li>
+              <li><a href="/kitchen/cookware-bakeware-essentials" class="mega-dropdown__link"><span
+                    class="mega-dropdown__badge">Popular</span> Cookware &amp; Bakeware Essentials</a></li>
+              <li><a href="/kitchen/coffee-drink-tools" class="mega-dropdown__link">Coffee &amp; Drink Tools</a></li>
+              <li><a href="/kitchen/cutting-boards-knife-accessories" class="mega-dropdown__link">Cutting Boards &amp;
+                  Knife Accessories</a></li>
+              <li><a href="/kitchen/air-fryer-small-appliance-accessories" class="mega-dropdown__link">Air Fryer &amp;
+                  Small Appliance Accessories</a></li>
+              <li><a href="/kitchen/kitchen-organization-tools" class="mega-dropdown__link">Kitchen Organization
+                  Tools</a></li>
+            </ul>
+            <a href="/kitchen/" class="mega-dropdown__cta">All Kitchen Guides →</a>
           </div>
-          <a href="/home-outdoor/" class="mega-dropdown__cta">All Home &amp; Outdoor Guides →</a>
         </div>
-      </div>
 
-      <!-- Gardening -->
-      <div class="nav-item">
-        <a href="#section-garden" class="nav-link">Gardening <span class="nav-link__arrow" aria-hidden="true">▼</span></a>
-        <div class="mega-dropdown" aria-label="Gardening subcategories">
-          <ul class="mega-dropdown__list">
-            <li><a href="/gardening/hand-tools-for-beginners" class="mega-dropdown__link"><span class="mega-dropdown__badge">Popular</span> Hand Tools for Beginners</a></li>
-            <li><a href="/gardening/watering-tools-irrigation" class="mega-dropdown__link">Watering Tools &amp; Irrigation</a></li>
-            <li><a href="/gardening/pruning-cutting-tools" class="mega-dropdown__link">Pruning &amp; Cutting Tools</a></li>
-            <li><a href="/gardening/weeding-tools" class="mega-dropdown__link">Weeding Tools</a></li>
-            <li><a href="/gardening/raised-bed-soil-tools" class="mega-dropdown__link"><span class="mega-dropdown__badge">Popular</span> Raised Bed &amp; Soil Tools</a></li>
-            <li><a href="/gardening/plant-support-training" class="mega-dropdown__link">Plant Support &amp; Training</a></li>
-            <li><a href="/gardening/seed-starting-indoor-grow" class="mega-dropdown__link">Seed Starting &amp; Indoor Grow</a></li>
-            <li><a href="/gardening/garden-storage-tool-organization" class="mega-dropdown__link">Garden Storage &amp; Organization</a></li>
-            <li><a href="/gardening/pest-plant-protection" class="mega-dropdown__link">Pest &amp; Plant Protection</a></li>
-            <li><a href="/gardening/balcony-small-space-gardening" class="mega-dropdown__link">Balcony / Small-Space Gardening</a></li>
-          </ul>
-          <a href="/gardening/" class="mega-dropdown__cta">All Garden Guides →</a>
+        <!-- Home & Outdoor -->
+        <div class="nav-item">
+          <a href="#section-home" class="nav-link">Home &amp; Outdoor <span class="nav-link__arrow"
+              aria-hidden="true">▼</span></a>
+          <div class="mega-dropdown mega-dropdown--wide" aria-label="Home and Outdoor subcategories">
+            <div class="mega-dropdown__columns">
+              <div>
+                <p class="mega-dropdown__group-label">🏠 Home</p>
+                <ul class="mega-dropdown__list">
+                  <li><a href="/home-outdoor/cleaning-tools-gadgets" class="mega-dropdown__link"><span
+                        class="mega-dropdown__badge">Popular</span> Cleaning Tools &amp; Gadgets</a></li>
+                  <li><a href="/home-outdoor/storage-organization" class="mega-dropdown__link">Storage &amp;
+                      Organization</a></li>
+                  <li><a href="/home-outdoor/laundry-tools" class="mega-dropdown__link">Laundry Tools</a></li>
+                  <li><a href="/home-outdoor/home-safety-maintenance-gadgets" class="mega-dropdown__link">Home Safety
+                      &amp; Maintenance</a></li>
+                  <li><a href="/home-outdoor/bedroom-comfort-essentials" class="mega-dropdown__link">Bedroom Comfort
+                      Essentials</a></li>
+                </ul>
+              </div>
+              <div>
+                <p class="mega-dropdown__group-label">🌳 Outdoor</p>
+                <ul class="mega-dropdown__list">
+                  <li><a href="/home-outdoor/patio-cleaning-maintenance-tools" class="mega-dropdown__link">Patio
+                      Cleaning &amp; Maintenance</a></li>
+                  <li><a href="/home-outdoor/outdoor-lighting-solar-gadgets" class="mega-dropdown__link"><span
+                        class="mega-dropdown__badge">Popular</span> Outdoor Lighting &amp; Solar</a></li>
+                  <li><a href="/home-outdoor/outdoor-storage-utility" class="mega-dropdown__link">Outdoor Storage &amp;
+                      Utility</a></li>
+                  <li><a href="/home-outdoor/camping-backyard-utility-tools" class="mega-dropdown__link">Camping /
+                      Backyard Utility</a></li>
+                  <li><a href="/home-outdoor/seasonal-outdoor-essentials" class="mega-dropdown__link">Seasonal Outdoor
+                      Essentials</a></li>
+                </ul>
+              </div>
+            </div>
+            <a href="/home-outdoor/" class="mega-dropdown__cta">All Home &amp; Outdoor Guides →</a>
+          </div>
         </div>
-      </div>
 
-      <!-- Pets -->
-      <div class="nav-item">
-        <a href="#section-pets" class="nav-link">Pets <span class="nav-link__arrow" aria-hidden="true">▼</span></a>
-        <div class="mega-dropdown" aria-label="Pet subcategories">
-          <ul class="mega-dropdown__list">
-            <li><a href="/pets/dog-feeding-watering" class="mega-dropdown__link"><span class="mega-dropdown__badge">Popular</span> Dog Feeding &amp; Watering</a></li>
-            <li><a href="/pets/dog-grooming-tools" class="mega-dropdown__link">Dog Grooming Tools</a></li>
-            <li><a href="/pets/dog-walking-gear" class="mega-dropdown__link">Dog Walking Gear</a></li>
-            <li><a href="/pets/pet-cleaning-odor-control" class="mega-dropdown__link">Pet Cleaning &amp; Odor Control</a></li>
-            <li><a href="/pets/cat-litter-litter-box-accessories" class="mega-dropdown__link"><span class="mega-dropdown__badge">Popular</span> Cat Litter &amp; Litter Box</a></li>
-            <li><a href="/pets/cat-enrichment-toys" class="mega-dropdown__link">Cat Enrichment &amp; Toys</a></li>
-            <li><a href="/pets/pet-beds-comfort" class="mega-dropdown__link">Pet Beds &amp; Comfort</a></li>
-            <li><a href="/pets/travel-car-accessories" class="mega-dropdown__link">Travel &amp; Car Accessories</a></li>
-            <li><a href="/pets/pet-training-aids" class="mega-dropdown__link">Pet Training Aids</a></li>
-            <li><a href="/pets/smart-pet-gadgets" class="mega-dropdown__link">Smart Pet Gadgets</a></li>
-          </ul>
-          <a href="/pets/" class="mega-dropdown__cta">All Pet Guides →</a>
+        <!-- Gardening -->
+        <div class="nav-item">
+          <a href="#section-garden" class="nav-link">Gardening <span class="nav-link__arrow"
+              aria-hidden="true">▼</span></a>
+          <div class="mega-dropdown" aria-label="Gardening subcategories">
+            <ul class="mega-dropdown__list">
+              <li><a href="/gardening/hand-tools-for-beginners" class="mega-dropdown__link"><span
+                    class="mega-dropdown__badge">Popular</span> Hand Tools for Beginners</a></li>
+              <li><a href="/gardening/watering-tools-irrigation" class="mega-dropdown__link">Watering Tools &amp;
+                  Irrigation</a></li>
+              <li><a href="/gardening/pruning-cutting-tools" class="mega-dropdown__link">Pruning &amp; Cutting Tools</a>
+              </li>
+              <li><a href="/gardening/weeding-tools" class="mega-dropdown__link">Weeding Tools</a></li>
+              <li><a href="/gardening/raised-bed-soil-tools" class="mega-dropdown__link"><span
+                    class="mega-dropdown__badge">Popular</span> Raised Bed &amp; Soil Tools</a></li>
+              <li><a href="/gardening/plant-support-training" class="mega-dropdown__link">Plant Support &amp;
+                  Training</a></li>
+              <li><a href="/gardening/seed-starting-indoor-grow" class="mega-dropdown__link">Seed Starting &amp; Indoor
+                  Grow</a></li>
+              <li><a href="/gardening/garden-storage-tool-organization" class="mega-dropdown__link">Garden Storage &amp;
+                  Organization</a></li>
+              <li><a href="/gardening/pest-plant-protection" class="mega-dropdown__link">Pest &amp; Plant Protection</a>
+              </li>
+              <li><a href="/gardening/balcony-small-space-gardening" class="mega-dropdown__link">Balcony / Small-Space
+                  Gardening</a></li>
+            </ul>
+            <a href="/gardening/" class="mega-dropdown__cta">All Garden Guides →</a>
+          </div>
         </div>
-      </div>
 
-      <a href="#section-article" class="nav-link">Reviews</a>
-    </nav>
+        <!-- Pets -->
+        <div class="nav-item">
+          <a href="#section-pets" class="nav-link">Pets <span class="nav-link__arrow" aria-hidden="true">▼</span></a>
+          <div class="mega-dropdown" aria-label="Pet subcategories">
+            <ul class="mega-dropdown__list">
+              <li><a href="/pets/dog-feeding-watering" class="mega-dropdown__link"><span
+                    class="mega-dropdown__badge">Popular</span> Dog Feeding &amp; Watering</a></li>
+              <li><a href="/pets/dog-grooming-tools" class="mega-dropdown__link">Dog Grooming Tools</a></li>
+              <li><a href="/pets/dog-walking-gear" class="mega-dropdown__link">Dog Walking Gear</a></li>
+              <li><a href="/pets/pet-cleaning-odor-control" class="mega-dropdown__link">Pet Cleaning &amp; Odor
+                  Control</a></li>
+              <li><a href="/pets/cat-litter-litter-box-accessories" class="mega-dropdown__link"><span
+                    class="mega-dropdown__badge">Popular</span> Cat Litter &amp; Litter Box</a></li>
+              <li><a href="/pets/cat-enrichment-toys" class="mega-dropdown__link">Cat Enrichment &amp; Toys</a></li>
+              <li><a href="/pets/pet-beds-comfort" class="mega-dropdown__link">Pet Beds &amp; Comfort</a></li>
+              <li><a href="/pets/travel-car-accessories" class="mega-dropdown__link">Travel &amp; Car Accessories</a>
+              </li>
+              <li><a href="/pets/pet-training-aids" class="mega-dropdown__link">Pet Training Aids</a></li>
+              <li><a href="/pets/smart-pet-gadgets" class="mega-dropdown__link">Smart Pet Gadgets</a></li>
+            </ul>
+            <a href="/pets/" class="mega-dropdown__cta">All Pet Guides →</a>
+          </div>
+        </div>
 
-    <div class="header-utils">
-      <div class="search-bar" role="search">
-        <label for="site-search" class="search-icon" aria-hidden="true">🔍</label>
-        <input type="search" id="site-search" placeholder="Search reviews…" aria-label="Search reviews" />
+        <a href="#section-article" class="nav-link">Reviews</a>
+      </nav>
+
+      <div class="header-utils">
+        <div class="search-bar" role="search">
+          <label for="site-search" class="search-icon" aria-hidden="true">🔍</label>
+          <input type="search" id="site-search" placeholder="Search reviews…" aria-label="Search reviews" />
+        </div>
+        <a href="#section-comparison" class="header-cta">Best Picks</a>
       </div>
-      <a href="#section-comparison" class="header-cta">Best Picks</a>
     </div>
-  </div>
-</header>
+  </header>
 
 
-<!-- ══════════════════════════════════════════════════════
+  <!-- ══════════════════════════════════════════════════════
      HERO
 ══════════════════════════════════════════════════════ -->
-<section class="hero" aria-labelledby="hero-title">
-  <div class="hero-bg" aria-hidden="true"></div>
-  <div class="hero-plants" aria-hidden="true"></div>
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-plants" aria-hidden="true"></div>
 
-  <div class="garden-scene" aria-hidden="true">
-    <div class="garden-bed">🥦</div>
-    <div class="garden-bed">🌿</div>
-    <div class="garden-bed">🍅</div>
-    <div class="garden-bed">🌱</div>
-    <div class="garden-bed">🥕</div>
-    <div class="garden-bed">🫑</div>
-  </div>
-
-  <div class="hero-content">
-    <p class="hero-eyebrow">Trusted Since 2021 · 200+ Reviews</p>
-    <h1 class="hero-headline" id="hero-title">Buy it once.<br>Use it forever.</h1>
-    <p class="hero-sub">We test every product in real homes — kitchens, gardens, patios — so you stop wasting money on things that break in 6 months.</p>
-
-    <div class="hero-actions">
-      <a href="#section-comparison" class="btn-hero-primary">
-        See Our Best Picks →
-      </a>
-      <a href="#section-article" class="btn-hero-secondary">
-        How We Test ↓
-      </a>
+    <div class="garden-scene" aria-hidden="true">
+      <div class="garden-bed">🥦</div>
+      <div class="garden-bed">🌿</div>
+      <div class="garden-bed">🍅</div>
+      <div class="garden-bed">🌱</div>
+      <div class="garden-bed">🥕</div>
+      <div class="garden-bed">🫑</div>
     </div>
 
-    <div class="hero-trust">
-      <div class="hero-trust-item"><span class="dot" aria-hidden="true"></span> 14-week real-home tests</div>
-      <div class="hero-trust-item"><span class="dot" aria-hidden="true"></span> No paid placements</div>
-      <div class="hero-trust-item"><span class="dot" aria-hidden="true"></span> Updated monthly</div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Trusted Since 2021 · 200+ Reviews</p>
+      <h1 class="hero-headline" id="hero-title">Buy it once.<br>Use it forever.</h1>
+      <p class="hero-sub">We test every product in real homes — kitchens, gardens, patios — so you stop wasting money on
+        things that break in 6 months.</p>
+
+      <div class="hero-actions">
+        <a href="#section-comparison" class="btn-hero-primary">
+          See Our Best Picks →
+        </a>
+        <a href="#section-article" class="btn-hero-secondary">
+          How We Test ↓
+        </a>
+      </div>
+
+      <div class="hero-trust">
+        <div class="hero-trust-item"><span class="dot" aria-hidden="true"></span> 14-week real-home tests</div>
+        <div class="hero-trust-item"><span class="dot" aria-hidden="true"></span> No paid placements</div>
+        <div class="hero-trust-item"><span class="dot" aria-hidden="true"></span> Updated monthly</div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
 
-<!-- ══════════════════════════════════════════════════════
+  <!-- ══════════════════════════════════════════════════════
      CATEGORY STRIP
 ══════════════════════════════════════════════════════ -->
-<nav class="category-strip" aria-label="Product categories">
-  <div class="category-strip-inner">
-    <a href="#section-kitchen" class="cat-item active" id="cat-kitchen">
-      <div class="cat-icon cat-icon--kitchen" aria-hidden="true">🍳</div>
-      <span class="cat-name">Kitchen</span>
-      <span class="cat-count">48 reviews</span>
-    </a>
-    <a href="#section-home" class="cat-item" id="cat-home">
-      <div class="cat-icon cat-icon--home" aria-hidden="true">🏡</div>
-      <span class="cat-name">Home &amp; Outdoor</span>
-      <span class="cat-count">32 reviews</span>
-    </a>
-    <a href="#section-garden" class="cat-item" id="cat-garden">
-      <div class="cat-icon cat-icon--garden" aria-hidden="true">🌱</div>
-      <span class="cat-name">Gardening</span>
-      <span class="cat-count">27 reviews</span>
-    </a>
-    <a href="#section-pets" class="cat-item" id="cat-pets">
-      <div class="cat-icon cat-icon--pets" aria-hidden="true">🐾</div>
-      <span class="cat-name">Pets</span>
-      <span class="cat-count">19 reviews</span>
-    </a>
-  </div>
-</nav>
+  <nav class="category-strip" aria-label="Product categories">
+    <div class="category-strip-inner">
+      <a href="#section-kitchen" class="cat-item active" id="cat-kitchen">
+        <div class="cat-icon cat-icon--kitchen" aria-hidden="true">🍳</div>
+        <span class="cat-name">Kitchen</span>
+        <span class="cat-count">48 reviews</span>
+      </a>
+      <a href="#section-home" class="cat-item" id="cat-home">
+        <div class="cat-icon cat-icon--home" aria-hidden="true">🏡</div>
+        <span class="cat-name">Home &amp; Outdoor</span>
+        <span class="cat-count">32 reviews</span>
+      </a>
+      <a href="#section-garden" class="cat-item" id="cat-garden">
+        <div class="cat-icon cat-icon--garden" aria-hidden="true">🌱</div>
+        <span class="cat-name">Gardening</span>
+        <span class="cat-count">27 reviews</span>
+      </a>
+      <a href="#section-pets" class="cat-item" id="cat-pets">
+        <div class="cat-icon cat-icon--pets" aria-hidden="true">🐾</div>
+        <span class="cat-name">Pets</span>
+        <span class="cat-count">19 reviews</span>
+      </a>
+    </div>
+  </nav>
 
 
-<!-- ══════════════════════════════════════════════════════
+  <!-- ══════════════════════════════════════════════════════
      TOP 3 COMPARISON
 ══════════════════════════════════════════════════════ -->
-<section class="section section--alt" id="section-comparison" aria-labelledby="comparison-title">
-  <div class="container">
+  <section class="section section--alt" id="section-comparison" aria-labelledby="comparison-title">
+    <div class="container">
 
-    <!-- Affiliate Disclosure -->
-    <div class="affiliate-disclosure">
-      <strong>Affiliate Disclosure:</strong> We earn a small commission from qualifying purchases made through links on this page. This doesn't affect our rankings or reviews — all picks are based on independent, hands-on testing. <a href="#" style="color:var(--teal);text-decoration:underline">Full disclosure</a>.
+      <!-- Affiliate Disclosure -->
+      <div class="affiliate-disclosure">
+        <strong>Affiliate Disclosure:</strong> We earn a small commission from qualifying purchases made through links
+        on this page. This doesn't affect our rankings or reviews — all picks are based on independent, hands-on
+        testing. <a href="#" style="color:var(--teal);text-decoration:underline">Full disclosure</a>.
+      </div>
+
+      <div class="comparison-header">
+        <div>
+          <p class="section-eyebrow">Top 3 Comparison Table</p>
+          <h2 class="section-title" id="comparison-title">Best Cordless Drills of 2025</h2>
+          <p class="section-sub">Tested across 300 holes in wood, drywall, and concrete. Here's what actually performs
+            at the price.</p>
+        </div>
+        <div class="comparison-meta">
+          <span aria-hidden="true">🔄</span> Last tested: Jan 2025
+        </div>
+      </div>
+
+      <div class="comparison-grid">
+
+        <!-- #1 — DeWalt (elevated) -->
+        <article class="prod-card prod-card--top">
+          <span class="prod-card__badge">★ Best Overall</span>
+          <div class="prod-card__rank prod-card__rank--top">
+            <span class="rank-dot rank-dot--top" aria-hidden="true"></span> #1 Pick
+          </div>
+          <div class="prod-card__img-wrap">
+            <span class="drill-img" aria-hidden="true">🔧</span>
+            <span class="img-label">Best Overall</span>
+          </div>
+          <div class="prod-card__body">
+            <p class="prod-card__brand">DeWalt</p>
+            <h3 class="prod-card__name">DCD777C2 20V MAX Compact</h3>
+            <div class="prod-card__rating">
+              <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
+              <span class="rating-val">4.9</span>
+              <span class="rating-count">(3,241 reviews)</span>
+            </div>
+            <ul class="spec-list">
+              <li class="spec-row"><span class="spec-key">Voltage</span><span class="spec-val">20V MAX</span></li>
+              <li class="spec-row"><span class="spec-key">Torque</span><span class="spec-val">340 UWO</span></li>
+              <li class="spec-row"><span class="spec-key">Weight</span><span class="spec-val">2.89 lbs</span></li>
+              <li class="spec-row"><span class="spec-key">Battery Life</span><span class="spec-val">~400 holes</span>
+              </li>
+            </ul>
+            <p class="prod-card__price prod-card__price--top">
+              $129
+              <span class="price-original">$159</span>
+              <span class="price-save">Save 19%</span>
+            </p>
+            <a href="#" class="prod-card__cta prod-card__cta--primary" rel="nofollow sponsored noopener"
+              target="_blank">
+              Check Price on Amazon <span class="cta-arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- #2 — Milwaukee -->
+        <article class="prod-card">
+          <div class="prod-card__rank">
+            <span class="rank-dot" aria-hidden="true"></span> #2 Pick
+          </div>
+          <div class="prod-card__img-wrap">
+            <span class="drill-img" style="color:#c0392b" aria-hidden="true">🔩</span>
+            <span class="img-label">Runner Up</span>
+          </div>
+          <div class="prod-card__body">
+            <p class="prod-card__brand">Milwaukee</p>
+            <h3 class="prod-card__name">M18 FUEL 1/2" Drill Driver</h3>
+            <div class="prod-card__rating">
+              <span class="stars" aria-label="4.7 out of 5 stars">★★★★★</span>
+              <span class="rating-val">4.7</span>
+              <span class="rating-count">(1,897 reviews)</span>
+            </div>
+            <ul class="spec-list">
+              <li class="spec-row"><span class="spec-key">Voltage</span><span class="spec-val">18V</span></li>
+              <li class="spec-row"><span class="spec-key">Torque</span><span class="spec-val">1,200 in-lbs</span></li>
+              <li class="spec-row"><span class="spec-key">Weight</span><span class="spec-val">3.4 lbs</span></li>
+              <li class="spec-row"><span class="spec-key">Battery Life</span><span class="spec-val">~550 holes</span>
+              </li>
+            </ul>
+            <p class="prod-card__price">$199</p>
+            <a href="#" class="prod-card__cta prod-card__cta--secondary" rel="nofollow sponsored noopener"
+              target="_blank">
+              Check Price on Amazon <span class="cta-arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- #3 — Ryobi -->
+        <article class="prod-card">
+          <div class="prod-card__rank">
+            <span class="rank-dot" aria-hidden="true"></span> #3 Pick
+          </div>
+          <div class="prod-card__img-wrap">
+            <span class="drill-img" style="color:#27ae60" aria-hidden="true">🪛</span>
+            <span class="img-label">Budget Pick</span>
+          </div>
+          <div class="prod-card__body">
+            <p class="prod-card__brand">Ryobi</p>
+            <h3 class="prod-card__name">PCL206K1 ONE+ 18V Brushless</h3>
+            <div class="prod-card__rating">
+              <span class="stars" aria-label="4.4 out of 5 stars">★★★★☆</span>
+              <span class="rating-val">4.4</span>
+              <span class="rating-count">(7,432 reviews)</span>
+            </div>
+            <ul class="spec-list">
+              <li class="spec-row"><span class="spec-key">Voltage</span><span class="spec-val">18V ONE+</span></li>
+              <li class="spec-row"><span class="spec-key">Torque</span><span class="spec-val">500 UWO</span></li>
+              <li class="spec-row"><span class="spec-key">Weight</span><span class="spec-val">2.4 lbs</span></li>
+              <li class="spec-row"><span class="spec-key">Battery Life</span><span class="spec-val">~280 holes</span>
+              </li>
+            </ul>
+            <p class="prod-card__price">$79</p>
+            <a href="#" class="prod-card__cta prod-card__cta--secondary" rel="nofollow sponsored noopener"
+              target="_blank">
+              Check Price on Amazon <span class="cta-arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+        </article>
+
+      </div>
+
+      <p style="text-align:center;font-size:.75rem;color:var(--gray-600);margin-top:1rem;">Prices shown are approximate
+        and may vary. Last checked: Jan 2025.</p>
+
+      <!-- VERDICT BOX -->
+      <div class="verdict-box">
+        <div class="verdict-topbar" aria-hidden="true"></div>
+        <div class="verdict-header">
+          <span class="verdict-header-icon" aria-hidden="true">✅</span>
+          <span class="verdict-header-text">Our Verdict — DeWalt DCD777C2 20V MAX</span>
+        </div>
+        <div class="verdict-body">
+          <div class="verdict-left">
+            <p class="verdict-col-label verdict-col-label--left">Who It's For</p>
+            <ul class="verdict-list">
+              <li class="verdict-item">
+                <svg class="v-check" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <circle cx="10" cy="10" r="10" fill="#eafaf1" />
+                  <path d="M6 10.5l2.8 2.8 5.2-6.3" stroke="#27AE60" stroke-width="1.8" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+                DIYers who tackle 2–3 projects a month and want a tool that lasts
+              </li>
+              <li class="verdict-item">
+                <svg class="v-check" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <circle cx="10" cy="10" r="10" fill="#eafaf1" />
+                  <path d="M6 10.5l2.8 2.8 5.2-6.3" stroke="#27AE60" stroke-width="1.8" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+                Homeowners building the DeWalt 20V MAX ecosystem
+              </li>
+              <li class="verdict-item">
+                <svg class="v-check" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <circle cx="10" cy="10" r="10" fill="#eafaf1" />
+                  <path d="M6 10.5l2.8 2.8 5.2-6.3" stroke="#27AE60" stroke-width="1.8" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+                Anyone frustrated by cheap drills that lose torque after 6 months
+              </li>
+              <li class="verdict-item">
+                <svg class="v-check" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <circle cx="10" cy="10" r="10" fill="#eafaf1" />
+                  <path d="M6 10.5l2.8 2.8 5.2-6.3" stroke="#27AE60" stroke-width="1.8" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+                Gift buyers — this is the one that impresses on first use
+              </li>
+            </ul>
+          </div>
+          <div class="verdict-right">
+            <p class="verdict-col-label verdict-col-label--right">The Bottom Line</p>
+            <div class="verdict-rating-row">
+              <span class="stars" aria-label="4.9 out of 5 stars">★★★★★</span>
+              <span class="verdict-rating-label">Our Score</span>
+              <span class="verdict-rating-value">4.9 / 5</span>
+            </div>
+            <p class="verdict-summary">
+              The <strong>DeWalt DCD777C2</strong> earns the top spot by winning the metric that matters most:
+              consistent torque across a full charge cycle. Most competitors fade after 60% battery — the DeWalt didn't.
+              At $129 with two batteries included, it's 35% cheaper than the Milwaukee while outperforming it in our
+              daily-use scenario. If you only buy one drill this decade, buy this one.
+            </p>
+            <a href="#" class="verdict-cta" rel="nofollow sponsored noopener" target="_blank">
+              Check Price on Amazon
+              <span>Prices update in real time</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROS / CONS -->
+      <div class="pros-cons">
+        <div class="pc-header">
+          <div class="pc-header-col pc-header-col--pro">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+              <circle cx="9" cy="9" r="9" fill="#27AE60" />
+              <path d="M5 9.5l2.5 2.5 5.5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+            <span class="pc-header-label pc-header-label--pro">Pros</span>
+          </div>
+          <div class="pc-header-col pc-header-col--con">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+              <circle cx="9" cy="9" r="9" fill="#E67E22" />
+              <path d="M6 6l6 6M12 6l-6 6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" />
+            </svg>
+            <span class="pc-header-label pc-header-label--con">Cons</span>
+          </div>
+        </div>
+        <div class="pc-body">
+          <div class="pc-col pc-col--pro">
+            <div class="pc-row">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <circle cx="10" cy="10" r="10" fill="#eafaf1" />
+                <path d="M6 10.5l2.8 2.8 5.2-6.3" stroke="#27AE60" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+              <span class="pc-text"><strong>Consistent torque under load</strong><small>Didn't drop below 90% rated
+                  torque even at 15% battery in our stress test.</small></span>
+            </div>
+            <div class="pc-row">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <circle cx="10" cy="10" r="10" fill="#eafaf1" />
+                <path d="M6 10.5l2.8 2.8 5.2-6.3" stroke="#27AE60" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+              <span class="pc-text"><strong>Two batteries included at $129</strong><small>The Milwaukee equivalent ships
+                  with one battery for $70 more.</small></span>
+            </div>
+            <div class="pc-row">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <circle cx="10" cy="10" r="10" fill="#eafaf1" />
+                <path d="M6 10.5l2.8 2.8 5.2-6.3" stroke="#27AE60" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+              <span class="pc-text"><strong>Lightest in its class (2.89 lbs)</strong><small>After 2 hours of overhead
+                  drilling, this makes a real difference.</small></span>
+            </div>
+            <div class="pc-row">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <circle cx="10" cy="10" r="10" fill="#eafaf1" />
+                <path d="M6 10.5l2.8 2.8 5.2-6.3" stroke="#27AE60" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+              <span class="pc-text"><strong>3-year warranty, honored fast</strong><small>Our test unit had a chuck issue
+                  — replaced in 4 business days.</small></span>
+            </div>
+          </div>
+          <div class="pc-col pc-col--con">
+            <div class="pc-row">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <circle cx="10" cy="10" r="10" fill="#fef5ec" />
+                <path d="M7 7l6 6M13 7l-6 6" stroke="#E67E22" stroke-width="1.8" stroke-linecap="round" />
+              </svg>
+              <span class="pc-text"><strong>Not the highest torque option</strong><small>Milwaukee FUEL produces 2.4×
+                  more torque — matters for concrete anchors.</small></span>
+            </div>
+            <div class="pc-row">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <circle cx="10" cy="10" r="10" fill="#fef5ec" />
+                <path d="M7 7l6 6M13 7l-6 6" stroke="#E67E22" stroke-width="1.8" stroke-linecap="round" />
+              </svg>
+              <span class="pc-text"><strong>Belt clip sold separately</strong><small>Small omission at this price — the
+                  Milwaukee includes one out of the box.</small></span>
+            </div>
+            <div class="pc-row">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <circle cx="10" cy="10" r="10" fill="#fef5ec" />
+                <path d="M7 7l6 6M13 7l-6 6" stroke="#E67E22" stroke-width="1.8" stroke-linecap="round" />
+              </svg>
+              <span class="pc-text"><strong>No brushless motor at base model</strong><small>The 20V brushless is $40
+                  more — worth it if you drill daily.</small></span>
+            </div>
+            <div class="pc-row">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <circle cx="10" cy="10" r="10" fill="#fef5ec" />
+                <path d="M7 7l6 6M13 7l-6 6" stroke="#E67E22" stroke-width="1.8" stroke-linecap="round" />
+              </svg>
+              <span class="pc-text"><strong>LED work light is dim</strong><small>Functional but doesn't illuminate deep
+                  cavities well.</small></span>
+            </div>
+          </div>
+        </div>
+        <div class="pc-footer">Based on 40 hours of hands-on testing &amp; 3,241 verified owner reviews</div>
+      </div>
+
     </div>
-
-    <div class="comparison-header">
-      <div>
-        <p class="section-eyebrow">Top 3 Comparison Table</p>
-        <h2 class="section-title" id="comparison-title">Best Cordless Drills of 2025</h2>
-        <p class="section-sub">Tested across 300 holes in wood, drywall, and concrete. Here's what actually performs at the price.</p>
-      </div>
-      <div class="comparison-meta">
-        <span aria-hidden="true">🔄</span> Last tested: Jan 2025
-      </div>
-    </div>
-
-    <div class="comparison-grid">
-
-      <!-- #1 — DeWalt (elevated) -->
-      <article class="prod-card prod-card--top">
-        <span class="prod-card__badge">★ Best Overall</span>
-        <div class="prod-card__rank prod-card__rank--top">
-          <span class="rank-dot rank-dot--top" aria-hidden="true"></span> #1 Pick
-        </div>
-        <div class="prod-card__img-wrap">
-          <span class="drill-img" aria-hidden="true">🔧</span>
-          <span class="img-label">Best Overall</span>
-        </div>
-        <div class="prod-card__body">
-          <p class="prod-card__brand">DeWalt</p>
-          <h3 class="prod-card__name">DCD777C2 20V MAX Compact</h3>
-          <div class="prod-card__rating">
-            <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
-            <span class="rating-val">4.9</span>
-            <span class="rating-count">(3,241 reviews)</span>
-          </div>
-          <ul class="spec-list">
-            <li class="spec-row"><span class="spec-key">Voltage</span><span class="spec-val">20V MAX</span></li>
-            <li class="spec-row"><span class="spec-key">Torque</span><span class="spec-val">340 UWO</span></li>
-            <li class="spec-row"><span class="spec-key">Weight</span><span class="spec-val">2.89 lbs</span></li>
-            <li class="spec-row"><span class="spec-key">Battery Life</span><span class="spec-val">~400 holes</span></li>
-          </ul>
-          <p class="prod-card__price prod-card__price--top">
-            $129
-            <span class="price-original">$159</span>
-            <span class="price-save">Save 19%</span>
-          </p>
-          <a href="#" class="prod-card__cta prod-card__cta--primary" rel="nofollow sponsored noopener" target="_blank">
-            Check Price on Amazon <span class="cta-arrow" aria-hidden="true">→</span>
-          </a>
-        </div>
-      </article>
-
-      <!-- #2 — Milwaukee -->
-      <article class="prod-card">
-        <div class="prod-card__rank">
-          <span class="rank-dot" aria-hidden="true"></span> #2 Pick
-        </div>
-        <div class="prod-card__img-wrap">
-          <span class="drill-img" style="color:#c0392b" aria-hidden="true">🔩</span>
-          <span class="img-label">Runner Up</span>
-        </div>
-        <div class="prod-card__body">
-          <p class="prod-card__brand">Milwaukee</p>
-          <h3 class="prod-card__name">M18 FUEL 1/2" Drill Driver</h3>
-          <div class="prod-card__rating">
-            <span class="stars" aria-label="4.7 out of 5 stars">★★★★★</span>
-            <span class="rating-val">4.7</span>
-            <span class="rating-count">(1,897 reviews)</span>
-          </div>
-          <ul class="spec-list">
-            <li class="spec-row"><span class="spec-key">Voltage</span><span class="spec-val">18V</span></li>
-            <li class="spec-row"><span class="spec-key">Torque</span><span class="spec-val">1,200 in-lbs</span></li>
-            <li class="spec-row"><span class="spec-key">Weight</span><span class="spec-val">3.4 lbs</span></li>
-            <li class="spec-row"><span class="spec-key">Battery Life</span><span class="spec-val">~550 holes</span></li>
-          </ul>
-          <p class="prod-card__price">$199</p>
-          <a href="#" class="prod-card__cta prod-card__cta--secondary" rel="nofollow sponsored noopener" target="_blank">
-            Check Price on Amazon <span class="cta-arrow" aria-hidden="true">→</span>
-          </a>
-        </div>
-      </article>
-
-      <!-- #3 — Ryobi -->
-      <article class="prod-card">
-        <div class="prod-card__rank">
-          <span class="rank-dot" aria-hidden="true"></span> #3 Pick
-        </div>
-        <div class="prod-card__img-wrap">
-          <span class="drill-img" style="color:#27ae60" aria-hidden="true">🪛</span>
-          <span class="img-label">Budget Pick</span>
-        </div>
-        <div class="prod-card__body">
-          <p class="prod-card__brand">Ryobi</p>
-          <h3 class="prod-card__name">PCL206K1 ONE+ 18V Brushless</h3>
-          <div class="prod-card__rating">
-            <span class="stars" aria-label="4.4 out of 5 stars">★★★★☆</span>
-            <span class="rating-val">4.4</span>
-            <span class="rating-count">(7,432 reviews)</span>
-          </div>
-          <ul class="spec-list">
-            <li class="spec-row"><span class="spec-key">Voltage</span><span class="spec-val">18V ONE+</span></li>
-            <li class="spec-row"><span class="spec-key">Torque</span><span class="spec-val">500 UWO</span></li>
-            <li class="spec-row"><span class="spec-key">Weight</span><span class="spec-val">2.4 lbs</span></li>
-            <li class="spec-row"><span class="spec-key">Battery Life</span><span class="spec-val">~280 holes</span></li>
-          </ul>
-          <p class="prod-card__price">$79</p>
-          <a href="#" class="prod-card__cta prod-card__cta--secondary" rel="nofollow sponsored noopener" target="_blank">
-            Check Price on Amazon <span class="cta-arrow" aria-hidden="true">→</span>
-          </a>
-        </div>
-      </article>
-
-    </div>
-
-    <p style="text-align:center;font-size:.75rem;color:var(--gray-600);margin-top:1rem;">Prices shown are approximate and may vary. Last checked: Jan 2025.</p>
-
-    <!-- VERDICT BOX -->
-    <div class="verdict-box">
-      <div class="verdict-topbar" aria-hidden="true"></div>
-      <div class="verdict-header">
-        <span class="verdict-header-icon" aria-hidden="true">✅</span>
-        <span class="verdict-header-text">Our Verdict — DeWalt DCD777C2 20V MAX</span>
-      </div>
-      <div class="verdict-body">
-        <div class="verdict-left">
-          <p class="verdict-col-label verdict-col-label--left">Who It's For</p>
-          <ul class="verdict-list">
-            <li class="verdict-item">
-              <svg class="v-check" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#eafaf1"/><path d="M6 10.5l2.8 2.8 5.2-6.3" stroke="#27AE60" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              DIYers who tackle 2–3 projects a month and want a tool that lasts
-            </li>
-            <li class="verdict-item">
-              <svg class="v-check" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#eafaf1"/><path d="M6 10.5l2.8 2.8 5.2-6.3" stroke="#27AE60" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Homeowners building the DeWalt 20V MAX ecosystem
-            </li>
-            <li class="verdict-item">
-              <svg class="v-check" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#eafaf1"/><path d="M6 10.5l2.8 2.8 5.2-6.3" stroke="#27AE60" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Anyone frustrated by cheap drills that lose torque after 6 months
-            </li>
-            <li class="verdict-item">
-              <svg class="v-check" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#eafaf1"/><path d="M6 10.5l2.8 2.8 5.2-6.3" stroke="#27AE60" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Gift buyers — this is the one that impresses on first use
-            </li>
-          </ul>
-        </div>
-        <div class="verdict-right">
-          <p class="verdict-col-label verdict-col-label--right">The Bottom Line</p>
-          <div class="verdict-rating-row">
-            <span class="stars" aria-label="4.9 out of 5 stars">★★★★★</span>
-            <span class="verdict-rating-label">Our Score</span>
-            <span class="verdict-rating-value">4.9 / 5</span>
-          </div>
-          <p class="verdict-summary">
-            The <strong>DeWalt DCD777C2</strong> earns the top spot by winning the metric that matters most: consistent torque across a full charge cycle. Most competitors fade after 60% battery — the DeWalt didn't. At $129 with two batteries included, it's 35% cheaper than the Milwaukee while outperforming it in our daily-use scenario. If you only buy one drill this decade, buy this one.
-          </p>
-          <a href="#" class="verdict-cta" rel="nofollow sponsored noopener" target="_blank">
-            Check Price on Amazon
-            <span>Prices update in real time</span>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- PROS / CONS -->
-    <div class="pros-cons">
-      <div class="pc-header">
-        <div class="pc-header-col pc-header-col--pro">
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="9" fill="#27AE60"/><path d="M5 9.5l2.5 2.5 5.5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <span class="pc-header-label pc-header-label--pro">Pros</span>
-        </div>
-        <div class="pc-header-col pc-header-col--con">
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="9" fill="#E67E22"/><path d="M6 6l6 6M12 6l-6 6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg>
-          <span class="pc-header-label pc-header-label--con">Cons</span>
-        </div>
-      </div>
-      <div class="pc-body">
-        <div class="pc-col pc-col--pro">
-          <div class="pc-row">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#eafaf1"/><path d="M6 10.5l2.8 2.8 5.2-6.3" stroke="#27AE60" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span class="pc-text"><strong>Consistent torque under load</strong><small>Didn't drop below 90% rated torque even at 15% battery in our stress test.</small></span>
-          </div>
-          <div class="pc-row">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#eafaf1"/><path d="M6 10.5l2.8 2.8 5.2-6.3" stroke="#27AE60" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span class="pc-text"><strong>Two batteries included at $129</strong><small>The Milwaukee equivalent ships with one battery for $70 more.</small></span>
-          </div>
-          <div class="pc-row">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#eafaf1"/><path d="M6 10.5l2.8 2.8 5.2-6.3" stroke="#27AE60" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span class="pc-text"><strong>Lightest in its class (2.89 lbs)</strong><small>After 2 hours of overhead drilling, this makes a real difference.</small></span>
-          </div>
-          <div class="pc-row">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#eafaf1"/><path d="M6 10.5l2.8 2.8 5.2-6.3" stroke="#27AE60" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span class="pc-text"><strong>3-year warranty, honored fast</strong><small>Our test unit had a chuck issue — replaced in 4 business days.</small></span>
-          </div>
-        </div>
-        <div class="pc-col pc-col--con">
-          <div class="pc-row">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#fef5ec"/><path d="M7 7l6 6M13 7l-6 6" stroke="#E67E22" stroke-width="1.8" stroke-linecap="round"/></svg>
-            <span class="pc-text"><strong>Not the highest torque option</strong><small>Milwaukee FUEL produces 2.4× more torque — matters for concrete anchors.</small></span>
-          </div>
-          <div class="pc-row">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#fef5ec"/><path d="M7 7l6 6M13 7l-6 6" stroke="#E67E22" stroke-width="1.8" stroke-linecap="round"/></svg>
-            <span class="pc-text"><strong>Belt clip sold separately</strong><small>Small omission at this price — the Milwaukee includes one out of the box.</small></span>
-          </div>
-          <div class="pc-row">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#fef5ec"/><path d="M7 7l6 6M13 7l-6 6" stroke="#E67E22" stroke-width="1.8" stroke-linecap="round"/></svg>
-            <span class="pc-text"><strong>No brushless motor at base model</strong><small>The 20V brushless is $40 more — worth it if you drill daily.</small></span>
-          </div>
-          <div class="pc-row">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#fef5ec"/><path d="M7 7l6 6M13 7l-6 6" stroke="#E67E22" stroke-width="1.8" stroke-linecap="round"/></svg>
-            <span class="pc-text"><strong>LED work light is dim</strong><small>Functional but doesn't illuminate deep cavities well.</small></span>
-          </div>
-        </div>
-      </div>
-      <div class="pc-footer">Based on 40 hours of hands-on testing &amp; 3,241 verified owner reviews</div>
-    </div>
-
-  </div>
-</section>
+  </section>
 
 
-<!-- ══════════════════════════════════════════════════════
+  <!-- ══════════════════════════════════════════════════════
      CATEGORY: KITCHEN
 ══════════════════════════════════════════════════════ -->
-<section class="category-section" id="section-kitchen" aria-labelledby="kitchen-title">
-  <div class="container">
-    <div class="category-section__header">
-      <div>
-        <div class="category-section__icon cat-icon--kitchen" aria-hidden="true">🍳</div>
-        <p class="section-eyebrow">Kitchen</p>
-        <h2 class="section-title" id="kitchen-title">Kitchen Essentials</h2>
-        <p class="section-sub">Cookware, appliances, and tools tested in real kitchens — so you invest in gear that performs meal after meal.</p>
+  <section class="category-section" id="section-kitchen" aria-labelledby="kitchen-title">
+    <div class="container">
+      <div class="category-section__header">
+        <div>
+          <div class="category-section__icon cat-icon--kitchen" aria-hidden="true">🍳</div>
+          <p class="section-eyebrow">Kitchen</p>
+          <h2 class="section-title" id="kitchen-title">Kitchen Essentials</h2>
+          <p class="section-sub">Cookware, appliances, and tools tested in real kitchens — so you invest in gear that
+            performs meal after meal.</p>
+        </div>
+        <a href="/kitchen/" class="category-section__view-all">View All Kitchen Reviews →</a>
       </div>
-      <a href="/kitchen/" class="category-section__view-all">View All Kitchen Reviews →</a>
+      <p class="category-section__helper">From food prep to organization — find the right tools for every corner of your
+        kitchen.</p>
+
+      <div class="category-grid">
+        <div class="cat-card">
+          <div class="cat-card__img cat-card__img--kitchen"><span class="cat-card__tag cat-card__tag--top">Top
+              Pick</span>🔪</div>
+          <div class="cat-card__body">
+            <p class="cat-card__category">Chef's Knives</p>
+            <h3 class="cat-card__title">Best Chef's Knives of 2025</h3>
+            <div class="cat-card__rating"><span class="stars">★★★★★</span><span class="rating-val">4.8</span></div>
+            <p class="cat-card__excerpt">We sliced, diced, and minced through 200 lbs of produce to find the knife that
+              keeps its edge longest.</p>
+            <a href="#" class="cat-card__link">Read Review →</a>
+          </div>
+        </div>
+        <div class="cat-card">
+          <div class="cat-card__img cat-card__img--kitchen"><span class="cat-card__tag cat-card__tag--new">New</span>☕
+          </div>
+          <div class="cat-card__body">
+            <p class="cat-card__category">Coffee Makers</p>
+            <h3 class="cat-card__title">Best Drip Coffee Makers</h3>
+            <div class="cat-card__rating"><span class="stars">★★★★★</span><span class="rating-val">4.7</span></div>
+            <p class="cat-card__excerpt">Brew temp, extraction time, and carafe retention — we measured what your
+              morning coffee actually needs.</p>
+            <a href="#" class="cat-card__link">Read Review →</a>
+          </div>
+        </div>
+        <div class="cat-card">
+          <div class="cat-card__img cat-card__img--kitchen">🍳</div>
+          <div class="cat-card__body">
+            <p class="cat-card__category">Cookware</p>
+            <h3 class="cat-card__title">Best Non-Stick Pans</h3>
+            <div class="cat-card__rating"><span class="stars">★★★★☆</span><span class="rating-val">4.5</span></div>
+            <p class="cat-card__excerpt">After 1,000 eggs and 6 months of daily use, here's which coatings actually last
+              without flaking.</p>
+            <a href="#" class="cat-card__link">Read Review →</a>
+          </div>
+        </div>
+        <div class="cat-card">
+          <div class="cat-card__img cat-card__img--kitchen"><span class="cat-card__tag cat-card__tag--pick">Editor's
+              Pick</span>🧊</div>
+          <div class="cat-card__body">
+            <p class="cat-card__category">Small Appliances</p>
+            <h3 class="cat-card__title">Best Blenders Under $100</h3>
+            <div class="cat-card__rating"><span class="stars">★★★★★</span><span class="rating-val">4.6</span></div>
+            <p class="cat-card__excerpt">Frozen fruit, ice, and nut butter — tested at every price point to find the
+              sweet spot of power and value.</p>
+            <a href="#" class="cat-card__link">Read Review →</a>
+          </div>
+        </div>
+      </div>
     </div>
-    <p class="category-section__helper">From food prep to organization — find the right tools for every corner of your kitchen.</p>
-
-    <div class="category-grid">
-      <div class="cat-card">
-        <div class="cat-card__img cat-card__img--kitchen"><span class="cat-card__tag cat-card__tag--top">Top Pick</span>🔪</div>
-        <div class="cat-card__body">
-          <p class="cat-card__category">Chef's Knives</p>
-          <h3 class="cat-card__title">Best Chef's Knives of 2025</h3>
-          <div class="cat-card__rating"><span class="stars">★★★★★</span><span class="rating-val">4.8</span></div>
-          <p class="cat-card__excerpt">We sliced, diced, and minced through 200 lbs of produce to find the knife that keeps its edge longest.</p>
-          <a href="#" class="cat-card__link">Read Review →</a>
-        </div>
-      </div>
-      <div class="cat-card">
-        <div class="cat-card__img cat-card__img--kitchen"><span class="cat-card__tag cat-card__tag--new">New</span>☕</div>
-        <div class="cat-card__body">
-          <p class="cat-card__category">Coffee Makers</p>
-          <h3 class="cat-card__title">Best Drip Coffee Makers</h3>
-          <div class="cat-card__rating"><span class="stars">★★★★★</span><span class="rating-val">4.7</span></div>
-          <p class="cat-card__excerpt">Brew temp, extraction time, and carafe retention — we measured what your morning coffee actually needs.</p>
-          <a href="#" class="cat-card__link">Read Review →</a>
-        </div>
-      </div>
-      <div class="cat-card">
-        <div class="cat-card__img cat-card__img--kitchen">🍳</div>
-        <div class="cat-card__body">
-          <p class="cat-card__category">Cookware</p>
-          <h3 class="cat-card__title">Best Non-Stick Pans</h3>
-          <div class="cat-card__rating"><span class="stars">★★★★☆</span><span class="rating-val">4.5</span></div>
-          <p class="cat-card__excerpt">After 1,000 eggs and 6 months of daily use, here's which coatings actually last without flaking.</p>
-          <a href="#" class="cat-card__link">Read Review →</a>
-        </div>
-      </div>
-      <div class="cat-card">
-        <div class="cat-card__img cat-card__img--kitchen"><span class="cat-card__tag cat-card__tag--pick">Editor's Pick</span>🧊</div>
-        <div class="cat-card__body">
-          <p class="cat-card__category">Small Appliances</p>
-          <h3 class="cat-card__title">Best Blenders Under $100</h3>
-          <div class="cat-card__rating"><span class="stars">★★★★★</span><span class="rating-val">4.6</span></div>
-          <p class="cat-card__excerpt">Frozen fruit, ice, and nut butter — tested at every price point to find the sweet spot of power and value.</p>
-          <a href="#" class="cat-card__link">Read Review →</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
 
-<!-- ══════════════════════════════════════════════════════
+  <!-- ══════════════════════════════════════════════════════
      CATEGORY: HOME & OUTDOOR
 ══════════════════════════════════════════════════════ -->
-<section class="category-section" id="section-home" aria-labelledby="home-title">
-  <div class="container">
-    <div class="category-section__header">
-      <div>
-        <div class="category-section__icon cat-icon--home" aria-hidden="true">🏡</div>
-        <p class="section-eyebrow">Home &amp; Outdoor</p>
-        <h2 class="section-title" id="home-title">Home &amp; Outdoor Gear</h2>
-        <p class="section-sub">Power tools, furniture, and outdoor equipment built to handle real life — not just showroom demos.</p>
+  <section class="category-section" id="section-home" aria-labelledby="home-title">
+    <div class="container">
+      <div class="category-section__header">
+        <div>
+          <div class="category-section__icon cat-icon--home" aria-hidden="true">🏡</div>
+          <p class="section-eyebrow">Home &amp; Outdoor</p>
+          <h2 class="section-title" id="home-title">Home &amp; Outdoor Gear</h2>
+          <p class="section-sub">Power tools, furniture, and outdoor equipment built to handle real life — not just
+            showroom demos.</p>
+        </div>
+        <a href="/home-outdoor/" class="category-section__view-all">View All Home Reviews →</a>
       </div>
-      <a href="/home-outdoor/" class="category-section__view-all">View All Home Reviews →</a>
+      <p class="category-section__helper">Everything you need to maintain, organize, and enjoy your indoor and outdoor
+        spaces.</p>
+
+      <div class="category-grid">
+        <div class="cat-card">
+          <div class="cat-card__img cat-card__img--home"><span class="cat-card__tag cat-card__tag--top">Top
+              Pick</span>🔧</div>
+          <div class="cat-card__body">
+            <p class="cat-card__category">Power Tools</p>
+            <h3 class="cat-card__title">Best Cordless Drills of 2025</h3>
+            <div class="cat-card__rating"><span class="stars">★★★★★</span><span class="rating-val">4.9</span></div>
+            <p class="cat-card__excerpt">300+ holes drilled across wood, drywall, and concrete. The results surprised
+              us.</p>
+            <a href="#section-comparison" class="cat-card__link">Read Review →</a>
+          </div>
+        </div>
+        <div class="cat-card">
+          <div class="cat-card__img cat-card__img--home"><span class="cat-card__tag cat-card__tag--new">New</span>💡
+          </div>
+          <div class="cat-card__body">
+            <p class="cat-card__category">Smart Home</p>
+            <h3 class="cat-card__title">Best Smart Doorbells</h3>
+            <div class="cat-card__rating"><span class="stars">★★★★☆</span><span class="rating-val">4.4</span></div>
+            <p class="cat-card__excerpt">Night vision, response time, and app reliability tested over 3 months in real
+              weather conditions.</p>
+            <a href="#" class="cat-card__link">Read Review →</a>
+          </div>
+        </div>
+        <div class="cat-card">
+          <div class="cat-card__img cat-card__img--home">🪑</div>
+          <div class="cat-card__body">
+            <p class="cat-card__category">Furniture</p>
+            <h3 class="cat-card__title">Best Patio Furniture Sets</h3>
+            <div class="cat-card__rating"><span class="stars">★★★★☆</span><span class="rating-val">4.3</span></div>
+            <p class="cat-card__excerpt">Sun, rain, and UV exposure for 6 months — here's what still looks new and what
+              faded fast.</p>
+            <a href="#" class="cat-card__link">Read Review →</a>
+          </div>
+        </div>
+        <div class="cat-card">
+          <div class="cat-card__img cat-card__img--home"><span class="cat-card__tag cat-card__tag--pick">Editor's
+              Pick</span>🧹</div>
+          <div class="cat-card__body">
+            <p class="cat-card__category">Cleaning</p>
+            <h3 class="cat-card__title">Best Robot Vacuums</h3>
+            <div class="cat-card__rating"><span class="stars">★★★★★</span><span class="rating-val">4.7</span></div>
+            <p class="cat-card__excerpt">Navigation, suction power, and pet hair pickup — tested on carpet, hardwood,
+              and tile.</p>
+            <a href="#" class="cat-card__link">Read Review →</a>
+          </div>
+        </div>
+      </div>
     </div>
-    <p class="category-section__helper">Everything you need to maintain, organize, and enjoy your indoor and outdoor spaces.</p>
-
-    <div class="category-grid">
-      <div class="cat-card">
-        <div class="cat-card__img cat-card__img--home"><span class="cat-card__tag cat-card__tag--top">Top Pick</span>🔧</div>
-        <div class="cat-card__body">
-          <p class="cat-card__category">Power Tools</p>
-          <h3 class="cat-card__title">Best Cordless Drills of 2025</h3>
-          <div class="cat-card__rating"><span class="stars">★★★★★</span><span class="rating-val">4.9</span></div>
-          <p class="cat-card__excerpt">300+ holes drilled across wood, drywall, and concrete. The results surprised us.</p>
-          <a href="#section-comparison" class="cat-card__link">Read Review →</a>
-        </div>
-      </div>
-      <div class="cat-card">
-        <div class="cat-card__img cat-card__img--home"><span class="cat-card__tag cat-card__tag--new">New</span>💡</div>
-        <div class="cat-card__body">
-          <p class="cat-card__category">Smart Home</p>
-          <h3 class="cat-card__title">Best Smart Doorbells</h3>
-          <div class="cat-card__rating"><span class="stars">★★★★☆</span><span class="rating-val">4.4</span></div>
-          <p class="cat-card__excerpt">Night vision, response time, and app reliability tested over 3 months in real weather conditions.</p>
-          <a href="#" class="cat-card__link">Read Review →</a>
-        </div>
-      </div>
-      <div class="cat-card">
-        <div class="cat-card__img cat-card__img--home">🪑</div>
-        <div class="cat-card__body">
-          <p class="cat-card__category">Furniture</p>
-          <h3 class="cat-card__title">Best Patio Furniture Sets</h3>
-          <div class="cat-card__rating"><span class="stars">★★★★☆</span><span class="rating-val">4.3</span></div>
-          <p class="cat-card__excerpt">Sun, rain, and UV exposure for 6 months — here's what still looks new and what faded fast.</p>
-          <a href="#" class="cat-card__link">Read Review →</a>
-        </div>
-      </div>
-      <div class="cat-card">
-        <div class="cat-card__img cat-card__img--home"><span class="cat-card__tag cat-card__tag--pick">Editor's Pick</span>🧹</div>
-        <div class="cat-card__body">
-          <p class="cat-card__category">Cleaning</p>
-          <h3 class="cat-card__title">Best Robot Vacuums</h3>
-          <div class="cat-card__rating"><span class="stars">★★★★★</span><span class="rating-val">4.7</span></div>
-          <p class="cat-card__excerpt">Navigation, suction power, and pet hair pickup — tested on carpet, hardwood, and tile.</p>
-          <a href="#" class="cat-card__link">Read Review →</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
 
-<!-- ══════════════════════════════════════════════════════
+  <!-- ══════════════════════════════════════════════════════
      CATEGORY: GARDENING
 ══════════════════════════════════════════════════════ -->
-<section class="category-section" id="section-garden" aria-labelledby="garden-title">
-  <div class="container">
-    <div class="category-section__header">
-      <div>
-        <div class="category-section__icon cat-icon--garden" aria-hidden="true">🌱</div>
-        <p class="section-eyebrow">Gardening</p>
-        <h2 class="section-title" id="garden-title">Garden &amp; Grow</h2>
-        <p class="section-sub">Tools, soil, planters, and irrigation tested through full growing seasons — from seed to harvest.</p>
+  <section class="category-section" id="section-garden" aria-labelledby="garden-title">
+    <div class="container">
+      <div class="category-section__header">
+        <div>
+          <div class="category-section__icon cat-icon--garden" aria-hidden="true">🌱</div>
+          <p class="section-eyebrow">Gardening</p>
+          <h2 class="section-title" id="garden-title">Garden &amp; Grow</h2>
+          <p class="section-sub">Tools, soil, planters, and irrigation tested through full growing seasons — from seed
+            to harvest.</p>
+        </div>
+        <a href="/gardening/" class="category-section__view-all">View All Garden Reviews →</a>
       </div>
-      <a href="/gardening/" class="category-section__view-all">View All Garden Reviews →</a>
+      <p class="category-section__helper">Whether you have acres or a balcony, find the gardening tools that actually
+        make a difference.</p>
+
+      <div class="category-grid">
+        <div class="cat-card">
+          <div class="cat-card__img cat-card__img--garden"><span class="cat-card__tag cat-card__tag--top">Top
+              Pick</span>🌻</div>
+          <div class="cat-card__body">
+            <p class="cat-card__category">Raised Beds</p>
+            <h3 class="cat-card__title">Best Raised Garden Beds</h3>
+            <div class="cat-card__rating"><span class="stars">★★★★★</span><span class="rating-val">4.8</span></div>
+            <p class="cat-card__excerpt">Cedar, metal, and composite — tested over two growing seasons for durability,
+              drainage, and yield.</p>
+            <a href="#" class="cat-card__link">Read Review →</a>
+          </div>
+        </div>
+        <div class="cat-card">
+          <div class="cat-card__img cat-card__img--garden"><span class="cat-card__tag cat-card__tag--new">New</span>🌿
+          </div>
+          <div class="cat-card__body">
+            <p class="cat-card__category">Tools</p>
+            <h3 class="cat-card__title">Best Garden Hose Reels</h3>
+            <div class="cat-card__rating"><span class="stars">★★★★☆</span><span class="rating-val">4.3</span></div>
+            <p class="cat-card__excerpt">Retraction speed, kink resistance, and UV durability after 12 months of outdoor
+              storage.</p>
+            <a href="#" class="cat-card__link">Read Review →</a>
+          </div>
+        </div>
+        <div class="cat-card">
+          <div class="cat-card__img cat-card__img--garden">💧</div>
+          <div class="cat-card__body">
+            <p class="cat-card__category">Irrigation</p>
+            <h3 class="cat-card__title">Best Drip Irrigation Kits</h3>
+            <div class="cat-card__rating"><span class="stars">★★★★★</span><span class="rating-val">4.6</span></div>
+            <p class="cat-card__excerpt">Set-it-and-forget-it watering tested on tomatoes, herbs, and flower beds all
+              summer long.</p>
+            <a href="#" class="cat-card__link">Read Review →</a>
+          </div>
+        </div>
+        <div class="cat-card">
+          <div class="cat-card__img cat-card__img--garden"><span class="cat-card__tag cat-card__tag--pick">Editor's
+              Pick</span>✂️</div>
+          <div class="cat-card__body">
+            <p class="cat-card__category">Pruning</p>
+            <h3 class="cat-card__title">Best Pruning Shears</h3>
+            <div class="cat-card__rating"><span class="stars">★★★★★</span><span class="rating-val">4.7</span></div>
+            <p class="cat-card__excerpt">Blade sharpness retention, grip comfort, and spring tension tested across 500+
+              cuts on live branches.</p>
+            <a href="#" class="cat-card__link">Read Review →</a>
+          </div>
+        </div>
+      </div>
     </div>
-    <p class="category-section__helper">Whether you have acres or a balcony, find the gardening tools that actually make a difference.</p>
-
-    <div class="category-grid">
-      <div class="cat-card">
-        <div class="cat-card__img cat-card__img--garden"><span class="cat-card__tag cat-card__tag--top">Top Pick</span>🌻</div>
-        <div class="cat-card__body">
-          <p class="cat-card__category">Raised Beds</p>
-          <h3 class="cat-card__title">Best Raised Garden Beds</h3>
-          <div class="cat-card__rating"><span class="stars">★★★★★</span><span class="rating-val">4.8</span></div>
-          <p class="cat-card__excerpt">Cedar, metal, and composite — tested over two growing seasons for durability, drainage, and yield.</p>
-          <a href="#" class="cat-card__link">Read Review →</a>
-        </div>
-      </div>
-      <div class="cat-card">
-        <div class="cat-card__img cat-card__img--garden"><span class="cat-card__tag cat-card__tag--new">New</span>🌿</div>
-        <div class="cat-card__body">
-          <p class="cat-card__category">Tools</p>
-          <h3 class="cat-card__title">Best Garden Hose Reels</h3>
-          <div class="cat-card__rating"><span class="stars">★★★★☆</span><span class="rating-val">4.3</span></div>
-          <p class="cat-card__excerpt">Retraction speed, kink resistance, and UV durability after 12 months of outdoor storage.</p>
-          <a href="#" class="cat-card__link">Read Review →</a>
-        </div>
-      </div>
-      <div class="cat-card">
-        <div class="cat-card__img cat-card__img--garden">💧</div>
-        <div class="cat-card__body">
-          <p class="cat-card__category">Irrigation</p>
-          <h3 class="cat-card__title">Best Drip Irrigation Kits</h3>
-          <div class="cat-card__rating"><span class="stars">★★★★★</span><span class="rating-val">4.6</span></div>
-          <p class="cat-card__excerpt">Set-it-and-forget-it watering tested on tomatoes, herbs, and flower beds all summer long.</p>
-          <a href="#" class="cat-card__link">Read Review →</a>
-        </div>
-      </div>
-      <div class="cat-card">
-        <div class="cat-card__img cat-card__img--garden"><span class="cat-card__tag cat-card__tag--pick">Editor's Pick</span>✂️</div>
-        <div class="cat-card__body">
-          <p class="cat-card__category">Pruning</p>
-          <h3 class="cat-card__title">Best Pruning Shears</h3>
-          <div class="cat-card__rating"><span class="stars">★★★★★</span><span class="rating-val">4.7</span></div>
-          <p class="cat-card__excerpt">Blade sharpness retention, grip comfort, and spring tension tested across 500+ cuts on live branches.</p>
-          <a href="#" class="cat-card__link">Read Review →</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
 
-<!-- ══════════════════════════════════════════════════════
+  <!-- ══════════════════════════════════════════════════════
      CATEGORY: PETS
 ══════════════════════════════════════════════════════ -->
-<section class="category-section" id="section-pets" aria-labelledby="pets-title">
-  <div class="container">
-    <div class="category-section__header">
-      <div>
-        <div class="category-section__icon cat-icon--pets" aria-hidden="true">🐾</div>
-        <p class="section-eyebrow">Pets</p>
-        <h2 class="section-title" id="pets-title">Pet Picks</h2>
-        <p class="section-sub">Beds, feeders, toys, and grooming tools tested by real pets and their owners — because your fur family deserves the best.</p>
+  <section class="category-section" id="section-pets" aria-labelledby="pets-title">
+    <div class="container">
+      <div class="category-section__header">
+        <div>
+          <div class="category-section__icon cat-icon--pets" aria-hidden="true">🐾</div>
+          <p class="section-eyebrow">Pets</p>
+          <h2 class="section-title" id="pets-title">Pet Picks</h2>
+          <p class="section-sub">Beds, feeders, toys, and grooming tools tested by real pets and their owners — because
+            your fur family deserves the best.</p>
+        </div>
+        <a href="/pets/" class="category-section__view-all">View All Pet Reviews →</a>
       </div>
-      <a href="/pets/" class="category-section__view-all">View All Pet Reviews →</a>
+      <p class="category-section__helper">Tested by real pets and their owners — from feeding to grooming to travel.</p>
+
+      <div class="category-grid">
+        <div class="cat-card">
+          <div class="cat-card__img cat-card__img--pets"><span class="cat-card__tag cat-card__tag--top">Top
+              Pick</span>🐕</div>
+          <div class="cat-card__body">
+            <p class="cat-card__category">Dog Beds</p>
+            <h3 class="cat-card__title">Best Orthopedic Dog Beds</h3>
+            <div class="cat-card__rating"><span class="stars">★★★★★</span><span class="rating-val">4.8</span></div>
+            <p class="cat-card__excerpt">Memory foam density, washability, and chew resistance — tested by 8 dogs over 4
+              months.</p>
+            <a href="#" class="cat-card__link">Read Review →</a>
+          </div>
+        </div>
+        <div class="cat-card">
+          <div class="cat-card__img cat-card__img--pets"><span class="cat-card__tag cat-card__tag--new">New</span>🐈
+          </div>
+          <div class="cat-card__body">
+            <p class="cat-card__category">Cat Gear</p>
+            <h3 class="cat-card__title">Best Automatic Cat Feeders</h3>
+            <div class="cat-card__rating"><span class="stars">★★★★☆</span><span class="rating-val">4.5</span></div>
+            <p class="cat-card__excerpt">Portion accuracy, jam resistance, and app reliability tested with 3 cats over
+              60 days.</p>
+            <a href="#" class="cat-card__link">Read Review →</a>
+          </div>
+        </div>
+        <div class="cat-card">
+          <div class="cat-card__img cat-card__img--pets">🦴</div>
+          <div class="cat-card__body">
+            <p class="cat-card__category">Toys &amp; Enrichment</p>
+            <h3 class="cat-card__title">Best Indestructible Dog Toys</h3>
+            <div class="cat-card__rating"><span class="stars">★★★★☆</span><span class="rating-val">4.4</span></div>
+            <p class="cat-card__excerpt">Power chewers vs. "indestructible" claims — we let aggressive chewers decide
+              what actually lasts.</p>
+            <a href="#" class="cat-card__link">Read Review →</a>
+          </div>
+        </div>
+        <div class="cat-card">
+          <div class="cat-card__img cat-card__img--pets"><span class="cat-card__tag cat-card__tag--pick">Editor's
+              Pick</span>🧴</div>
+          <div class="cat-card__body">
+            <p class="cat-card__category">Grooming</p>
+            <h3 class="cat-card__title">Best Pet Grooming Kits</h3>
+            <div class="cat-card__rating"><span class="stars">★★★★★</span><span class="rating-val">4.6</span></div>
+            <p class="cat-card__excerpt">Clippers, brushes, and deshedding tools — tested on short, medium, and
+              long-coat breeds.</p>
+            <a href="#" class="cat-card__link">Read Review →</a>
+          </div>
+        </div>
+      </div>
     </div>
-    <p class="category-section__helper">Tested by real pets and their owners — from feeding to grooming to travel.</p>
-
-    <div class="category-grid">
-      <div class="cat-card">
-        <div class="cat-card__img cat-card__img--pets"><span class="cat-card__tag cat-card__tag--top">Top Pick</span>🐕</div>
-        <div class="cat-card__body">
-          <p class="cat-card__category">Dog Beds</p>
-          <h3 class="cat-card__title">Best Orthopedic Dog Beds</h3>
-          <div class="cat-card__rating"><span class="stars">★★★★★</span><span class="rating-val">4.8</span></div>
-          <p class="cat-card__excerpt">Memory foam density, washability, and chew resistance — tested by 8 dogs over 4 months.</p>
-          <a href="#" class="cat-card__link">Read Review →</a>
-        </div>
-      </div>
-      <div class="cat-card">
-        <div class="cat-card__img cat-card__img--pets"><span class="cat-card__tag cat-card__tag--new">New</span>🐈</div>
-        <div class="cat-card__body">
-          <p class="cat-card__category">Cat Gear</p>
-          <h3 class="cat-card__title">Best Automatic Cat Feeders</h3>
-          <div class="cat-card__rating"><span class="stars">★★★★☆</span><span class="rating-val">4.5</span></div>
-          <p class="cat-card__excerpt">Portion accuracy, jam resistance, and app reliability tested with 3 cats over 60 days.</p>
-          <a href="#" class="cat-card__link">Read Review →</a>
-        </div>
-      </div>
-      <div class="cat-card">
-        <div class="cat-card__img cat-card__img--pets">🦴</div>
-        <div class="cat-card__body">
-          <p class="cat-card__category">Toys &amp; Enrichment</p>
-          <h3 class="cat-card__title">Best Indestructible Dog Toys</h3>
-          <div class="cat-card__rating"><span class="stars">★★★★☆</span><span class="rating-val">4.4</span></div>
-          <p class="cat-card__excerpt">Power chewers vs. "indestructible" claims — we let aggressive chewers decide what actually lasts.</p>
-          <a href="#" class="cat-card__link">Read Review →</a>
-        </div>
-      </div>
-      <div class="cat-card">
-        <div class="cat-card__img cat-card__img--pets"><span class="cat-card__tag cat-card__tag--pick">Editor's Pick</span>🧴</div>
-        <div class="cat-card__body">
-          <p class="cat-card__category">Grooming</p>
-          <h3 class="cat-card__title">Best Pet Grooming Kits</h3>
-          <div class="cat-card__rating"><span class="stars">★★★★★</span><span class="rating-val">4.6</span></div>
-          <p class="cat-card__excerpt">Clippers, brushes, and deshedding tools — tested on short, medium, and long-coat breeds.</p>
-          <a href="#" class="cat-card__link">Read Review →</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
 
-<!-- ══════════════════════════════════════════════════════
+  <!-- ══════════════════════════════════════════════════════
      ARTICLE + STICKY TOC
 ══════════════════════════════════════════════════════ -->
-<section class="section" id="section-article" aria-labelledby="article-title">
-  <div class="article-wrap">
+  <section class="section" id="section-article" aria-labelledby="article-title">
+    <div class="article-wrap">
 
-    <article id="article-main" role="main">
-      <div id="main-content"></div>
-      <div class="article-meta">
-        <span class="meta-tag">Home &amp; Outdoor</span>
-        <span class="meta-info">By Sarah Chen · <span style="color:var(--teal);font-weight:600">Last Updated: Jan 18, 2025</span> · 14 min read</span>
-      </div>
-      <h2 class="article-h1" id="article-title">Best Cordless Drills of 2025: 11 Models Tested Over 6 Months</h2>
-      <p>We drilled 300+ holes, wore out two sets of bits, and tested 11 cordless drills across wood, drywall, ceramic tile, and concrete. Here's what we found — and the one that's worth every cent.</p>
-
-      <h2 id="how-we-tested">How We Tested</h2>
-      <p>Every drill was put through the same 6-phase protocol: startup torque measurement, sustained load test (drill 50 holes, measure torque drop), overhead endurance (2 hours continuous), battery drain curve, weight-fatigue assessment, and chuck durability (200 bit changes).</p>
-      <p>We used a calibrated torque sensor on every hole and logged battery percentages at each milestone. No eyeballing — every number in this guide is a measured result.</p>
-
-      <h2 id="our-top-picks">Our Top 3 Picks</h2>
-      <p>After six months and over 3,000 holes, three drills consistently outperformed the field. The DeWalt won on value. The Milwaukee won on raw power. The Ryobi won on price-to-performance for light-duty users.</p>
-
-      <h2 id="dewalt-review">DeWalt DCD777C2 — Full Review</h2>
-      <p>The DeWalt's secret is its motor efficiency curve. Where competitors ramp down at 40% battery to protect the cells, the DeWalt's battery management system sustains full torque down to 15% charge. In our 50-hole test, it averaged 334 UWO from hole 1 to hole 50 — a 1.8% variance. The Milwaukee dropped 11% over the same run.</p>
-      <p>Build quality is exceptional. The chuck has zero wobble at 1 year of daily use. The grip rubber hasn't separated. The LED survived a 6-foot drop onto concrete (unintentional test).</p>
-
-      <h2 id="who-should-buy">Who Should Buy Each Model</h2>
-      <p>Buy the <strong>DeWalt</strong> if you're a homeowner doing regular maintenance, furniture assembly, and occasional framing. It's the right tool for 85% of people reading this guide.</p>
-      <p>Buy the <strong>Milwaukee</strong> if you're in a trade, drilling masonry regularly, or building a Milwaukee ONE-KEY ecosystem. The extra torque is real and measurable.</p>
-      <p>Buy the <strong>Ryobi</strong> if you drill fewer than 10 times a month and you're already in the ONE+ ecosystem. It won't match the DeWalt in durability, but for light use it's excellent value.</p>
-
-      <h2 id="faq">Frequently Asked Questions</h2>
-      <p><strong>Is 20V enough for drilling concrete?</strong> For anchor bolts in soft concrete, yes — pair it with a hammer drill bit. For hard concrete or masonry work, step up to the Milwaukee or a dedicated hammer drill.</p>
-      <p><strong>Can I use my old DeWalt 20V batteries?</strong> Yes. All DeWalt 20V MAX batteries are cross-compatible with the DCD777C2.</p>
-    </article>
-
-    <aside aria-label="Table of contents">
-      <div class="toc-widget is-collapsed" id="ays-toc">
-        <div class="toc-header" role="button" tabindex="0" aria-expanded="false" aria-controls="toc-list" id="toc-toggle">
-          <span aria-hidden="true" style="font-size:.875rem">📋</span>
-          <span class="toc-header-text">In This Review</span>
-          <span class="toc-toggle-icon" aria-hidden="true">▲</span>
+      <article id="article-main" role="main">
+        <div id="main-content"></div>
+        <div class="article-meta">
+          <span class="meta-tag">Home &amp; Outdoor</span>
+          <span class="meta-info">By Sarah Chen · <span style="color:var(--teal);font-weight:600">Last Updated: Jan 18,
+              2025</span> · 14 min read</span>
         </div>
-        <ul class="toc-list" id="toc-list" role="list">
-          <!-- JS populates this -->
-        </ul>
-      </div>
-    </aside>
+        <h2 class="article-h1" id="article-title">Best Cordless Drills of 2025: 11 Models Tested Over 6 Months</h2>
+        <p>We drilled 300+ holes, wore out two sets of bits, and tested 11 cordless drills across wood, drywall, ceramic
+          tile, and concrete. Here's what we found — and the one that's worth every cent.</p>
 
-  </div>
-</section>
+        <h2 id="how-we-tested">How We Tested</h2>
+        <p>Every drill was put through the same 6-phase protocol: startup torque measurement, sustained load test (drill
+          50 holes, measure torque drop), overhead endurance (2 hours continuous), battery drain curve, weight-fatigue
+          assessment, and chuck durability (200 bit changes).</p>
+        <p>We used a calibrated torque sensor on every hole and logged battery percentages at each milestone. No
+          eyeballing — every number in this guide is a measured result.</p>
+
+        <h2 id="our-top-picks">Our Top 3 Picks</h2>
+        <p>After six months and over 3,000 holes, three drills consistently outperformed the field. The DeWalt won on
+          value. The Milwaukee won on raw power. The Ryobi won on price-to-performance for light-duty users.</p>
+
+        <h2 id="dewalt-review">DeWalt DCD777C2 — Full Review</h2>
+        <p>The DeWalt's secret is its motor efficiency curve. Where competitors ramp down at 40% battery to protect the
+          cells, the DeWalt's battery management system sustains full torque down to 15% charge. In our 50-hole test, it
+          averaged 334 UWO from hole 1 to hole 50 — a 1.8% variance. The Milwaukee dropped 11% over the same run.</p>
+        <p>Build quality is exceptional. The chuck has zero wobble at 1 year of daily use. The grip rubber hasn't
+          separated. The LED survived a 6-foot drop onto concrete (unintentional test).</p>
+
+        <h2 id="who-should-buy">Who Should Buy Each Model</h2>
+        <p>Buy the <strong>DeWalt</strong> if you're a homeowner doing regular maintenance, furniture assembly, and
+          occasional framing. It's the right tool for 85% of people reading this guide.</p>
+        <p>Buy the <strong>Milwaukee</strong> if you're in a trade, drilling masonry regularly, or building a Milwaukee
+          ONE-KEY ecosystem. The extra torque is real and measurable.</p>
+        <p>Buy the <strong>Ryobi</strong> if you drill fewer than 10 times a month and you're already in the ONE+
+          ecosystem. It won't match the DeWalt in durability, but for light use it's excellent value.</p>
+
+        <h2 id="faq">Frequently Asked Questions</h2>
+        <p><strong>Is 20V enough for drilling concrete?</strong> For anchor bolts in soft concrete, yes — pair it with a
+          hammer drill bit. For hard concrete or masonry work, step up to the Milwaukee or a dedicated hammer drill.</p>
+        <p><strong>Can I use my old DeWalt 20V batteries?</strong> Yes. All DeWalt 20V MAX batteries are
+          cross-compatible with the DCD777C2.</p>
+      </article>
+
+      <aside aria-label="Table of contents">
+        <div class="toc-widget is-collapsed" id="ays-toc">
+          <div class="toc-header" role="button" tabindex="0" aria-expanded="false" aria-controls="toc-list"
+            id="toc-toggle">
+            <span aria-hidden="true" style="font-size:.875rem">📋</span>
+            <span class="toc-header-text">In This Review</span>
+            <span class="toc-toggle-icon" aria-hidden="true">▲</span>
+          </div>
+          <ul class="toc-list" id="toc-list" role="list">
+            <!-- JS populates this -->
+          </ul>
+        </div>
+      </aside>
+
+    </div>
+  </section>
 
 
-<!-- ══════════════════════════════════════════════════════
+  <!-- ══════════════════════════════════════════════════════
      TRUST BAR
 ══════════════════════════════════════════════════════ -->
-<section class="trust-bar" aria-label="Our promises">
-  <div class="trust-grid">
-    <div>
-      <div class="trust-icon" aria-hidden="true">✓</div>
-      <div class="trust-title">Hands-On Tested</div>
-      <div class="trust-sub">Every pick tested in real homes — not a lab</div>
-    </div>
-    <div>
-      <div class="trust-icon" aria-hidden="true">✓</div>
-      <div class="trust-title">No Paid Placements</div>
-      <div class="trust-sub">Rankings based on performance only</div>
-    </div>
-    <div>
-      <div class="trust-icon" aria-hidden="true">✓</div>
-      <div class="trust-title">Updated Monthly</div>
-      <div class="trust-sub">Reviews refreshed when new models launch</div>
-    </div>
-    <div>
-      <div class="trust-icon" aria-hidden="true">✓</div>
-      <div class="trust-title">FTC Compliant</div>
-      <div class="trust-sub">Affiliate relationships always disclosed</div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ══════════════════════════════════════════════════════
-     FOOTER
-══════════════════════════════════════════════════════ -->
-<footer class="site-footer" role="contentinfo">
-  <div class="footer-inner">
-    <div>
-      <div class="footer-brand-name">Everest <span>&amp;</span> Hearth</div>
-      <p class="footer-tagline">Honest, hands-on reviews for the products that matter in your home, garden, and beyond. Buy it once. Use it forever.</p>
-      <div class="footer-social">
-        <a href="#" class="social-btn" aria-label="Facebook">f</a>
-        <a href="#" class="social-btn" aria-label="X (Twitter)">𝕏</a>
-        <a href="#" class="social-btn" aria-label="LinkedIn">in</a>
-        <a href="#" class="social-btn" aria-label="YouTube">▶</a>
+  <section class="trust-bar" aria-label="Our promises">
+    <div class="trust-grid">
+      <div>
+        <div class="trust-icon" aria-hidden="true">✓</div>
+        <div class="trust-title">Hands-On Tested</div>
+        <div class="trust-sub">Every pick tested in real homes — not a lab</div>
+      </div>
+      <div>
+        <div class="trust-icon" aria-hidden="true">✓</div>
+        <div class="trust-title">No Paid Placements</div>
+        <div class="trust-sub">Rankings based on performance only</div>
+      </div>
+      <div>
+        <div class="trust-icon" aria-hidden="true">✓</div>
+        <div class="trust-title">Updated Monthly</div>
+        <div class="trust-sub">Reviews refreshed when new models launch</div>
+      </div>
+      <div>
+        <div class="trust-icon" aria-hidden="true">✓</div>
+        <div class="trust-title">FTC Compliant</div>
+        <div class="trust-sub">Affiliate relationships always disclosed</div>
       </div>
     </div>
-    <div>
-      <p class="footer-col-title">Categories</p>
-      <ul class="footer-links">
-        <li><a href="#section-kitchen">Kitchen</a></li>
-        <li><a href="#section-home">Home &amp; Outdoor</a></li>
-        <li><a href="#section-garden">Gardening</a></li>
-        <li><a href="#section-pets">Pets</a></li>
-      </ul>
-    </div>
-    <div>
-      <p class="footer-col-title">Reviews</p>
-      <ul class="footer-links">
-        <li><a href="#">Best Picks 2025</a></li>
-        <li><a href="#">Editor's Choice</a></li>
-        <li><a href="#">Budget Finds</a></li>
-        <li><a href="#">New Arrivals</a></li>
-      </ul>
-    </div>
-    <div>
-      <p class="footer-col-title">Company</p>
-      <ul class="footer-links">
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">How We Test</a></li>
-        <li><a href="#">Affiliate Disclosure</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>&copy; 2025 Everest &amp; Hearth. All rights reserved.</p>
-    <p><a href="#">Privacy Policy</a> · <a href="#">Terms</a> · <a href="#">Affiliate Disclosure</a></p>
-  </div>
-</footer>
+  </section>
 
 
-<!-- ══════════════════════════════════════════════════════
+  <!-- ══════════════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════════════ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand-name">Everest <span>&amp;</span> Hearth</div>
+        <p class="footer-tagline">Honest, hands-on reviews for the products that matter in your home, garden, and
+          beyond. Buy it once. Use it forever.</p>
+        <div class="footer-social">
+          <a href="#" class="social-btn" aria-label="Facebook">f</a>
+          <a href="#" class="social-btn" aria-label="X (Twitter)">𝕏</a>
+          <a href="#" class="social-btn" aria-label="LinkedIn">in</a>
+          <a href="#" class="social-btn" aria-label="YouTube">▶</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer-col-title">Categories</p>
+        <ul class="footer-links">
+          <li><a href="#section-kitchen">Kitchen</a></li>
+          <li><a href="#section-home">Home &amp; Outdoor</a></li>
+          <li><a href="#section-garden">Gardening</a></li>
+          <li><a href="#section-pets">Pets</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Reviews</p>
+        <ul class="footer-links">
+          <li><a href="#">Best Picks 2025</a></li>
+          <li><a href="#">Editor's Choice</a></li>
+          <li><a href="#">Budget Finds</a></li>
+          <li><a href="#">New Arrivals</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Company</p>
+        <ul class="footer-links">
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">How We Test</a></li>
+          <li><a href="#">Affiliate Disclosure</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Everest &amp; Hearth. All rights reserved.</p>
+      <p><a href="#">Privacy Policy</a> · <a href="#">Terms</a> · <a href="#">Affiliate Disclosure</a></p>
+    </div>
+  </footer>
+
+
+  <!-- ══════════════════════════════════════════════════════
      SCRIPTS (lightweight, progressive)
 ══════════════════════════════════════════════════════ -->
-<script>
-(function () {
-  'use strict';
+  <script>
+    (function () {
+      'use strict';
 
-  /* ── Mobile Menu Toggle ──────────────────────────── */
-  var menuBtn = document.querySelector('.menu-toggle');
-  var nav = document.getElementById('main-nav');
-  if (menuBtn && nav) {
-    menuBtn.addEventListener('click', function () {
-      var open = nav.classList.toggle('is-open');
-      menuBtn.setAttribute('aria-expanded', open);
-    });
-    /* Close on nav link click (mobile) — only for links without dropdowns */
-    nav.addEventListener('click', function (e) {
-      if (e.target.classList.contains('nav-link') && !e.target.closest('.nav-item')) {
-        nav.classList.remove('is-open');
-        menuBtn.setAttribute('aria-expanded', 'false');
-      }
-    });
-    /* Close on Escape */
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && nav.classList.contains('is-open')) {
-        nav.classList.remove('is-open');
-        menuBtn.setAttribute('aria-expanded', 'false');
-        menuBtn.focus();
-      }
-    });
-  }
-
-  /* ── TOC: Build + Collapsible ────────────────────── */
-  var article = document.getElementById('article-main');
-  var tocList = document.getElementById('toc-list');
-  var tocWidget = document.getElementById('ays-toc');
-  var tocToggle = document.getElementById('toc-toggle');
-  if (!article || !tocList) return;
-
-  var headings = Array.from(article.querySelectorAll('h2[id]'));
-  var activeLink = null;
-
-  headings.forEach(function (h) {
-    var li = document.createElement('li');
-    li.className = 'toc-item toc-item--h2';
-    var a = document.createElement('a');
-    a.className = 'toc-link';
-    a.href = '#' + h.id;
-    a.dataset.id = h.id;
-    a.textContent = h.textContent;
-    li.appendChild(a);
-    tocList.appendChild(li);
-  });
-
-  /* Set max-height for animation */
-  tocList.style.maxHeight = tocList.scrollHeight + 'px';
-
-  /* TOC collapse toggle */
-  if (tocToggle && tocWidget) {
-    function toggleToc() {
-      var collapsed = tocWidget.classList.toggle('is-collapsed');
-      tocToggle.setAttribute('aria-expanded', !collapsed);
-      if (!collapsed) tocList.style.maxHeight = tocList.scrollHeight + 'px';
-    }
-    tocToggle.addEventListener('click', toggleToc);
-    tocToggle.addEventListener('keydown', function (e) {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleToc(); }
-    });
-    /* Auto-expand on desktop */
-    var mql = window.matchMedia('(min-width: 1024px)');
-    function handleDesktop(e) {
-      if (e.matches) {
-        tocWidget.classList.remove('is-collapsed');
-        tocToggle.setAttribute('aria-expanded', 'true');
-        tocList.style.maxHeight = tocList.scrollHeight + 'px';
-      }
-    }
-    mql.addEventListener('change', handleDesktop);
-    handleDesktop(mql);
-  }
-
-  /* Intersection Observer for active TOC link */
-  var observer = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (!e.isIntersecting) return;
-      var link = tocList.querySelector('[data-id="' + e.target.id + '"]');
-      if (!link || link === activeLink) return;
-      if (activeLink) activeLink.classList.remove('active');
-      link.classList.add('active');
-      activeLink = link;
-    });
-  }, { rootMargin: '-10% 0px -65% 0px', threshold: 0 });
-
-  headings.forEach(function (h) { observer.observe(h); });
-
-  /* Smooth scroll on TOC click */
-  tocList.addEventListener('click', function (e) {
-    var a = e.target.closest('.toc-link');
-    if (!a) return;
-    e.preventDefault();
-    var t = document.getElementById(a.dataset.id);
-    if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    history.pushState(null, '', '#' + a.dataset.id);
-  });
-
-  /* ── Category strip active state ─────────────────── */
-  document.querySelectorAll('.cat-item').forEach(function (el) {
-    el.addEventListener('click', function () {
-      document.querySelectorAll('.cat-item').forEach(function (c) { c.classList.remove('active'); });
-      el.classList.add('active');
-    });
-  });
-
-  /* ── Mega-Menu: Mobile accordion toggle ─────────── */
-  var navItems = document.querySelectorAll('.nav-item');
-  var isDesktop = window.matchMedia('(min-width: 1024px)');
-
-  navItems.forEach(function (item) {
-    var link = item.querySelector('.nav-link');
-    var dropdown = item.querySelector('.mega-dropdown');
-    if (!link || !dropdown) return;
-
-    link.addEventListener('click', function (e) {
-      /* On mobile, toggle dropdown instead of navigating */
-      if (!isDesktop.matches) {
-        e.preventDefault();
-        var wasOpen = dropdown.classList.contains('is-open');
-        /* Close all other dropdowns */
-        navItems.forEach(function (other) {
-          var otherDd = other.querySelector('.mega-dropdown');
-          if (otherDd) otherDd.classList.remove('is-open');
+      /* ── Mobile Menu Toggle ──────────────────────────── */
+      var menuBtn = document.querySelector('.menu-toggle');
+      var nav = document.getElementById('main-nav');
+      if (menuBtn && nav) {
+        menuBtn.addEventListener('click', function () {
+          var open = nav.classList.toggle('is-open');
+          menuBtn.setAttribute('aria-expanded', open);
+          document.body.classList.toggle('nav-open', open);
         });
-        if (!wasOpen) dropdown.classList.add('is-open');
+        /* Close on nav link click (mobile) — only for links without dropdowns */
+        nav.addEventListener('click', function (e) {
+          if (e.target.classList.contains('nav-link') && !e.target.closest('.nav-item')) {
+            nav.classList.remove('is-open');
+            menuBtn.setAttribute('aria-expanded', 'false');
+            document.body.classList.remove('nav-open');
+          }
+        });
+        /* Close on Escape */
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape' && nav.classList.contains('is-open')) {
+            nav.classList.remove('is-open');
+            menuBtn.setAttribute('aria-expanded', 'false');
+            document.body.classList.remove('nav-open');
+            menuBtn.focus();
+          }
+        });
       }
-    });
-  });
 
-  /* Close dropdowns when clicking a subcategory link (mobile) */
-  nav.addEventListener('click', function (e) {
-    if (e.target.closest('.mega-dropdown__link') || e.target.closest('.mega-dropdown__cta')) {
-      navItems.forEach(function (item) {
-        var dd = item.querySelector('.mega-dropdown');
-        if (dd) dd.classList.remove('is-open');
+      /* ── TOC: Build + Collapsible ────────────────────── */
+      var article = document.getElementById('article-main');
+      var tocList = document.getElementById('toc-list');
+      var tocWidget = document.getElementById('ays-toc');
+      var tocToggle = document.getElementById('toc-toggle');
+      if (!article || !tocList) return;
+
+      var headings = Array.from(article.querySelectorAll('h2[id]'));
+      var activeLink = null;
+
+      headings.forEach(function (h) {
+        var li = document.createElement('li');
+        li.className = 'toc-item toc-item--h2';
+        var a = document.createElement('a');
+        a.className = 'toc-link';
+        a.href = '#' + h.id;
+        a.dataset.id = h.id;
+        a.textContent = h.textContent;
+        li.appendChild(a);
+        tocList.appendChild(li);
       });
-      nav.classList.remove('is-open');
-      menuBtn.setAttribute('aria-expanded', 'false');
-    }
-  });
 
-})();
-</script>
+      /* Set max-height for animation */
+      tocList.style.maxHeight = tocList.scrollHeight + 'px';
+
+      /* TOC collapse toggle */
+      if (tocToggle && tocWidget) {
+        function toggleToc() {
+          var collapsed = tocWidget.classList.toggle('is-collapsed');
+          tocToggle.setAttribute('aria-expanded', !collapsed);
+          if (!collapsed) tocList.style.maxHeight = tocList.scrollHeight + 'px';
+        }
+        tocToggle.addEventListener('click', toggleToc);
+        tocToggle.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleToc(); }
+        });
+        /* Auto-expand on desktop */
+        var mql = window.matchMedia('(min-width: 1024px)');
+        function handleDesktop(e) {
+          if (e.matches) {
+            tocWidget.classList.remove('is-collapsed');
+            tocToggle.setAttribute('aria-expanded', 'true');
+            tocList.style.maxHeight = tocList.scrollHeight + 'px';
+          }
+        }
+        mql.addEventListener('change', handleDesktop);
+        handleDesktop(mql);
+      }
+
+      /* Intersection Observer for active TOC link */
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          var link = tocList.querySelector('[data-id="' + e.target.id + '"]');
+          if (!link || link === activeLink) return;
+          if (activeLink) activeLink.classList.remove('active');
+          link.classList.add('active');
+          activeLink = link;
+        });
+      }, { rootMargin: '-10% 0px -65% 0px', threshold: 0 });
+
+      headings.forEach(function (h) { observer.observe(h); });
+
+      /* Smooth scroll on TOC click */
+      tocList.addEventListener('click', function (e) {
+        var a = e.target.closest('.toc-link');
+        if (!a) return;
+        e.preventDefault();
+        var t = document.getElementById(a.dataset.id);
+        if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        history.pushState(null, '', '#' + a.dataset.id);
+      });
+
+      /* ── Category strip active state ─────────────────── */
+      document.querySelectorAll('.cat-item').forEach(function (el) {
+        el.addEventListener('click', function () {
+          document.querySelectorAll('.cat-item').forEach(function (c) { c.classList.remove('active'); });
+          el.classList.add('active');
+        });
+      });
+
+      /* ── Mega-Menu: Mobile accordion toggle ─────────── */
+      var navItems = document.querySelectorAll('.nav-item');
+      var isDesktop = window.matchMedia('(min-width: 1024px)');
+
+      navItems.forEach(function (item) {
+        var link = item.querySelector('.nav-link');
+        var dropdown = item.querySelector('.mega-dropdown');
+        if (!link || !dropdown) return;
+
+        link.addEventListener('click', function (e) {
+          /* On mobile, toggle dropdown instead of navigating */
+          if (!isDesktop.matches) {
+            e.preventDefault();
+            var wasOpen = dropdown.classList.contains('is-open');
+            /* Close all other dropdowns */
+            navItems.forEach(function (other) {
+              var otherDd = other.querySelector('.mega-dropdown');
+              if (otherDd) otherDd.classList.remove('is-open');
+            });
+            if (!wasOpen) dropdown.classList.add('is-open');
+          }
+        });
+      });
+
+      /* Close dropdowns when clicking a subcategory link (mobile) */
+      nav.addEventListener('click', function (e) {
+        if (e.target.closest('.mega-dropdown__link') || e.target.closest('.mega-dropdown__cta')) {
+          navItems.forEach(function (item) {
+            var dd = item.querySelector('.mega-dropdown');
+            if (dd) dd.classList.remove('is-open');
+          });
+          nav.classList.remove('is-open');
+          menuBtn.setAttribute('aria-expanded', 'false');
+          document.body.classList.remove('nav-open');
+        }
+      });
+
+    })();
+  </script>
 
 </body>
+
 </html>
