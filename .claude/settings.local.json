@@ -3,7 +3,13 @@
     "allow": [
       "Bash(winget install:*)",
       "Bash(gh auth status:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(curl:*)",
+      "Bash(start \"\" \"C:/Users/youss/Desktop/wevsite/index.html\")",
+      "Bash(ls:*)",
+      "Read(//c/Users/youss/Desktop/wevsite/**)"
     ]
   }
 }

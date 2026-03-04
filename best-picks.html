@@ -1,0 +1,561 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Discover Best Home Gear Reviews's curated selection of the absolute best products across kitchen, home, gardening, and pets.">
+    <title>Our Best Picks - Best Home Gear Reviews</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;600;700;800&family=Montserrat:wght@400;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <meta name="robots" content="index, follow">
+
+    <style>
+        .page-header {
+            padding: 100px 20px 40px;
+            text-align: center;
+            background: var(--bg-gradient-hero);
+            min-height: 30vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .page-header h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: var(--navy);
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .page-header p {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.125rem;
+            color: var(--text);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ==========================================
+       MODERN GLASSMORPHIC HEADER 
+       ========================================== -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-icon hero-icon-bounce">🏔️</div>
+                <span class="logo-text">Best Home Gear Reviews</span>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="desktop-nav">
+                <ul class="nav-list">
+                    <!-- Main Categories -->
+                    <li class="nav-item has-dropdown">
+                        <a href="kitchen.html" class="nav-link">Kitchen ▾</a>
+                    </li>
+                    <li class="nav-item has-dropdown">
+                        <a href="home-outdoor.html" class="nav-link">Home & Outdoor ▾</a>
+                    </li>
+                    <li class="nav-item has-dropdown">
+                        <a href="gardening.html" class="nav-link">Gardening ▾</a>
+                    </li>
+                    <li class="nav-item has-dropdown">
+                        <a href="pets.html" class="nav-link">Pets ▾</a>
+                    </li>
+                    <!-- Reviews / Buyer Guides -->
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Reviews</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Right Actions -->
+            <div class="header-actions">
+                <!-- Search Box -->
+                <div class="search-box">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" placeholder="Search reviews..." aria-label="Search">
+                </div>
+                <!-- High-contrast CTA -->
+                <a href="best-picks.html" class="btn-primary">Best Picks</a>
+                <!-- Dark Mode Toggle -->
+                <button id="darkmode-btn" class="theme-toggle" aria-label="Toggle Dark Mode"
+                    title="Toggle Dark/Light Mode">
+                    <span class="moon-icon">🌙</span>
+                    <span class="sun-icon">☀️</span>
+                </button>
+                <!-- Mobile Toggle -->
+                <button class="menu-toggle" aria-label="Open Menu">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <h1>Our Best Picks</h1>
+            <p>We've spent thousands of hours testing gear so you don't have to. Here are the absolute best products we
+                recommend right now across all our major categories.</p>
+        </section>
+
+        <!-- ══════════════════════════════════════════════════════
+       CATEGORY: KITCHEN
+  ══════════════════════════════════════════════════════ -->
+        <section class="category-section" id="section-kitchen" aria-labelledby="kitchen-title">
+            <div class="container">
+                <div class="category-section__header">
+                    <div>
+                        <div class="category-section__icon cat-icon--kitchen" aria-hidden="true">🍳</div>
+                        <p class="section-eyebrow">Kitchen</p>
+                        <h2 class="section-title" id="kitchen-title">Kitchen Essentials</h2>
+                        <p class="section-sub">Premium cookware, espresso machines, and stand mixers tested over months
+                            in real
+                            kitchens — so you invest in gear that lasts a lifetime.</p>
+                    </div>
+                </div>
+
+                <div class="category-grid">
+                    <div class="cat-card">
+                        <div class="cat-card__img cat-card__img--kitchen"><span
+                                class="cat-card__tag cat-card__tag--top">Top
+                                Pick</span>☕</div>
+                        <div class="cat-card__body">
+                            <p class="cat-card__category">Espresso Machines</p>
+                            <h3 class="cat-card__title">7 Best Espresso Machines That Taste Like a Cafe</h3>
+                            <div class="cat-card__rating"><span class="stars">★★★★★</span><span
+                                    class="rating-val">4.9</span></div>
+                            <p class="cat-card__price-hint">$150–$550</p>
+                            <p class="cat-card__excerpt">30 days of pulling shots with 12 machines. Crema quality,
+                                temperature
+                                stability, and value — we measured it all.</p>
+                            <a href="kitchen/espresso-machines.html" class="cat-card__link">Read Full Review →</a>
+                        </div>
+                    </div>
+                    <div class="cat-card">
+                        <div class="cat-card__img cat-card__img--kitchen"><span
+                                class="cat-card__tag cat-card__tag--new">New</span>🍞
+                        </div>
+                        <div class="cat-card__body">
+                            <p class="cat-card__category">Stand Mixers</p>
+                            <h3 class="cat-card__title">KitchenAid vs. Cuisinart vs. Ankarsrum: The Showdown</h3>
+                            <div class="cat-card__rating"><span class="stars">★★★★★</span><span
+                                    class="rating-val">4.8</span></div>
+                            <p class="cat-card__price-hint">$250–$500</p>
+                            <p class="cat-card__excerpt">Which stand mixer is actually worth your counter space? We
+                                baked 200 loaves to
+                                find out.</p>
+                            <a href="kitchen/stand-mixers.html" class="cat-card__link">Read Full Review →</a>
+                        </div>
+                    </div>
+                    <div class="cat-card">
+                        <div class="cat-card__img cat-card__img--kitchen"><span
+                                class="cat-card__tag cat-card__tag--pick">Editor's
+                                Pick</span>🍗</div>
+                        <div class="cat-card__body">
+                            <p class="cat-card__category">Air Fryer Ovens</p>
+                            <h3 class="cat-card__title">Breville vs. Ninja: We Cooked 50 Meals to Find the Winner</h3>
+                            <div class="cat-card__rating"><span class="stars">★★★★★</span><span
+                                    class="rating-val">4.7</span></div>
+                            <p class="cat-card__price-hint">$150–$400</p>
+                            <p class="cat-card__excerpt">Air fryer toaster oven combos tested head-to-head on
+                                crispiness, speed, and
+                                capacity.</p>
+                            <a href="kitchen/air-fryer-ovens.html" class="cat-card__link">Read Full Review →</a>
+                        </div>
+                    </div>
+                    <div class="cat-card">
+                        <div class="cat-card__img cat-card__img--kitchen">🔪</div>
+                        <div class="cat-card__body">
+                            <p class="cat-card__category">Japanese Knives</p>
+                            <h3 class="cat-card__title">5 Best Japanese Knife Sets That Changed How We Cook</h3>
+                            <div class="cat-card__rating"><span class="stars">★★★★★</span><span
+                                    class="rating-val">4.8</span></div>
+                            <p class="cat-card__price-hint">$80–$350</p>
+                            <p class="cat-card__excerpt">Forged vs. stamped — Shun, Dalstrong, and Miyabi tested through
+                                200 lbs of
+                                produce.</p>
+                            <a href="kitchen/japanese-knives.html" class="cat-card__link">Read Full Review →</a>
+                        </div>
+                    </div>
+                    <div class="cat-card">
+                        <div class="cat-card__img cat-card__img--kitchen">🥤</div>
+                        <div class="cat-card__body">
+                            <p class="cat-card__category">Blenders</p>
+                            <h3 class="cat-card__title">Vitamix vs. Blendtec vs. Ninja: The Blender Showdown</h3>
+                            <div class="cat-card__rating"><span class="stars">★★★★☆</span><span
+                                    class="rating-val">4.6</span></div>
+                            <p class="cat-card__price-hint">$200–$500</p>
+                            <p class="cat-card__excerpt">Frozen fruit, ice, and nut butter — which premium blender
+                                justifies the price
+                                tag?</p>
+                            <a href="kitchen/blenders.html" class="cat-card__link">Read Full Review →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════════════════════════════
+       CATEGORY: HOME & OUTDOOR
+  ══════════════════════════════════════════════════════ -->
+        <section class="category-section" id="section-home" aria-labelledby="home-title">
+            <div class="container">
+                <div class="category-section__header">
+                    <div>
+                        <div class="category-section__icon cat-icon--home" aria-hidden="true">🏡</div>
+                        <p class="section-eyebrow">Home &amp; Outdoor</p>
+                        <h2 class="section-title" id="home-title">Home &amp; Outdoor Gear</h2>
+                        <p class="section-sub">Robot vacuums, pressure washers, smart security, and patio sets tested in
+                            real homes
+                            through every season.</p>
+                    </div>
+                </div>
+
+                <div class="category-grid">
+                    <div class="cat-card">
+                        <div class="cat-card__img cat-card__img--home"><span
+                                class="cat-card__tag cat-card__tag--top">Top
+                                Pick</span>🤖</div>
+                        <div class="cat-card__body">
+                            <p class="cat-card__category">Robot Vacuums</p>
+                            <h3 class="cat-card__title">5 Robot Vacuums Ran 60 Days on Dog Hair &amp; Chaos</h3>
+                            <div class="cat-card__rating"><span class="stars">★★★★★</span><span
+                                    class="rating-val">4.8</span></div>
+                            <p class="cat-card__price-hint">$200–$500</p>
+                            <p class="cat-card__excerpt">Roborock, iRobot, and Ecovacs navigation, suction, and pet hair
+                                tested on every
+                                floor type.</p>
+                            <a href="home-outdoor/robot-vacuums.html" class="cat-card__link">Read Full Review →</a>
+                        </div>
+                    </div>
+                    <div class="cat-card">
+                        <div class="cat-card__img cat-card__img--home"><span
+                                class="cat-card__tag cat-card__tag--new">New</span>💦
+                        </div>
+                        <div class="cat-card__body">
+                            <p class="cat-card__category">Pressure Washers</p>
+                            <h3 class="cat-card__title">Electric vs. Gas Pressure Washers: Which Cleans Better?</h3>
+                            <div class="cat-card__rating"><span class="stars">★★★★★</span><span
+                                    class="rating-val">4.7</span></div>
+                            <p class="cat-card__price-hint">$100–$500</p>
+                            <p class="cat-card__excerpt">PSI ratings, hose length, and real driveway tests — without
+                                destroying your
+                                surfaces.</p>
+                            <a href="home-outdoor/pressure-washers.html" class="cat-card__link">Read Full Review →</a>
+                        </div>
+                    </div>
+                    <div class="cat-card">
+                        <div class="cat-card__img cat-card__img--home"><span
+                                class="cat-card__tag cat-card__tag--pick">Editor's
+                                Pick</span>📷</div>
+                        <div class="cat-card__body">
+                            <p class="cat-card__category">Smart Security</p>
+                            <h3 class="cat-card__title">Ring vs. Blink vs. Eufy: No Monthly Fee Showdown</h3>
+                            <div class="cat-card__rating"><span class="stars">★★★★☆</span><span
+                                    class="rating-val">4.5</span></div>
+                            <p class="cat-card__price-hint">$100–$400</p>
+                            <p class="cat-card__excerpt">Night vision, response time, and app reliability — for
+                                homeowners who hate
+                                subscriptions.</p>
+                            <a href="home-outdoor/smart-security.html" class="cat-card__link">Read Full Review →</a>
+                        </div>
+                    </div>
+                    <div class="cat-card">
+                        <div class="cat-card__img cat-card__img--home">🪑</div>
+                        <div class="cat-card__body">
+                            <p class="cat-card__category">Patio Furniture</p>
+                            <h3 class="cat-card__title">6 Best Patio Sets Under $500 That Survive Summer</h3>
+                            <div class="cat-card__rating"><span class="stars">★★★★☆</span><span
+                                    class="rating-val">4.4</span></div>
+                            <p class="cat-card__price-hint">$200–$500</p>
+                            <p class="cat-card__excerpt">Sun, rain, and UV for 6 months — here's what still looks new
+                                and what faded
+                                fast.</p>
+                            <a href="home-outdoor/patio-furniture.html" class="cat-card__link">Read Full Review →</a>
+                        </div>
+                    </div>
+                    <div class="cat-card">
+                        <div class="cat-card__img cat-card__img--home">🧹</div>
+                        <div class="cat-card__body">
+                            <p class="cat-card__category">Stick Vacuums</p>
+                            <h3 class="cat-card__title">Is the Dyson V15 Worth $500? 4 Cheaper Alternatives Tested</h3>
+                            <div class="cat-card__rating"><span class="stars">★★★★★</span><span
+                                    class="rating-val">4.7</span></div>
+                            <p class="cat-card__price-hint">$150–$500</p>
+                            <p class="cat-card__excerpt">Battery life, suction power, and dustbin capacity compared
+                                across price ranges.
+                            </p>
+                            <a href="home-outdoor/stick-vacuums.html" class="cat-card__link">Read Full Review →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════════════════════════════
+       CATEGORY: GARDENING
+  ══════════════════════════════════════════════════════ -->
+        <section class="category-section" id="section-garden" aria-labelledby="garden-title">
+            <div class="container">
+                <div class="category-section__header">
+                    <div>
+                        <div class="category-section__icon cat-icon--garden" aria-hidden="true">🌱</div>
+                        <p class="section-eyebrow">Gardening</p>
+                        <h2 class="section-title" id="garden-title">Garden &amp; Grow</h2>
+                        <p class="section-sub">Battery mowers, raised beds, greenhouses, and smart irrigation — tested
+                            through full
+                            growing seasons from seed to harvest.</p>
+                    </div>
+                </div>
+
+                <div class="category-grid">
+                    <div class="cat-card">
+                        <div class="cat-card__img cat-card__img--garden"><span
+                                class="cat-card__tag cat-card__tag--top">Top
+                                Pick</span>🔋</div>
+                        <div class="cat-card__body">
+                            <p class="cat-card__category">Battery Mowers</p>
+                            <h3 class="cat-card__title">Gas vs. Battery Mowers: Same Yard, Clear Winner</h3>
+                            <div class="cat-card__rating"><span class="stars">★★★★★</span><span
+                                    class="rating-val">4.8</span></div>
+                            <p class="cat-card__price-hint">$200–$500</p>
+                            <p class="cat-card__excerpt">EGO, Greenworks, and Ryobi tested side-by-side on cut quality,
+                                battery life,
+                                and noise.</p>
+                            <a href="gardening/battery-lawn-mowers.html" class="cat-card__link">Read Full Review →</a>
+                        </div>
+                    </div>
+                    <div class="cat-card">
+                        <div class="cat-card__img cat-card__img--garden"><span
+                                class="cat-card__tag cat-card__tag--new">New</span>🌻
+                        </div>
+                        <div class="cat-card__body">
+                            <p class="cat-card__category">Raised Beds</p>
+                            <h3 class="cat-card__title">5 Best Raised Garden Beds for Beginners Who Kill Everything</h3>
+                            <div class="cat-card__rating"><span class="stars">★★★★★</span><span
+                                    class="rating-val">4.7</span></div>
+                            <p class="cat-card__price-hint">$80–$300</p>
+                            <p class="cat-card__excerpt">Metal, cedar, and composite tested over two growing seasons —
+                                your tomatoes
+                                will thank you.</p>
+                            <a href="gardening/raised-garden-beds.html" class="cat-card__link">Read Full Review →</a>
+                        </div>
+                    </div>
+                    <div class="cat-card">
+                        <div class="cat-card__img cat-card__img--garden"><span
+                                class="cat-card__tag cat-card__tag--pick">Editor's
+                                Pick</span>🏠</div>
+                        <div class="cat-card__body">
+                            <p class="cat-card__category">Greenhouses</p>
+                            <h3 class="cat-card__title">Backyard Greenhouse Kits That Survive Wind and Snow</h3>
+                            <div class="cat-card__rating"><span class="stars">★★★★☆</span><span
+                                    class="rating-val">4.5</span></div>
+                            <p class="cat-card__price-hint">$100–$500</p>
+                            <p class="cat-card__excerpt">Walk-in kits tested through winter storms — which ones actually
+                                extend your
+                                growing season?</p>
+                            <a href="gardening/greenhouse-kits.html" class="cat-card__link">Read Full Review →</a>
+                        </div>
+                    </div>
+                    <div class="cat-card">
+                        <div class="cat-card__img cat-card__img--garden">💧</div>
+                        <div class="cat-card__body">
+                            <p class="cat-card__category">Smart Irrigation</p>
+                            <h3 class="cat-card__title">5 Smart Irrigation Systems That Water While You Sleep</h3>
+                            <div class="cat-card__rating"><span class="stars">★★★★★</span><span
+                                    class="rating-val">4.6</span></div>
+                            <p class="cat-card__price-hint">$50–$200</p>
+                            <p class="cat-card__excerpt">Orbit B-hyve, Rain Bird, and budget picks tested across a full
+                                summer garden
+                                season.</p>
+                            <a href="gardening/smart-irrigation.html" class="cat-card__link">Read Full Review →</a>
+                        </div>
+                    </div>
+                    <div class="cat-card">
+                        <div class="cat-card__img cat-card__img--garden">⚡</div>
+                        <div class="cat-card__body">
+                            <p class="cat-card__category">Power Tools</p>
+                            <h3 class="cat-card__title">One Battery, Every Tool: EGO vs. Greenworks vs. Ryobi</h3>
+                            <div class="cat-card__rating"><span class="stars">★★★★☆</span><span
+                                    class="rating-val">4.5</span></div>
+                            <p class="cat-card__price-hint">$100–$400</p>
+                            <p class="cat-card__excerpt">Hedge trimmers, chainsaws, and leaf blowers — which battery
+                                platform wins the
+                                ecosystem game?</p>
+                            <a href="gardening/cordless-garden-tools.html" class="cat-card__link">Read Full Review →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════════════════════════════
+       CATEGORY: PETS
+  ══════════════════════════════════════════════════════ -->
+        <section class="category-section" id="section-pets" aria-labelledby="pets-title">
+            <div class="container">
+                <div class="category-section__header">
+                    <div>
+                        <div class="category-section__icon cat-icon--pets" aria-hidden="true">🐾</div>
+                        <p class="section-eyebrow">Pets</p>
+                        <h2 class="section-title" id="pets-title">Pet Picks</h2>
+                        <p class="section-sub">GPS trackers, self-cleaning litter boxes, smart feeders, and heavy-duty
+                            crates —
+                            premium pet tech tested by real pets.</p>
+                    </div>
+                </div>
+
+                <div class="category-grid">
+                    <div class="cat-card">
+                        <div class="cat-card__img cat-card__img--pets"><span
+                                class="cat-card__tag cat-card__tag--top">Top
+                                Pick</span>🐱</div>
+                        <div class="cat-card__body">
+                            <p class="cat-card__category">Self-Cleaning Litter Boxes</p>
+                            <h3 class="cat-card__title">Is the Litter-Robot 4 Worth $700? 4 Cheaper Alternatives</h3>
+                            <div class="cat-card__rating"><span class="stars">★★★★★</span><span
+                                    class="rating-val">4.8</span></div>
+                            <p class="cat-card__price-hint">$150–$500</p>
+                            <p class="cat-card__excerpt">3 months, 2 cats, zero scooping — but is the premium price
+                                justified?</p>
+                            <a href="pets/self-cleaning-litter-boxes.html" class="cat-card__link">Read Full Review →</a>
+                        </div>
+                    </div>
+                    <div class="cat-card">
+                        <div class="cat-card__img cat-card__img--pets"><span
+                                class="cat-card__tag cat-card__tag--new">New</span>📍
+                        </div>
+                        <div class="cat-card__body">
+                            <p class="cat-card__category">GPS Trackers</p>
+                            <h3 class="cat-card__title">Fi vs. Whistle vs. AirTag: Which GPS Tracker Works?</h3>
+                            <div class="cat-card__rating"><span class="stars">★★★★★</span><span
+                                    class="rating-val">4.7</span></div>
+                            <p class="cat-card__price-hint">$80–$300</p>
+                            <p class="cat-card__excerpt">Battery life, range, and real-world accuracy tested on dogs
+                                that love to run.
+                            </p>
+                            <a href="pets/gps-pet-trackers.html" class="cat-card__link">Read Full Review →</a>
+                        </div>
+                    </div>
+                    <div class="cat-card">
+                        <div class="cat-card__img cat-card__img--pets"><span
+                                class="cat-card__tag cat-card__tag--pick">Editor's
+                                Pick</span>🏠</div>
+                        <div class="cat-card__body">
+                            <p class="cat-card__category">Heavy-Duty Crates</p>
+                            <h3 class="cat-card__title">7 Escape-Proof Dog Crates for Large Breeds</h3>
+                            <div class="cat-card__rating"><span class="stars">★★★★☆</span><span
+                                    class="rating-val">4.5</span></div>
+                            <p class="cat-card__price-hint">$100–$500</p>
+                            <p class="cat-card__excerpt">Furniture-style and industrial crates tested by German
+                                Shepherds and power
+                                chewers.</p>
+                            <a href="pets/heavy-duty-dog-crates.html" class="cat-card__link">Read Full Review →</a>
+                        </div>
+                    </div>
+                    <div class="cat-card">
+                        <div class="cat-card__img cat-card__img--pets">🍽️</div>
+                        <div class="cat-card__body">
+                            <p class="cat-card__category">Smart Feeders</p>
+                            <h3 class="cat-card__title">5 Best Automatic Feeders Tested by Actual Hungry Pets</h3>
+                            <div class="cat-card__rating"><span class="stars">★★★★☆</span><span
+                                    class="rating-val">4.5</span></div>
+                            <p class="cat-card__price-hint">$80–$250</p>
+                            <p class="cat-card__excerpt">Portion accuracy, jam resistance, and app control — PETLIBRO,
+                                SureFeed, and
+                                more.</p>
+                            <a href="pets/automatic-pet-feeders.html" class="cat-card__link">Read Full Review →</a>
+                        </div>
+                    </div>
+                    <div class="cat-card">
+                        <div class="cat-card__img cat-card__img--pets">🛏️</div>
+                        <div class="cat-card__body">
+                            <p class="cat-card__category">Orthopedic Beds</p>
+                            <h3 class="cat-card__title">Your Senior Dog Deserves Better: 5 Vet-Recommended Beds</h3>
+                            <div class="cat-card__rating"><span class="stars">★★★★★</span><span
+                                    class="rating-val">4.7</span></div>
+                            <p class="cat-card__price-hint">$60–$250</p>
+                            <p class="cat-card__excerpt">Memory foam density, washability, and chew resistance — Big
+                                Barker vs.
+                                PetFusion vs. budget picks.</p>
+                            <a href="pets/orthopedic-dog-beds.html" class="cat-card__link">Read Full Review →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ==========================================
+       TRUST-BUILDING FOOTER
+       ========================================== -->
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo">🏔️ Best Home Gear Reviews</div>
+                <p class="footer-desc">Independent, rigorous reviews of the products you use every day. We buy our own
+                    products, test them relentlessly, and tell you the truth.</p>
+            </div>
+            <div>
+                <h4 class="footer-heading">Categories</h4>
+                <ul class="footer-links">
+                    <li><a href="kitchen.html">Kitchen & Dining</a></li>
+                    <li><a href="home-outdoor.html">Home & Outdoor</a></li>
+                    <li><a href="gardening.html">Gardening</a></li>
+                    <li><a href="pets.html">Pet Supplies</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-heading">Company</h4>
+                <ul class="footer-links">
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="about.html#methodology">How We Test</a></li>
+                    <li><a href="affiliate-disclosure.html">Affiliate Disclosure</a></li>
+                    <li><a href="eye-comfort-policy.html">Eye Comfort Policy</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p class="copyright">© 2025 Best Home Gear Reviews. All rights reserved.</p>
+            <p class="amazon-disclaimer">Best Home Gear Reviews is a participant in the Amazon Services LLC Associates
+                Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees
+                by advertising and linking to Amazon.com. *Amazon and the Amazon logo are trademarks of Amazon.com,
+                Inc., or its affiliates.</p>
+        </div>
+    </footer>
+
+    <!-- Theme Toggle Script -->
+    <script>
+        const themeBtn = document.getElementById('darkmode-btn');
+        const body = document.body;
+
+        // Check saved preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            body.classList.add('dark-mode');
+        }
+
+        themeBtn.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    </script>
+</body>
+
+</html>

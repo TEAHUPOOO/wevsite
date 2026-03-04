@@ -1,5 +1,5 @@
-<!--
-  BLOCK: Dynamic Top 3 Comparison Table
+﻿<!--
+  BLOCK: Dynamic Top 5 Comparison Table
   Usage: Paste into a Gutenberg "Custom HTML" block.
   The #1 pick card is visually elevated with a floating badge,
   green border, and slight scale — so it reads as the clear winner
@@ -26,9 +26,33 @@
 
 .ays-comparison-table__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
   gap: 1.25rem;
-  align-items: start; /* cards start at same baseline */
+  align-items: start;
+}
+
+@media (min-width: 768px) {
+  .ays-comparison-table__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .ays-comparison-table__grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .ays-comparison-table__grid .ays-ct-card {
+    grid-column: span 2;
+  }
+
+  .ays-comparison-table__grid .ays-ct-card:nth-child(4) {
+    grid-column: 2 / span 2;
+  }
+
+  .ays-comparison-table__grid .ays-ct-card:nth-child(5) {
+    grid-column: 4 / span 2;
+  }
 }
 
 /* ── Base Card ───────────────────────────────────────────── */
@@ -197,10 +221,9 @@
   color: #2C3E50;
 }
 
-/* ── Responsive ─────────────────────────────────────────── */
-@media (max-width: 768px) {
+/* ── Responsive (mobile overrides) ──────────────────────── */
+@media (max-width: 767px) {
   .ays-comparison-table__grid {
-    grid-template-columns: 1fr;
     gap: 2rem;       /* extra gap to accommodate the badge overhang */
   }
   .ays-ct-card--top {
@@ -211,7 +234,7 @@
 }
 </style>
 
-<section class="ays-comparison-table" aria-label="Top 3 Product Comparison">
+<section class="ays-comparison-table" aria-label="Top 5 Product Comparison">
   <p class="ays-comparison-table__heading">Our Top Picks — [[Category Name]]</p>
 
   <div class="ays-comparison-table__grid">
@@ -257,7 +280,7 @@
 
         <a
           class="ays-ct-card__cta ays-ct-card__cta--primary"
-          href="[[AFFILIATE_LINK_1]]"
+          href="#"
           target="_blank"
           rel="nofollow sponsored noopener"
           aria-label="Check price for [[Product Name 1]]"
@@ -307,7 +330,7 @@
 
         <a
           class="ays-ct-card__cta ays-ct-card__cta--secondary"
-          href="[[AFFILIATE_LINK_2]]"
+          href="#"
           target="_blank"
           rel="nofollow sponsored noopener"
           aria-label="Check price for [[Product Name 2]]"
@@ -357,10 +380,110 @@
 
         <a
           class="ays-ct-card__cta ays-ct-card__cta--secondary"
-          href="[[AFFILIATE_LINK_3]]"
+          href="#"
           target="_blank"
           rel="nofollow sponsored noopener"
           aria-label="Check price for [[Product Name 3]]"
+        >
+          Check Price on Amazon
+        </a>
+      </div>
+    </article>
+
+    <!-- ══ PICK #4 ════════════════════════════════════════ -->
+    <article class="ays-ct-card">
+      <div class="ays-ct-card__rank">#4 Pick</div>
+
+      <img
+        class="ays-ct-card__image"
+        src="[[IMAGE_URL_4]]"
+        alt="[[Product Name 4]]"
+        loading="lazy"
+        width="400"
+        height="300"
+      />
+
+      <div class="ays-ct-card__body">
+        <h3 class="ays-ct-card__name">[[Product Name 4]]</h3>
+
+        <div class="ays-ct-card__rating" aria-label="Rated [[RATING_4]] out of 5">
+          <span class="ays-ct-card__stars" aria-hidden="true">★★★★☆</span>
+          <span class="ays-ct-card__score">[[RATING_4]] ([[REVIEW_COUNT_4]] reviews)</span>
+        </div>
+
+        <ul class="ays-ct-card__specs">
+          <li class="ays-ct-card__spec">
+            <span class="ays-ct-card__spec-label">[[Spec Label 1]]</span>
+            <span class="ays-ct-card__spec-value">[[Spec Value 1]]</span>
+          </li>
+          <li class="ays-ct-card__spec">
+            <span class="ays-ct-card__spec-label">[[Spec Label 2]]</span>
+            <span class="ays-ct-card__spec-value">[[Spec Value 2]]</span>
+          </li>
+          <li class="ays-ct-card__spec">
+            <span class="ays-ct-card__spec-label">[[Spec Label 3]]</span>
+            <span class="ays-ct-card__spec-value">[[Spec Value 3]]</span>
+          </li>
+        </ul>
+
+        <p class="ays-ct-card__price">[[Price 4]]</p>
+
+        <a
+          class="ays-ct-card__cta ays-ct-card__cta--secondary"
+          href="#"
+          target="_blank"
+          rel="nofollow sponsored noopener"
+          aria-label="Check price for [[Product Name 4]]"
+        >
+          Check Price on Amazon
+        </a>
+      </div>
+    </article>
+
+    <!-- ══ PICK #5 ════════════════════════════════════════ -->
+    <article class="ays-ct-card">
+      <div class="ays-ct-card__rank">#5 Pick</div>
+
+      <img
+        class="ays-ct-card__image"
+        src="[[IMAGE_URL_5]]"
+        alt="[[Product Name 5]]"
+        loading="lazy"
+        width="400"
+        height="300"
+      />
+
+      <div class="ays-ct-card__body">
+        <h3 class="ays-ct-card__name">[[Product Name 5]]</h3>
+
+        <div class="ays-ct-card__rating" aria-label="Rated [[RATING_5]] out of 5">
+          <span class="ays-ct-card__stars" aria-hidden="true">★★★★☆</span>
+          <span class="ays-ct-card__score">[[RATING_5]] ([[REVIEW_COUNT_5]] reviews)</span>
+        </div>
+
+        <ul class="ays-ct-card__specs">
+          <li class="ays-ct-card__spec">
+            <span class="ays-ct-card__spec-label">[[Spec Label 1]]</span>
+            <span class="ays-ct-card__spec-value">[[Spec Value 1]]</span>
+          </li>
+          <li class="ays-ct-card__spec">
+            <span class="ays-ct-card__spec-label">[[Spec Label 2]]</span>
+            <span class="ays-ct-card__spec-value">[[Spec Value 2]]</span>
+          </li>
+          <li class="ays-ct-card__spec">
+            <span class="ays-ct-card__spec-label">[[Spec Label 3]]</span>
+            <span class="ays-ct-card__spec-value">[[Spec Value 3]]</span>
+          </li>
+        </ul>
+
+        <p class="ays-ct-card__price">[[Price 5]]</p>
+
+        <a
+          class="ays-ct-card__cta ays-ct-card__cta--secondary"
+          href="#"
+          target="_blank"
+          rel="nofollow sponsored noopener"
+          aria-label="Check price for [[Product Name 5]]"
         >
           Check Price on Amazon
         </a>
